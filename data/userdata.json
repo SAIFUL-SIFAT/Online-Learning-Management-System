@@ -1,0 +1,12 @@
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "jogn@aiub.edu",
+    "username": "john",
+    "password": "pass",
+    "phone": "2817237163",
+    "profile_photo": "",
+    "admin_auth": "a23",
+    "sec_question": "fav_col",
+    "sec_question_ans": "test"
+}
