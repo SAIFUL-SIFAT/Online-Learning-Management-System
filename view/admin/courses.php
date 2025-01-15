@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'db.php';
+include '../../control/instructors_control.php';
+
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
@@ -11,19 +12,44 @@ if (!isset($_SESSION['admin_id'])) {
 <html>
 
 <head>
-    <title>Add Course</title>
+    <title>Courses</title>
 </head>
 
 <body>
-    <?php include 'navigation.php'; ?>
-    <h2>Add Course</h2>
-    <form action="../../control/courses_control.php" method="post">
-        Title: <input type="text" name="title" required><br>
-        Description: <textarea name="description"></textarea><br>
-        Instructor ID: <input type="number" name="instructor_id" required><br>
-        <input type="submit" value="Add Course">
-    </form>
-    <a href="manage_courses.php">Back to Course List</a>
+    <?php include 'navigation.php' ?>
+    <h2>Manage Courses</h2>
+    <a href="add_course.php">Add course</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Instructor ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        include '../../model/db.php';
+
+        $db = new Db();
+
+        $conn = $db->open();
+
+        $sql = "SELECT * FROM course";
+        $result = $conn->query($sql);
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>" . $row['course_id'] . "</td>
+                    <td>" . $row['instructor_id'] . "</td>
+                    <td>" . $row['title'] . "</td>
+                    <td>" . $row['description'] . "</td>
+                    <td>
+                        <a href='../../control/delete_course.php?id=" . $row['instructor_id'] . "'>Delete</a>
+                    </td>
+                  </tr>";
+        }
+        ?>
+    </table>
 </body>
 
 </html>

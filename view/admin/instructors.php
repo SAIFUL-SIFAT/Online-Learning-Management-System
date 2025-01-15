@@ -18,7 +18,7 @@ if (!isset($_SESSION['admin_id'])) {
 <body>
     <?php include 'navigation.php' ?>
     <h2>Approve Instructors</h2>
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Name</th>

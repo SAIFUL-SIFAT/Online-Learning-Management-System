@@ -1,11 +1,12 @@
 <?php
-
 session_start();
 
 require('../model/db.php');
 
-if (!isset($_SESSION['admin_id']))
-    die('user not found!');
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
 $_POST['admin_id'] = $_SESSION['admin_id'];
 
