@@ -8,9 +8,7 @@
 </head>
 
 <body>
-    <form action="../../control/logout_control.php">
-        <input type="submit" value="logout">
-    </form>
+    <?php include 'navigation.php' ?>
     <form method="POST" enctype="multipart/form-data" action='../../control/update_profile.php'>
         <h2>Admin Profile</h2>
         <table>
