@@ -48,11 +48,11 @@
                     </select>
                 </td>
             </tr>
-            <!--
+            
             <tr>
                 <td><label for="profile_picture">Profile Picture:</label></td>
                 <td><input type="file" id="profile_picture" name="profile_picture" accept="image/*"></td>
-            </tr>-->
+            </tr>
             <tr>
                 <td><label for="T_experience">Teaching Experience (Years):</label></td>
                 <td><input type="number" id="T_experience" name="T_experience" required></td>
