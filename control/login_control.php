@@ -2,6 +2,7 @@
 
 session_start();
 $_SESSION['full_name'] = $_POST['full_name'];
+$_SESSION['email'] = $_POST['email'];
 
 require('../model/db.php');
 

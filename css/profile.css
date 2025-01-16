@@ -61,24 +61,24 @@ body {
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom:1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom:1px solid black;
 }
 
 .search-bar {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin-bottom: 10px;
 }
 
 .user-info span {
-    font-weight: bold;
-    margin-right: 10px;
+  font-weight: bold;
+  margin-right: 20px;
 }
 /* ------------------------------------------ */
 .profile-content {
@@ -175,6 +175,16 @@ body {
     border-radius: 4px;
     padding: 10px 20px;
     font-size: 16px;
-    cursor: pointer;
+   
   }
   
+.edit-profile.active,
+.change-password.active,
+.edit-profile:hover,
+.change-password:hover {
+  background-color: #3737e6; /* Darker shade of blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+  transform: scale(1.05); /* Optional scaling effect */
+  transition: all 0.3s ease; /* Smooth transition effect */
+  cursor: pointer;
+}

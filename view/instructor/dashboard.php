@@ -35,14 +35,28 @@ if (!isset($_SESSION['full_name'])) {
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
                 <span><?php
-            session_start(); // Start the session
+            session_start(); 
             if (isset($_SESSION['full_name'])) {
-                echo htmlspecialchars($_SESSION['full_name']); // Display the username
+                echo htmlspecialchars($_SESSION['full_name']); 
             } else {
-                echo 'Guest'; // Default for users not logged in
+                echo 'Guest'; 
             }
             ?></span>
-                    <a href="mailto:instructor@example.com">instructor@example.com</a>
+                    <a href="mailto:<?php
+                if (isset($_SESSION['email'])) {
+                    echo htmlspecialchars($_SESSION['email']); 
+                } else {
+                    echo 'instructor@example.com'; 
+                }
+            ?>">
+                <?php
+                if (isset($_SESSION['email'])) {
+                    echo htmlspecialchars($_SESSION['email']); 
+                } else {
+                    echo 'instructor@example.com'; 
+                }
+                ?>
+            </a>
                 </div>
             </header>
 

@@ -94,6 +94,25 @@ class myDB {
             return null;
         }
     }
+
+    // courses database
+    function addCourse($instructor_id, $title, $description) {
+        $conn = $this->openConn();
+        $sql = "INSERT INTO courses(instructor_id, title, description) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iss", $instructor_id, $title, $description); // Bind instructor_id as an integer
+        $stmt->execute();
+        $stmt->close();
+    }
+    
+    // Function to get all courses
+    function getAllCourses() {
+        $conn = $this->openConn();
+        $sql = "SELECT * FROM courses";
+        $result = $conn->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
     
     
 

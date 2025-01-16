@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['full_name'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,37 +49,37 @@
                     <div class="profile-info">
                         <img src="profile-picture.jpg" alt="Profile Picture">
                         <div class="info">
-                        <h2>ALAM, MD.SHAIFUL</h2>
-                        <p>Bachelor of Science in Computer Science & Engineering</p>
+                        <h2><?php if (isset($_SESSION['full_name'])) { echo $_SESSION['full_name']; } ?></h2>
+                        <p>Instructor</p>
                         <div class="details">
                             <div>
-                            <span>Department:</span>
-                            <p>FACULTY OF SCIENCE & TECHNOLOGY</p>
+                            <span>Email:</span>
+                            <p><?php if (isset($_SESSION['email'])) { echo $_SESSION['email']; } ?></p>
                             </div>
                             <div>
-                            <span>Elective:</span>
-                            <p>BSc-CSE, Summer 17-18, Elective</p>
+                            <span>Qualifications:</span>
+                            <p><?php if (isset($_SESSION['qualifications'])) { echo $_SESSION['qualifications']; } ?></p>
                             </div>
                             <div>
                             <span>Contact:</span>
                             <p>01758761248</p>
                             </div>
                             <div>
-                            <span>Email:</span>
-                            <p>sifat_sai3@gmail.com</p>
+                            <span>Expertise:</span>
+                            <p><?php if (isset($_SESSION['expertise'])) { echo $_SESSION['expertise']; } ?></p>
                             </div>
                             <div>
-                            <span>Date of Birth:</span>
-                            <p>05/04/2002</p>
+                            <span>Experience:</span>
+                            <p><?php if (isset($_SESSION['T_experience'])) { echo $_SESSION['T_experience']; } ?> Years</p>
                             </div>
                             <div>
                             <span>Sex:</span>
-                            <p>Male</p>
+                            <p><?php if (isset($_SESSION['gender'])) { echo $_SESSION['gender']; } ?></p>
                             </div>
                         </div>
                         </div>
                     </div>
-                    <div class="academic-info">
+                    <!-- <div class="academic-info">
                         <h3>Academic Information</h3>
                         <div class="info-item">
                         <span>Current CGPA:</span>
@@ -79,8 +89,8 @@
                         <span>Credits Completed:</span>
                         <p>104</p>
                         </div>
-                    </div>
-                    <div class="contact-info">
+                    </div> -->
+                    <!-- <div class="contact-info">
                         <h3>Contact Information</h3>
                         <div class="info-item">
                         <span>Email:</span>
@@ -94,7 +104,7 @@
                         <span>Address:</span>
                         <p>Apartment:B-3, House:208, Area:Fokirapool, PostOffice:GPO, PostCode:1000, PoliceStation: Motijheel, District: Dhaka, Country:Bangladesh</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="actions">
                         <button class="edit-profile">Edit Profile</button>
                         <button class="change-password">Change Password</button>

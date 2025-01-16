@@ -1,3 +1,6 @@
+<?php 
+include '../../control/course_control.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,13 +27,33 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Header -->
             <header class="header">
-                <input type="text" placeholder="Search..." class="search-bar">
-                <div class="user-info">
-                    <span>Instructor</span>
-                    <a href="mailto:instructor@example.com">instructor@example.com</a>
-                </div>
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <div class="user-info">
+                    <span><?php
+                session_start(); 
+                if (isset($_SESSION['full_name'])) {
+                    echo htmlspecialchars($_SESSION['full_name']); 
+                } else {
+                    echo 'Guest'; 
+                }
+                ?></span>
+                        <a href="mailto:<?php
+                    if (isset($_SESSION['email'])) {
+                        echo htmlspecialchars($_SESSION['email']); // Display the user's email
+                    } else {
+                        echo 'instructor@example.com'; // Default email for users not logged in
+                    }
+                ?>">
+                    <?php
+                    if (isset($_SESSION['email'])) {
+                        echo htmlspecialchars($_SESSION['email']); // Display the user's email
+                    } else {
+                        echo 'instructor@example.com'; // Default email for users not logged in
+                    }
+                    ?>
+                </a>
+                    </div>
             </header>
 
             <!-- Dashboard Content -->
@@ -68,5 +91,6 @@
             </section>
         </main>
     </div>
-</body>
+    <!-- <script type="javascript" src="myjs.js"></script> -->
+    </body>
 </html>

@@ -77,8 +77,9 @@ body {
 
 .user-info span {
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: 20px;
 }
+/* ----------------------------------- */
 .courses {
     display: flex;
     flex-direction: column;
