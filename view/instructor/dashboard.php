@@ -1,3 +1,9 @@
+<!-- <?php 
+session_start();
+if (!isset($_SESSION['full_name'])) {
+    header('location: ../../login.php');
+}
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +34,14 @@
             <header class="header">
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
-                    <span>Instructor</span>
+                <span><?php
+            session_start(); // Start the session
+            if (isset($_SESSION['full_name'])) {
+                echo htmlspecialchars($_SESSION['full_name']); // Display the username
+            } else {
+                echo 'Guest'; // Default for users not logged in
+            }
+            ?></span>
                     <a href="mailto:instructor@example.com">instructor@example.com</a>
                 </div>
             </header>
