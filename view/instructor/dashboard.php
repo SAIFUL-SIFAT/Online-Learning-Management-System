@@ -10,7 +10,7 @@ if (!isset($_SESSION['full_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Portal</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
 </head>
 <body>
     <div class="container">
@@ -31,36 +31,40 @@ if (!isset($_SESSION['full_name'])) {
         <!-- Main Content -->
         <main class="main-content">
             <!-- Header -->
-            <header class="header">
+              <header class="header">
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
-                <span><?php
-            session_start(); 
-            if (isset($_SESSION['full_name'])) {
-                echo htmlspecialchars($_SESSION['full_name']); 
-            } else {
-                echo 'Guest'; 
-            }
-            ?></span>
-                    <a href="mailto:<?php
-                if (isset($_SESSION['email'])) {
-                    echo htmlspecialchars($_SESSION['email']); 
-                } else {
-                    echo 'instructor@example.com'; 
-                }
-            ?>">
-                <?php
-                if (isset($_SESSION['email'])) {
-                    echo htmlspecialchars($_SESSION['email']); 
-                } else {
-                    echo 'instructor@example.com'; 
-                }
-                ?>
-            </a>
+                    <span>
+                        <?php
+                        session_start();
+                        if (isset($_SESSION['full_name'])) {
+                            echo htmlspecialchars($_SESSION['full_name']);
+                        } else {
+                            echo 'Guest';
+                        }
+                        ?>
+                    </span>
+                    <a href="mailto:
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo htmlspecialchars($_SESSION['email']);
+                        } else {
+                            echo 'instructor@example.com';
+                        }
+                        ?>">
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo htmlspecialchars($_SESSION['email']);
+                        } else {
+                            echo 'instructor@example.com';
+                        }
+                        ?>
+                    </a>
                 </div>
             </header>
 
             <!-- Dashboard Content -->
+             <h2>Dashboard</h2>
             <section class="dashboard">
                 <div class="stats">
                     <div class="stat">

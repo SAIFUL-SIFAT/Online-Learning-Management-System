@@ -38,16 +38,43 @@ if (!isset($_SESSION['full_name'])) {
             <header class="header">
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
-                    <span>Instructor</span>
-                    <a href="mailto:instructor@example.com">instructor@example.com</a>
+                    <span>
+                        <?php
+                        session_start();
+                        if (isset($_SESSION['full_name'])) {
+                            echo htmlspecialchars($_SESSION['full_name']);
+                        } else {
+                            echo 'Guest';
+                        }
+                        ?>
+                    </span>
+                    <a href="mailto:
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo htmlspecialchars($_SESSION['email']);
+                        } else {
+                            echo 'instructor@example.com';
+                        }
+                        ?>">
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo htmlspecialchars($_SESSION['email']);
+                        } else {
+                            echo 'instructor@example.com';
+                        }
+                        ?>
+                    </a>
                 </div>
             </header>
 
-            <!-- profile Content -->
+
+           
              <!-- Profile Content -->
-                    <div class="profile-content">
+              <h2>Profile</h2>
+            <div class="profile-container">
+                <div class="profile-content">
                     <div class="profile-info">
-                        <img src="profile-picture.jpg" alt="Profile Picture">
+                        <img src="../../assets/image.png" alt="Profile Picture">
                         <div class="info">
                         <h2><?php if (isset($_SESSION['full_name'])) { echo $_SESSION['full_name']; } ?></h2>
                         <p>Instructor</p>
@@ -79,6 +106,7 @@ if (!isset($_SESSION['full_name'])) {
                         </div>
                         </div>
                     </div>
+            </div>
                     <!-- <div class="academic-info">
                         <h3>Academic Information</h3>
                         <div class="info-item">

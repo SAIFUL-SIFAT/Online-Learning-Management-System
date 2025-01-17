@@ -48,3 +48,16 @@ function createCourseElement(title, description) {
 
   return courseElement;
 }
+// for course video elements
+const courseTitles = document.querySelectorAll('.course-link');
+
+courseTitles.forEach(title => {
+    title.addEventListener('click', (event) => {
+        event.preventDefault();
+        const videoContainer = title.closest('.course').querySelector('.video-container');
+        console.log('Clicked:', title);
+        console.log('Video Container:', videoContainer);
+        videoContainer.style.display = videoContainer.style.display === 'none' ? 'block' : 'none';
+        console.log('New Display:', videoContainer.style.display);
+    });
+});

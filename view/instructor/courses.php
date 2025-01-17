@@ -27,39 +27,43 @@ include '../../control/course_control.php';
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="header">
-                    <input type="text" placeholder="Search..." class="search-bar">
-                    <div class="user-info">
-                    <span><?php
-                session_start(); 
-                if (isset($_SESSION['full_name'])) {
-                    echo htmlspecialchars($_SESSION['full_name']); 
-                } else {
-                    echo 'Guest'; 
-                }
-                ?></span>
-                        <a href="mailto:<?php
-                    if (isset($_SESSION['email'])) {
-                        echo htmlspecialchars($_SESSION['email']); // Display the user's email
+        <header class="header">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <div class="user-info">
+                <span>
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['full_name'])) {
+                        echo htmlspecialchars($_SESSION['full_name']);
                     } else {
-                        echo 'instructor@example.com'; // Default email for users not logged in
+                        echo 'Guest';
                     }
-                ?>">
+                    ?>
+                </span>
+                <a href="mailto:
                     <?php
                     if (isset($_SESSION['email'])) {
-                        echo htmlspecialchars($_SESSION['email']); // Display the user's email
+                        echo htmlspecialchars($_SESSION['email']);
                     } else {
-                        echo 'instructor@example.com'; // Default email for users not logged in
+                        echo 'instructor@example.com';
+                    }
+                    ?>">
+                    <?php
+                    if (isset($_SESSION['email'])) {
+                        echo htmlspecialchars($_SESSION['email']);
+                    } else {
+                        echo 'instructor@example.com';
                     }
                     ?>
                 </a>
-                    </div>
-            </header>
+            </div>
+        </header>
+
 
             <!-- Dashboard Content -->
             <section class="courses">
-                <h3>Courses</h3>
-                <div class="course">
+                <h2>Courses</h2>
+                <!-- <div class="course">
                     <h3>Web Development Fundamentals</h3>
                     <p>Learn the basics of web development</p>
                     
@@ -70,7 +74,26 @@ include '../../control/course_control.php';
                     <p>Master advanced React concepts</p>
                     
                     <span>18 students</span>
+                </div> -->
+                <div class="course">
+                    <a href="https://www.youtube.com/embed/gBi8Obib0tw" target="_blank" class="course-link">
+                        <h3>Web Development Fundamentals</h3>
+                    </a>
+                    <p>Learn the basics of web development</p>
+                    <span>25 students</span>
                 </div>
+
+                <div class="course">
+                    <a href="https://www.youtube.com/embed/YaZg8wg39QQ" target="_blank" class="course-link">
+                        <h3>Advanced React Patterns</h3>
+                    </a>
+                    <p>Master advanced React concepts</p>
+                    <span>18 students</span>
+                </div>
+
+
+
+
                 <button class="add-course">+ Add Course</button>
 
 
@@ -91,6 +114,6 @@ include '../../control/course_control.php';
             </section>
         </main>
     </div>
-    <!-- <script type="javascript" src="myjs.js"></script> -->
+    <!-- <script type="javascript" src="../../js/myjs.js"></script> -->
     </body>
 </html>

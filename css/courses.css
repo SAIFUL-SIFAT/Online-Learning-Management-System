@@ -87,8 +87,11 @@ body {
   }
   
   .course {
+    background-color: #fff;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
-    border-radius: 8px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -122,6 +125,7 @@ body {
     color: #666;
   }
   
+  
   .add-course {
     background-color: #4b4bff;
     color: #fff;
@@ -129,9 +133,17 @@ body {
     border-radius: 4px;
     padding: 10px 20px;
     font-size: 16px;
-    cursor: pointer;
     align-self: flex-end;
   }
+.add-course.active,
+.add-course:hover {
+  background-color: #3737e6; /* Darker shade of blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+  transform: scale(1.05); /* Optional scaling effect */
+  transition: all 0.3s ease; /* Smooth transition effect */
+  cursor: pointer;
+}
+
   .course-modal {
     position: fixed;
     top: 50%;
