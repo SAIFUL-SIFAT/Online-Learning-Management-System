@@ -1,13 +1,12 @@
 <?php
 
-require('../model/db.php');
-const PROFILE_PHOTO_UPLOAD_DIR = '../uploads/admin/profile/';
+require('../../model/admin/db.php');
+const PROFILE_PHOTO_UPLOAD_DIR = '../../uploads/admin/profile/';
 if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
     echo mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
 }
 
 $errors = array();
-$file_path = '../data/userdata.json';
 
 if (strlen($_POST['first_name']) < 4)
     $errors['name'] = "First name must be more than 4 characters.";

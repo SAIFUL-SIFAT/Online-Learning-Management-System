@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../model/db.php';
+include '../../model/admin/db.php';
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
@@ -27,7 +27,7 @@ if ($stmt = $conn->prepare($sql)) {
     );
 
     if ($stmt->execute()) {
-        header('Location: ' . '../view/admin/add_course.php');
+        header('Location: ' . '../../view/admin/add_course.php');
     } else {
         echo $stmt->error;
     }

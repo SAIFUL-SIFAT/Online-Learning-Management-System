@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../model/db.php';
+include '../../model/admin/db.php';
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
