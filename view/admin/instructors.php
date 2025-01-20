@@ -1,6 +1,5 @@
 <?php
 session_start();
-include '../../control/instructors_control.php';
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");

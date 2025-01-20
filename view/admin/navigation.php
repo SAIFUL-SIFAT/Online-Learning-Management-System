@@ -6,7 +6,7 @@
         <li><a href="notifications.php">Manage Notifications</a></li>
         <li><a href="users.php">Manage Users</a></li>
         <li>
-            <form action="../../control/logout_control.php">
+            <form action="../../control/admin/logout_control.php">
                 <input type="submit" value="logout">
             </form>
         </li>

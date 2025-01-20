@@ -26,4 +26,4 @@ $stmt->close();
 $conn->close();
 ?>
 <br>
-<a href="../view/admin/instructors.php">Back to Instructors</a>
+<a href="../../view/admin/instructors.php">Back to Instructors</a>

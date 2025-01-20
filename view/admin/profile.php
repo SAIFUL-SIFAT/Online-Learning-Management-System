@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin_id'])) {
 
 <body>
     <?php include 'navigation.php' ?>
-    <form method="POST" enctype="multipart/form-data" action='../../control/update_profile.php'>
+    <form method="POST" enctype="multipart/form-data" action='../../control/admin/update_profile.php'>
         <h2>Admin Profile</h2>
         <table>
             <tr>

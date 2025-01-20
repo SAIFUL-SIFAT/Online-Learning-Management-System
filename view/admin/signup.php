@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form method="POST" enctype="multipart/form-data" action='../../control/reg_control.php'>
+    <form method="POST" enctype="multipart/form-data" action='../../control/admin/reg_control.php'>
         <table>
             <tr>
                 <td>First Name</td>

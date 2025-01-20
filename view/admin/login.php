@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Admin Login</title>
 </head>
 <body>
-    <form method="POST" action='../../control/login_control.php'>
+    <form method="POST" action='../../control/admin/login_control.php'>
     <table>      
         
         <tr>

@@ -17,7 +17,7 @@ if (!isset($_SESSION['admin_id'])) {
     <?php include 'navigation.php'; ?>
     <h2>Add Course</h2>
 
-    <form action="../../control/add_course_control.php" method="post">
+    <form action="../../control/admin/add_course_control.php" method="post">
         <table>
             <tr>
                 <td>Title:</td>
