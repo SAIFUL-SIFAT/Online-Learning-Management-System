@@ -27,7 +27,7 @@ if (!isset($_SESSION['admin_id'])) {
             <th>Action</th>
         </tr>
         <?php
-        include '../../model/db.php';
+        include '../../model/admin/db.php';
 
         $db = new Db();
 
@@ -43,7 +43,7 @@ if (!isset($_SESSION['admin_id'])) {
                     <td>" . $row['title'] . "</td>
                     <td>" . $row['description'] . "</td>
                     <td>
-                        <a href='../../control/admin/delete_course.php?id=" . $row['instructor_id'] . "'>Delete</a>
+                        <a href='../../control/admin/delete_course.php?id=" . $row['course_id'] . "'>Delete</a>
                     </td>
                   </tr>";
         }

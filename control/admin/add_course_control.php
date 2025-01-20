@@ -27,7 +27,7 @@ if ($stmt = $conn->prepare($sql)) {
     );
 
     if ($stmt->execute()) {
-        header('Location: ' . '../../view/admin/add_course.php');
+        header('Location: ' . '../../view/admin/courses.php');
     } else {
         echo $stmt->error;
     }
