@@ -1,7 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_ACTIVE) {
+    session_destroy();
+    session_unset();
+}
 
 session_start();
-session_destroy();
 
 require('../../model/admin/db.php');
 

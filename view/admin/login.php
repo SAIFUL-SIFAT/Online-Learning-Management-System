@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Admin Login</title>
+    <link rel='stylesheet' href='../../assets/css/admin/view-login.css'>
 </head>
 <body>
     <form method="POST" action='../../control/admin/login_control.php'>

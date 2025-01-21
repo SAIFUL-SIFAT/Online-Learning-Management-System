@@ -3,6 +3,7 @@
 
 <head>
     <title>Admin Signup</title>
+    <link rel='stylesheet' href='../../assets/css/admin/view-signup.css'>
 </head>
 
 <body>
@@ -56,12 +57,12 @@
             </tr>
             <tr>
                 <td>Answer</td>
-                <td><textarea name='sec_question_ans' id='sec_question_ans'></textarea></td>
+                <td><input type='text' name='sec_question_ans' id='sec_question_ans'></td>
             </tr>
             <tr>
                 <td>
-                    <input type="submit">
-                    <input type="reset">
+                    <input type="submit" value='Signup'>
+                    <input type="reset" value='Reset'>
                 </td>
             </tr>
         </table>
