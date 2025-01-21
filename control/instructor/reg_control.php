@@ -9,7 +9,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require '../model/db.php';
+require '../model/instructor/db.php';
 
 $errors = [];
 

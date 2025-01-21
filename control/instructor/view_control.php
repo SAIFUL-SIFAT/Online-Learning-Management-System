@@ -1,5 +1,5 @@
 <?php
-require '../model/db.php';
+require '../model/instructor/db.php';
 
 $db = new myDB();
 

@@ -11,7 +11,7 @@
 </head>
 <body>
     <h2>Instructor Registration</h2>
-    <form method="POST" action="../../control/reg_control.php" enctype="multipart/form-data">
+    <form method="POST" action="../../control/instructor/reg_control.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <td><label for="full_name">Full Name:</label></td>

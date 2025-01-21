@@ -14,7 +14,7 @@ if (!isset($_SESSION['full_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Portal</title>
-    <link rel="stylesheet" href="../../css/profile.css">
+    <link rel="stylesheet" href="../../assets/css/instructor/profile.css">
 </head>
 <body>
     <div class="container">

@@ -21,4 +21,4 @@ if ($result == null) {
 unset($result['pass']);
 $_SESSION = $result;
 
-header('location: ../view/instructor/dashboard.php');
+header('location: ../../view/instructor/dashboard.php');

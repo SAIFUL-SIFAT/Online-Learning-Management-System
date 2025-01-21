@@ -1,7 +1,7 @@
 <!-- <?php 
 session_start();
 if (!isset($_SESSION['full_name'])) {
-    header('location: ../../login.php');
+    header('location: login.php');
 }
 ?> -->
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ if (!isset($_SESSION['full_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Portal</title>
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/instructor/dashboard.css">
 </head>
 <body>
     <div class="container">

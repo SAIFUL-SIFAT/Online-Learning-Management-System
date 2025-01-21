@@ -1,5 +1,5 @@
 <?php 
-include '../../control/course_control.php';
+include '../../control/instructor/course_control.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ include '../../control/course_control.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Portal</title>
-    <link rel="stylesheet" href="../../css/courses.css">
+    <link rel="stylesheet" href="../../assets/css/instructor/courses.css">
 </head>
 <body>
     <div class="container">

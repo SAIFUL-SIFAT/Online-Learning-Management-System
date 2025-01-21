@@ -1,5 +1,5 @@
 <?php
-require '../model/db.php';
+require '../model/instructor/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $full_name = $_POST['full_name'] ?? null;
