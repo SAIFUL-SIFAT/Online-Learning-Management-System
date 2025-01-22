@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Admin Login</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
     <link rel='stylesheet' href='../../assets/css/admin/view-login.css'>
 </head>
 <body>

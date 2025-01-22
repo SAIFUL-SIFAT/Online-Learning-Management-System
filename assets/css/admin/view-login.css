@@ -1,11 +1,7 @@
 body {
-    font-family: 'Segoe UI';
-    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 form {
@@ -25,22 +21,10 @@ td {
     padding: 10px 0;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-    box-sizing: border-box;
-}
-
 input[type="text"]:focus,
 input[type="password"]:focus {
     border-color: #4a90e2;
     outline: none;
-    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
 }
 
 input[type="submit"] {
@@ -52,7 +36,6 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    transition: background-color 0.3s ease;
     width: 100%;
     margin-top: 10px;
 }
@@ -62,7 +45,6 @@ input[type="submit"]:hover {
 }
 
 td:first-child {
-    font-weight: 500;
-    color: #333;
-    padding-bottom: 5px;
+    width: 40%;
+    color: #2c3e50;
 }

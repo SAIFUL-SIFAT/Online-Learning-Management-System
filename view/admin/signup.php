@@ -3,6 +3,7 @@
 
 <head>
     <title>Admin Signup</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
     <link rel='stylesheet' href='../../assets/css/admin/view-signup.css'>
 </head>
 
