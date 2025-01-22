@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2025 at 03:27 PM
+-- Generation Time: Jan 22, 2025 at 03:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -79,7 +79,8 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `instructor_id`, `title`, `description`) VALUES
-(1, 9, 'Maths', 'Calculus II');
+(5, 9, 'Math II', 'Differential Calculus'),
+(6, 9, 'Math III', 'Integral Calculus');
 
 -- --------------------------------------------------------
 
@@ -178,6 +179,7 @@ CREATE TABLE `notification` (
   `notification_id` int(11) NOT NULL,
   `instructor_id` int(11) NOT NULL,
   `message` text NOT NULL,
+  `type` text NOT NULL DEFAULT 'student',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -185,8 +187,8 @@ CREATE TABLE `notification` (
 -- Dumping data for table `notification`
 --
 
-INSERT INTO `notification` (`notification_id`, `instructor_id`, `message`, `created_at`) VALUES
-(1, 9, 'test', '2025-01-14 10:14:51');
+INSERT INTO `notification` (`notification_id`, `instructor_id`, `message`, `type`, `created_at`) VALUES
+(2, 9, 'Test', 'system', '2025-01-22 14:23:43');
 
 -- --------------------------------------------------------
 
@@ -308,7 +310,7 @@ ALTER TABLE `certificate`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `discount`
@@ -344,7 +346,7 @@ ALTER TABLE `moderator`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student`
