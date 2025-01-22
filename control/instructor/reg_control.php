@@ -9,7 +9,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require '../model/instructor/db.php';
+require '../../model/instructor/db.php';
 
 $errors = [];
 
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db = new myDB();
         $db->insertData($full_name, $email, $phone, $pass, $qualifications, $expertise, $T_experience,$gender);
 
-
+        header('location:../../view/instructor/login.php');
         echo "User data saved to the database.";
     } else {
         echo "<h2>Please correct the following errors:</h2>";
