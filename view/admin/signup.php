@@ -3,11 +3,12 @@
 
 <head>
     <title>Admin Signup</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
     <link rel='stylesheet' href='../../assets/css/admin/view-signup.css'>
 </head>
 
 <body>
-    <form method="POST" enctype="multipart/form-data" action='../../control/admin/reg_control.php'>
+    <form id="signup_form" method="POST" enctype="multipart/form-data" action='../../control/admin/reg_control.php'">
         <table>
             <tr>
                 <td>First Name</td>
@@ -23,7 +24,8 @@
             </tr>
             <tr>
                 <td>Username</td>
-                <td><input type="text" name='username' id='username'></td>
+                <td><input type="text" name='username' id='username'>
+                </td>
             </tr>
             <tr>
                 <td>Password</td>
@@ -31,11 +33,15 @@
             </tr>
             <tr>
                 <td>Confirm Password</td>
-                <td><input type="password" id='confirm_password'></td>
+                <td>
+                    <input type="password" id='confirm_password'>
+                </td>
             </tr>
             <tr>
                 <td>Phone Number</td>
-                <td><input type="phone" name='phone' id='phone'></td>
+                <td>
+                    <input type="phone" name='phone' id='phone'>
+                </td>
             </tr>
             <tr>
                 <td>Profile Photo</td>
@@ -67,6 +73,7 @@
             </tr>
         </table>
     </form>
+
 </body>
 
 </html>
