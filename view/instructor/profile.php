@@ -23,11 +23,12 @@ if (!isset($_SESSION['full_name'])) {
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
-                    <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="courses.php">Courses</a></li>
-                    <li><a href="grades.php">Grades</a></li>
-                    <li><a href="certificates.php">Certificates</a></li>
-                    <li><a href="profile.php" class="active">Profile</a></li>
+                    <li><a href="dashboard.php"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
+                    <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
+                    <li><a href="grades.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Grades</a></li>
+                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
+                    <li><a href="profile.php" class="active"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li>
+                    <li><a href="../../control/instructor/logout_control.php">Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -40,69 +41,46 @@ if (!isset($_SESSION['full_name'])) {
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
                     <span>
-                        <?php
-                        session_start();
-                        if (isset($_SESSION['full_name'])) {
-                            echo htmlspecialchars($_SESSION['full_name']);
-                        } else {
-                            echo 'Guest';
-                        }
-                        ?>
+                        <?php echo $_SESSION['full_name'] ?? '' ?>
                     </span>
-                    <a href="mailto:
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            echo htmlspecialchars($_SESSION['email']);
-                        } else {
-                            echo 'instructor@example.com';
-                        }
-                        ?>">
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            echo htmlspecialchars($_SESSION['email']);
-                        } else {
-                            echo 'instructor@example.com';
-                        }
-                        ?>
+                    <a href="mailto:">
+                        <?php echo $_SESSION['email'] ?? ''?>
                     </a>
                 </div>
             </header>
-
-
-           
              <!-- Profile Content -->
               <h2>Profile</h2>
             <div class="profile-container">
                 <div class="profile-content">
                     <div class="profile-info">
-                        <img src="../../assets/image.png" alt="Profile Picture">
+                    <img src="../../assets/image.png" alt="Profile Picture">
                         <div class="info">
-                        <h2><?php if (isset($_SESSION['full_name'])) { echo $_SESSION['full_name']; } ?></h2>
+                        <h2><?php echo $_SESSION['full_name'] ?? '' ?></h2>
                         <p>Instructor</p>
                         <div class="details">
                             <div>
-                            <span>Email:</span>
-                            <p><?php if (isset($_SESSION['email'])) { echo $_SESSION['email']; } ?></p>
+                             <span>Email:</span>
+                              <p><?php echo $_SESSION['email'] ?? '' ?></p>
                             </div>
                             <div>
-                            <span>Qualifications:</span>
-                            <p><?php if (isset($_SESSION['qualifications'])) { echo $_SESSION['qualifications']; } ?></p>
+                             <span>Qualifications:</span>
+                              <p><?php echo $_SESSION['qualifications'] ?? '' ?></p>
                             </div>
                             <div>
-                            <span>Contact:</span>
-                            <p>01758761248</p>
+                             <span>Contact:</span>
+                              <p><?php echo $_SESSION['phone'] ?? '' ?></p>
                             </div>
                             <div>
-                            <span>Expertise:</span>
-                            <p><?php if (isset($_SESSION['expertise'])) { echo $_SESSION['expertise']; } ?></p>
+                             <span>Expertise:</span>
+                              <p><?php echo $_SESSION['expertise'] ?? '' ?></p>
                             </div>
                             <div>
-                            <span>Experience:</span>
-                            <p><?php if (isset($_SESSION['T_experience'])) { echo $_SESSION['T_experience']; } ?> Years</p>
+                             <span>Experience:</span>
+                              <p><?php echo $_SESSION['T_experience'] ?? '' ?> Years</p>
                             </div>
                             <div>
-                            <span>Sex:</span>
-                            <p><?php if (isset($_SESSION['gender'])) { echo $_SESSION['gender']; } ?></p>
+                             <span>Sex:</span>
+                              <p><?php echo $_SESSION['gender'] ?? '' ?></p>
                             </div>
                         </div>
                         </div>

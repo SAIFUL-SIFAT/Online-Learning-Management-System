@@ -16,11 +16,12 @@ include '../../control/instructor/course_control.php';
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
-                    <li><a href="dashboard.php" >Dashboard</a></li>
-                    <li><a href="courses.php"class="active">Courses</a></li>
-                    <li><a href="grades.php">Grades</a></li>
-                    <li><a href="certificates.php">Certificates</a></li>
-                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="dashboard.php"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
+                    <li><a href="courses.php"class="active"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
+                    <li><a href="grades.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Grades</a></li>
+                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
+                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li>
+                    <li><a href="../../control/instructor/logout_control.php">Logout</a></li>
                 </ul>
             </nav>
         </aside>
