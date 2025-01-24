@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $gender = $_POST['gender'];
 
         // Handle profile photo upload
-        const PROFILE_PHOTO_UPLOAD_DIR = '../../assets/uploads/';
+        define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');
         if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
             mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
         }

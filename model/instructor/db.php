@@ -39,7 +39,8 @@ class MyDB {
 
     // Insert data into the instructor table
     public function insertData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $T_experience, $gender) {
-        $this->createTableIfNotExists();
+        // $this->createTableIfNotExists();
+        $this->openConn();
 
         $sql = "INSERT INTO instructor (full_name, email, phone, pass, qualifications, profile_picture, expertise, T_experience, gender) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -73,6 +74,7 @@ class MyDB {
 
     // Fetch data by credentials
     public function getDataByCredentials($full_name, $pass) {
+        $this->openConn();
         $sql = "SELECT * FROM instructor WHERE full_name = ?";
         $stmt = $this->conn->prepare($sql);
 

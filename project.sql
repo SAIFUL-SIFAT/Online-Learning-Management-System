@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 22, 2025 at 03:29 PM
+-- Generation Time: Jan 24, 2025 at 03:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `first_name`, `last_name`, `email`, `username`, `password`, `phone`, `profile_photo`, `admin_auth_code`, `sec_question`, `sec_question_ans`) VALUES
-(1, '', '', '', 'root', 'root', '', '', '', '', '');
+(1, '', '', '', 'root', 'root', '', '', '', '', ''),
+(26, 'John', 'Doe', 'test@aiub.edu', 'john', 'doe', '22248717273', NULL, '222', 'primary_school', 'aa');
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,7 @@ CREATE TABLE `instructor` (
   `instructor_id` int(11) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `qualifications` text NOT NULL,
   `expertise` varchar(255) NOT NULL,
@@ -147,8 +148,9 @@ CREATE TABLE `instructor` (
 -- Dumping data for table `instructor`
 --
 
-INSERT INTO `instructor` (`instructor_id`, `full_name`, `email`, `password`, `phone`, `qualifications`, `expertise`, `profile_picture`, `teaching_experience`, `institution`, `status`) VALUES
-(9, 'John Doe', 'asdasd@gmail.com', 'asdasd', '01121212121', '55', 'Math', NULL, NULL, 'asd', 0);
+INSERT INTO `instructor` (`instructor_id`, `full_name`, `email`, `pass`, `phone`, `qualifications`, `expertise`, `profile_picture`, `teaching_experience`, `institution`, `status`) VALUES
+(9, 'John Doe', 'asdasd@gmail.com', 'asdasd', '01121212121', '55', 'Math', NULL, NULL, 'asd', 0),
+(10, 'asd', 'asd', 'asd', NULL, '', '', NULL, NULL, '', 0);
 
 -- --------------------------------------------------------
 
@@ -298,7 +300,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `certificate`
@@ -334,7 +336,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `instructor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `instructor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `moderator`
