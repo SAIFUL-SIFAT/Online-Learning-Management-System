@@ -1,9 +1,12 @@
-<!-- <?php 
+<?php 
 session_start();
+
 if (!isset($_SESSION['full_name'])) {
-    header('location: login.php');
+    header("Location: ../../login.php");
+    exit();
 }
-?> -->
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +19,13 @@ if (!isset($_SESSION['full_name'])) {
     
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <div class="sidebar">
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
-                    <li><a href="dashboard.php" class="active"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
+                    <li><a href="dashboard.php" ><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
                     <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
-                    <li><a href="grades.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Grades</a></li>
+                    <li><a href="grades.php" class="active"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Grades</a></li>
                     <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
                     <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li> 
                 </ul>
@@ -30,46 +33,26 @@ if (!isset($_SESSION['full_name'])) {
             <form action="../../control/instructor/logout_control.php">
                 <input type="submit" value="logout" class="logout">
             </form>
-        </aside>
+        </div>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <div class="main-content">
             <!-- Header -->
-              <header class="header">
+            <div class="header">
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
                     <span>
-                        <?php
-                        session_start();
-                        if (isset($_SESSION['full_name'])) {
-                            echo htmlspecialchars($_SESSION['full_name']);
-                        } else {
-                            echo 'Guest';
-                        }
-                        ?>
+                        <?php echo $_SESSION['full_name'] ?? '' ?>
                     </span>
-                    <a href="mailto:
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            echo htmlspecialchars($_SESSION['email']);
-                        } else {
-                            echo 'instructor@example.com';
-                        }
-                        ?>">
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            echo htmlspecialchars($_SESSION['email']);
-                        } else {
-                            echo 'instructor@example.com';
-                        }
-                        ?>
+                    <a href="mailto:">
+                        <?php echo $_SESSION['email'] ?? ''?>
                     </a>
                 </div>
-            </header>
+            </div>
 
             <!-- Dashboard Content -->
-             <h2>Dashboard</h2>
-            <section class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboard">
                 <div class="stats">
                     <div class="stat">
                         
@@ -123,8 +106,8 @@ if (!isset($_SESSION['full_name'])) {
                         <!-- <progress value="45" max="100"></progress> -->
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 </body>
 </html>

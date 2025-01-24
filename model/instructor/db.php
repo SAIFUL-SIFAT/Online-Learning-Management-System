@@ -141,6 +141,33 @@ class myDB {
         $this->closeConn();
     }
 
+    function createCourse($conn, $instructor_id, $title, $description) {
+        $sql = "INSERT INTO course (instructor_id, title, description) VALUES (?, ?, ?)";
+    
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param(
+                "iss",
+                $instructor_id,
+                $title,
+                $description
+            );
+    
+            if ($stmt->execute()) {
+                
+                return true;
+            } else {
+                echo $stmt->error;
+                return false;
+            }
+    
+            $stmt->close();
+        } else {
+            echo $conn->error;
+            return false;
+        }
+    }
+    
+
 
     function closeConn($conn) {
         mysqli_close($conn);

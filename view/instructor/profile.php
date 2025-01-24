@@ -5,7 +5,6 @@ if (!isset($_SESSION['full_name'])) {
     header("Location: ../../login.php");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +18,7 @@ if (!isset($_SESSION['full_name'])) {
 <body>
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <div class="sidebar">
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
@@ -33,13 +32,13 @@ if (!isset($_SESSION['full_name'])) {
             <form action="../../control/instructor/logout_control.php">
                 <input type="submit" value="logout" class="logout">
             </form>
-        </aside>
+        </div>
 
 
         <!-- Main Content -->
-        <main class="main-content">
+        <div class="main-content">
             <!-- Header -->
-            <header class="header">
+            <div class="header">
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
                     <span>
@@ -49,7 +48,7 @@ if (!isset($_SESSION['full_name'])) {
                         <?php echo $_SESSION['email'] ?? ''?>
                     </a>
                 </div>
-            </header>
+            </div>
              <!-- Profile Content -->
               <h2>Profile</h2>
             <div class="profile-container">
@@ -121,7 +120,7 @@ if (!isset($_SESSION['full_name'])) {
                     </div>
 
             
-        </main>
+        </div>
     </div>
 </body>
 </html>

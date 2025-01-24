@@ -14,7 +14,7 @@ include '../../control/instructor/course_control.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Portal</title>
-    <link rel="stylesheet" href="../../assets/css/instructor/courses.css">
+    <link rel="stylesheet" href="../../assets/css/instructor/add_course.css">
 </head>
 <body>
     <div class="container">
@@ -50,31 +50,29 @@ include '../../control/instructor/course_control.php';
             </div>
 
 
-            <!-- course Content -->
-            <div class="courses">
-                <h2>Courses</h2>
-                <div class="course">
-                    <a href="https://www.youtube.com/embed/gBi8Obib0tw" target="_blank" class="course-link">
-                        <h3>Web Development Fundamentals</h3>
-                    </a>
-                    <p>Learn the basics of web development</p>
-                    <span>25 students</span>
-                </div>
+            <!-- add course Content -->
+        <form class="add_courses" action="../../control/instructor/add_course_control.php" method="post">
+            <div class="course-modal">
+                <h3>Create New Course</h3>
+                <label for="instructor_id">Instructor ID</label>
+                <input type="number" id="instructor_id" name="instructor_id" required>
 
-                <div class="course">
-                    <a href="https://www.youtube.com/embed/YaZg8wg39QQ" target="_blank" class="course-link">
-                        <h3>Advanced React Patterns</h3>
-                    </a>
-                    <p>Master advanced React concepts</p>
-                    <span>18 students</span>
+                <label for="course-title">Course Title:</label>
+                <input type="text" id="course-title" name="course-title" required>
+
+                <label for="course-description">Description:</label>
+                <textarea id="course-description" name="course-description" required></textarea>
+
+                <div class="buttons">
+                    <button type="submit" class="create-course">Create Course</button>
+                    <button type="button" class="close-modal">Cancel</button>
                 </div>
-                <a href="add_course.php">
-                    <button class="add-course">+ Add Course</button>
-                </a>
-        </div>
+            </div>
+            </form>
+
+
         </div>
     </div>
-    <script type="javascript" src="../../assets/js/instructor/myjs.js"></script>
-    
+    <!-- <script type="javascript" src="../../assets/js/instructor/myjs.js"></script> -->
 </body>
 </html>

@@ -1,9 +1,12 @@
-<!-- <?php 
+<?php 
 session_start();
+
 if (!isset($_SESSION['full_name'])) {
-    header('location: login.php');
+    header("Location: ../../login.php");
+    exit();
 }
-?> -->
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +19,7 @@ if (!isset($_SESSION['full_name'])) {
     
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <div class="sidebar">
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
@@ -30,46 +33,26 @@ if (!isset($_SESSION['full_name'])) {
             <form action="../../control/instructor/logout_control.php">
                 <input type="submit" value="logout" class="logout">
             </form>
-        </aside>
+        </div>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <div class="main-content">
             <!-- Header -->
-              <header class="header">
+            <div class="header">
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="user-info">
                     <span>
-                        <?php
-                        session_start();
-                        if (isset($_SESSION['full_name'])) {
-                            echo htmlspecialchars($_SESSION['full_name']);
-                        } else {
-                            echo 'Guest';
-                        }
-                        ?>
+                        <?php echo $_SESSION['full_name'] ?? '' ?>
                     </span>
-                    <a href="mailto:
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            echo htmlspecialchars($_SESSION['email']);
-                        } else {
-                            echo 'instructor@example.com';
-                        }
-                        ?>">
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            echo htmlspecialchars($_SESSION['email']);
-                        } else {
-                            echo 'instructor@example.com';
-                        }
-                        ?>
+                    <a href="mailto:">
+                        <?php echo $_SESSION['email'] ?? ''?>
                     </a>
                 </div>
-            </header>
+            </div>
 
             <!-- Dashboard Content -->
-             <h2>Dashboard</h2>
-            <section class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboard">
                 <div class="stats">
                     <div class="stat">
                         
@@ -123,8 +106,8 @@ if (!isset($_SESSION['full_name'])) {
                         <!-- <progress value="45" max="100"></progress> -->
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 </body>
 </html>

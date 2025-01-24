@@ -2,6 +2,7 @@ const addCourseButton = document.querySelector('.add-course');
 const courseModal = document.querySelector('.course-modal');
 const closeModalButton = document.querySelector('.close-modal');
 const courseForm = document.querySelector('.course-modal form');
+const coursesContainer = document.querySelector('.courses');
 
 // Show the course modal when the "Add Course" button is clicked
 addCourseButton.addEventListener('click', () => {
@@ -11,6 +12,7 @@ addCourseButton.addEventListener('click', () => {
 // Hide the course modal when the close button is clicked
 closeModalButton.addEventListener('click', () => {
   courseModal.classList.add('hidden');
+  courseForm.reset();
 });
 
 // Handle the course form submission
@@ -23,7 +25,7 @@ courseForm.addEventListener('submit', (event) => {
 
   // Create a new course element and add it to the courses section
   const newCourse = createCourseElement(courseTitle, courseDescription);
-  document.querySelector('.courses').appendChild(newCourse);
+  coursesContainer.appendChild(newCourse);
 
   // Reset the form and hide the modal
   courseForm.reset();
@@ -32,8 +34,6 @@ courseForm.addEventListener('submit', (event) => {
 
 // Helper function to create a new course element
 function createCourseElement(title, description) {
-  // Create the new course element and return it
-  // (similar to the existing course elements in the HTML)
   const courseElement = document.createElement('div');
   courseElement.classList.add('course');
 
@@ -43,11 +43,24 @@ function createCourseElement(title, description) {
   const descriptionElement = document.createElement('p');
   descriptionElement.textContent = description;
 
-  courseElement.appendChild(titleElement);
+  const linkElement = document.createElement('a');
+  linkElement.href = '#';
+  linkElement.classList.add('course-link');
+  linkElement.appendChild(titleElement);
+
+  const studentsElement = document.createElement('span');
+  studentsElement.textContent = '0 students';
+
+  courseElement.appendChild(linkElement);
   courseElement.appendChild(descriptionElement);
+  courseElement.appendChild(studentsElement);
 
   return courseElement;
 }
+
+
+
+
 // for course video elements
 const courseTitles = document.querySelectorAll('.course-link');
 
