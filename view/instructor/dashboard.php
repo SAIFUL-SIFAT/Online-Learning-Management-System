@@ -48,7 +48,7 @@ if (!isset($_SESSION['full_name'])) {
                         <?php echo $_SESSION['email'] ?? ''?>
                     </a>
                 </div>
-            </div>
+        </div>
 
             <!-- Dashboard Content -->
             <h2>Dashboard</h2>

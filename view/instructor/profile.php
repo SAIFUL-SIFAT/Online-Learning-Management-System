@@ -87,37 +87,15 @@ if (!isset($_SESSION['full_name'])) {
                         </div>
                     </div>
             </div>
-                    <!-- <div class="academic-info">
-                        <h3>Academic Information</h3>
-                        <div class="info-item">
-                        <span>Current CGPA:</span>
-                        <p>3.65</p>
-                        </div>
-                        <div class="info-item">
-                        <span>Credits Completed:</span>
-                        <p>104</p>
-                        </div>
-                    </div> -->
-                    <!-- <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <div class="info-item">
-                        <span>Email:</span>
-                        <p>sifat.sai3@gmail.com</p>
-                        </div>
-                        <div class="info-item">
-                        <span>Phone:</span>
-                        <p>01758761248</p>
-                        </div>
-                        <div class="info-item">
-                        <span>Address:</span>
-                        <p>Apartment:B-3, House:208, Area:Fokirapool, PostOffice:GPO, PostCode:1000, PoliceStation: Motijheel, District: Dhaka, Country:Bangladesh</p>
-                        </div>
-                    </div> -->
-                    <div class="actions">
-                        <button class="edit-profile">Edit Profile</button>
-                        <button class="change-password">Change Password</button>
-                    </div>
-                    </div>
+                    
+            <div class="actions">
+                <form action="update.php" method="POST" >
+                    <button type="submit" class="edit-profile">Edit Profile</button>
+                </form>
+                <!-- <button class="change-password">Change Password</button> -->
+            </div>
+
+                    
 
             
         </div>

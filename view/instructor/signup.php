@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="registration-container">
-        <h2>Instructor Login</h2>
+        <h2>Instructor signup</h2>
         <form method="POST" action="../../control/instructor/reg_control.php" enctype="multipart/form-data">
             <table>
                 <tr>
@@ -54,13 +54,13 @@
                     <td><label for="T_experience">Teaching Experience (Years):</label></td>
                     <td><input type="number" id="T_experience" name="T_experience" required></td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td><label for="gender">Gender:</label></td>
                     <td>
                         <input type="radio" id="gender" name="gender" value="Male"> Male
                         <input type="radio" id="gender" name="gender" value="Female"> Female
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td colspan="2" class="btn-container">
                         <input type="submit" value="Submit" class="submit-btn">

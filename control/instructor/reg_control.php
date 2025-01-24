@@ -29,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['phone'] = "Phone Number must start with 0 and be exactly 11 digits.";
     }
 
-    if (empty($_POST["gender"])) {
-        $errors['gender'] = "Gender is required.";
-    }
+    // if (empty($_POST["gender"])) {
+    //     $errors['gender'] = "Gender is required.";
+    // }
 
     if (empty($errors)) {
-        $full_name = $_POST['full_name'];
+        $full_name = $_POST['full_name'];s
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $pass = $_POST['pass'];

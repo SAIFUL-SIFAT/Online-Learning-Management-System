@@ -11,28 +11,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $T_experience = $_POST['T_experience'] ?? null;
     $gender = $_POST['gender'] ?? null;
 
+    // Validate required fields
+    if (empty($full_name) || empty($email) || empty($pass)) {
+        die("<p>Full Name, Email, and Password are required!</p>");
+    }
+
+    // Handle profile picture upload
     $profile_picture = null;
     if (isset($_FILES["profile_picture"]) && $_FILES["profile_picture"]["error"] === 0) {
-        $target_dir = "../uploads/";
-        $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
-        if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
-            $profile_picture = $target_file;
+        $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+        if (in_array($_FILES["profile_picture"]["type"], $allowed_types) && $_FILES["profile_picture"]["size"] <= 2000000) {
+            $target_dir = "../uploads/";
+            $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
+            if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
+                $profile_picture = $target_file;
+            } else {
+                echo "<p>Failed to upload profile picture.</p>";
+            }
         } else {
-            echo "<p>Failed to upload profile picture.</p>";
+            echo "<p>Invalid file type or size.</p>";
         }
     }
 
-    print_r($_POST);
+    // Debugging: Comment out these lines in production
+    // print_r($_POST);
+    // echo "Profile Picture Path: " . htmlspecialchars($profile_picture) . "<br>";
 
-    echo "Profile Picture Path: " . $profile_picture . "<br>";
-
+    // Update data in the database
     $db = new myDB();
     $db->updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $T_experience, $gender);
 
-    // echo "<p>Data updated successfully!</p>";
-    echo "<a href='update.php'>Go back to update page</a>";
+    // Redirect to profile page
+    header('Location:../../view/instructor/profile.php');
+    exit(); // Always exit after a redirect
 } else {
     echo "<p>Invalid request method!</p>";
 }
-
 ?>
