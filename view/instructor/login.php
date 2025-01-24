@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <td><label for="pass">Password:</label></td>
-                    <td><input type="password" id="pass" name="password" required></td>
+                    <td><input type="password" id="pass" name="pass" required></td>
                 </tr>
                 <tr>
                     <td colspan="2">
