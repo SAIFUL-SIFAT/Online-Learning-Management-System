@@ -2,7 +2,7 @@
 
 session_start();
 $_SESSION['full_name'] = $_POST['full_name'];
-$_SESSION['email'] = $_POST['email'];
+// $_SESSION['email'] = $_POST['email'];
 
 require('../../model/instructor/db.php');
 
@@ -22,3 +22,4 @@ unset($result['pass']);
 $_SESSION = $result;
 
 header('location:../../view/instructor/dashboard.php');
+?>

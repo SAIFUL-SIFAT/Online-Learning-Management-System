@@ -13,7 +13,7 @@ if (!isset($_SESSION['full_name'])) {
     <link rel="stylesheet" href="../../assets/css/instructor/dashboard.css">
 </head>
 <body>
-    <?php include '../../control/instructor/logout_control.php'; ?>
+    
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -24,10 +24,12 @@ if (!isset($_SESSION['full_name'])) {
                     <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
                     <li><a href="grades.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Grades</a></li>
                     <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
-                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li>
-                    <li><a href="../../control/instructor/logout_control.php">Logout</a></li>
+                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li> 
                 </ul>
             </nav>
+            <form action="../../control/instructor/logout_control.php">
+                <input type="submit" value="logout" class="logout">
+            </form>
         </aside>
 
         <!-- Main Content -->

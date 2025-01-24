@@ -51,7 +51,16 @@ body {
 .sidebar nav ul li a:hover {
     background-color: #6c63ff;
 }
-
+.logout {
+    
+    background-color: #f84040;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%; /* Ensures the button takes full width */
+}
 /* Main Content */
 .main-content {
     flex: 1;
