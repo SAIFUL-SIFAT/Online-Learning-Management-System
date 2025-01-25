@@ -10,10 +10,13 @@ if (!isset($_SESSION['admin_id'])) {
 
 <head>
     <title>Create Notification</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
 </head>
 
 <body>
+    <div class="container">
     <?php include 'navigation.php'; ?>
+    <div>
     <h2>Create Notification</h2>
 
     <form action="../../control/admin/create_notification_control.php" method="post">
@@ -37,6 +40,8 @@ if (!isset($_SESSION['admin_id'])) {
     </form>
 
     <a href="notifications.php">Back to Notifications</a>
+    </div>
+    </div>
 </body>
 
 </html>

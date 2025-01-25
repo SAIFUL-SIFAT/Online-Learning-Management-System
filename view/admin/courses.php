@@ -12,43 +12,48 @@ if (!isset($_SESSION['admin_id'])) {
 
 <head>
     <title>Courses</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
 </head>
 
 <body>
+<div class="container">
     <?php include 'navigation.php' ?>
-    <h2>Manage Courses</h2>
-    <a href="add_course.php">Add course</a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Instructor ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-        <?php
-        include '../../model/admin/db.php';
+    <div>
+        <h2>Manage Courses</h2>
+        <a href="add_course.php">Add course</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Instructor ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <?php
+            include '../../model/admin/db.php';
 
-        $db = new Db();
+            $db = new Db();
 
-        $conn = $db->open();
+            $conn = $db->open();
 
-        $sql = "SELECT * FROM course";
-        $result = $conn->query($sql);
+            $sql = "SELECT * FROM course";
+            $result = $conn->query($sql);
 
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                    <td>" . $row['course_id'] . "</td>
-                    <td>" . $row['instructor_id'] . "</td>
-                    <td>" . $row['title'] . "</td>
-                    <td>" . $row['description'] . "</td>
-                    <td>
-                        <a href='../../control/admin/delete_course.php?id=" . urlencode($row['course_id']) . "'>Delete</a>
-                    </td>
-                  </tr>";
-        }
-        ?>
-    </table>
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row['course_id'] . "</td>
+                        <td>" . $row['instructor_id'] . "</td>
+                        <td>" . $row['title'] . "</td>
+                        <td>" . $row['description'] . "</td>
+                        <td>
+                            <a href='../../control/admin/delete_course.php?id=" . urlencode($row['course_id']) . "'>Delete</a>
+                        </td>
+                      </tr>";
+            }
+            ?>
+        </table>
+    </div>
+</div>
 </body>
 
 </html>

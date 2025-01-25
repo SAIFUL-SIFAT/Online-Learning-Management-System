@@ -11,10 +11,13 @@ if (!isset($_SESSION['admin_id'])) {
 
 <head>
     <title>Add Course</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
 </head>
 
 <body>
+    <div class="container">
     <?php include 'navigation.php'; ?>
+    <div>
     <h2>Add Course</h2>
 
     <form action="../../control/admin/add_course_control.php" method="post">
@@ -38,6 +41,8 @@ if (!isset($_SESSION['admin_id'])) {
     </form>
 
     <a href="courses.php">Back to Course List</a>
+    </div>
+    </div>
 </body>
 
 </html>

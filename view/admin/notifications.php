@@ -10,17 +10,20 @@ if (!isset($_SESSION['admin_id'])) {
 <html lang="en">
 <head>
     <title>Notifications</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
 </head>
 <body>
+<div class="container">
 
 <?php include 'navigation.php'; ?>
+<div>
 
 <h2>Manage Notifications</h2>
 <a href="create_notification.php">Create Notification</a>
 
 <table>
     <tr>
-        <th>Notification ID</th>
+        <th>ID</th>
         <th>Instructor ID</th>
         <th>Message</th>
         <th>Type</th>
@@ -47,6 +50,8 @@ if (!isset($_SESSION['admin_id'])) {
 
 
 </table>
+</div>
+</div>
 
 </body>
 </html>

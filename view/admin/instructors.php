@@ -12,10 +12,13 @@ if (!isset($_SESSION['admin_id'])) {
 
 <head>
     <title>Approve Instructors</title>
+    <link rel='stylesheet' href='../../assets/css/admin/global.css'>
 </head>
 
 <body>
+<div class="container">
     <?php include 'navigation.php' ?>
+    <div>
     <h2>Approve Instructors</h2>
     <table>
         <tr>
@@ -47,6 +50,8 @@ if (!isset($_SESSION['admin_id'])) {
         }
         ?>
     </table>
+    </div>
+</div>
 </body>
 
 </html>
