@@ -1,5 +1,7 @@
 <?php
-require '../model/instructor/db.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require '../../model/instructor/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $full_name = $_POST['full_name'] ?? null;
@@ -8,8 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pass = $_POST['pass'] ?? null;
     $qualifications = $_POST['qualifications'] ?? null;
     $expertise = $_POST['expertise'] ?? null;
-    $T_experience = $_POST['T_experience'] ?? null;
-    $gender = $_POST['gender'] ?? null;
+    $teaching_experience = $_POST['teaching_experience'] ?? null;
+    $institution = $_POST['institution'] ?? null;
+
+    // Update the session variables
+    $_SESSION['full_name'] = $full_name;
+    $_SESSION['email'] = $email;
+    $_SESSION['qualifications'] = $qualifications;
+    $_SESSION['phone'] = $phone;
+    $_SESSION['expertise'] = $expertise;
+    $_SESSION['T_experience'] = $T_experience;
+    $_SESSION['institution'] = $institution;
 
     // Validate required fields
     if (empty($full_name) || empty($email) || empty($pass)) {
@@ -39,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Update data in the database
     $db = new myDB();
-    $db->updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $T_experience, $gender);
+    $db->updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $institution);
 
     // Redirect to profile page
     header('Location:../../view/instructor/profile.php');

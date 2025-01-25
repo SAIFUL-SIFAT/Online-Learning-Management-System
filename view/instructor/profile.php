@@ -5,6 +5,8 @@ if (!isset($_SESSION['full_name'])) {
     header("Location: ../../login.php");
     exit();
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -77,11 +79,11 @@ if (!isset($_SESSION['full_name'])) {
                             </div>
                             <div>
                              <span>Experience:</span>
-                              <p><?php echo $_SESSION['T_experience'] ?? '' ?> Years</p>
+                              <p><?php echo $_SESSION['teaching_experience'] ?? '' ?> Years</p>
                             </div>
                             <div>
-                             <span>Sex:</span>
-                              <p><?php echo $_SESSION['gender'] ?? '' ?></p>
+                             <span>Institution:</span>
+                              <p><?php echo $_SESSION['institution'] ?? '' ?></p>
                             </div>
                         </div>
                         </div>

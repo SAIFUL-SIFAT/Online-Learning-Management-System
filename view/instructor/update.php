@@ -49,7 +49,7 @@ if (!isset($_SESSION['full_name'])) {
             </div>
         <div class="update-container">
             <h2>Update data</h2>
-            <form method="POST" action="../../control/update_control.php" enctype="multipart/form-data">
+            <form method="POST" action="../../control/instructor/update_control.php" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <td><label for="full_name">Full Name:</label></td>
@@ -100,7 +100,11 @@ if (!isset($_SESSION['full_name'])) {
 
                     <tr>
                         <td><label for=" experience">Teaching experience(Years):</label></td>
-                        <td><input type="number" id="T_experience" name="T_experience" required></td>
+                        <td><input type="number" id="T_experience" name="teaching_experience" placeholder="<?php echo $_SESSION['teaching_experience'] ?? ''?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="institution">Institution:</label></td>
+                        <td><input type="text" id="institution" name="institution" placeholder="<?php echo $_SESSION['institution'] ?? ''?>" required></td>
                     </tr>
                     <!-- <tr>
                         <td><label for="gender">Gender:</label></td>

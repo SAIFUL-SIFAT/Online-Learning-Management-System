@@ -99,18 +99,23 @@ class MyDB {
     }
 
     // Update data in the instructor table
-    public function updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $gender) {
+    public function updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $institution) {
+        $this->openConn();
+
+        if ($this->conn === null) {
+            die("Database connection is not initialized.");
+        }
+    
         $sql = "
             UPDATE instructor 
-            SET full_name = ?, email = ?, phone = ?, pass = ?, qualifications = ?, profile_picture = ?, expertise = ?, teaching_experience = ?, gender = ? 
+            SET full_name = ?, email = ?, phone = ?, pass = ?, qualifications = ?, profile_picture = ?, expertise = ?, teaching_experience = ?, institution = ? 
             WHERE full_name = ?";
         $stmt = $this->conn->prepare($sql);
-
+    
         if (!$stmt) {
-            echo "Prepare failed: " . $this->conn->error;
-            return;
+            die("Prepare failed: " . $this->conn->error);
         }
-
+    
         $stmt->bind_param(
             "sssssssiss",
             $full_name,
@@ -120,19 +125,20 @@ class MyDB {
             $qualifications,
             $profile_picture,
             $expertise,
-            $T_experience,
-            $gender,
+            $teaching_experience, 
+            $institution,
             $full_name
         );
-
-        if ($stmt->execute()) {
-            echo "Data updated successfully.";
+    
+        if (!$stmt->execute()) {
+            die("Error: " . $stmt->error);
         } else {
-            echo "Error: " . $stmt->error;
+            echo "Data updated successfully.";
         }
-
+    
         $stmt->close();
     }
+    
 
     // Add a course to the courses table
     public function addCourse($instructor_id, $title, $description) {
