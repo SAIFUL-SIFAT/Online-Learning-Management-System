@@ -1,13 +1,12 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 session_start();
 
 if (!isset($_SESSION['full_name'])) {
     header("Location: ../../login.php");
     exit();
 }
-include '../../control/instructor/course_control.php';
 include '../../model/instructor/db.php';
 
 $db = new MyDB();

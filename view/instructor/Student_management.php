@@ -1,4 +1,6 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 
 if (!isset($_SESSION['full_name'])) {
@@ -6,7 +8,12 @@ if (!isset($_SESSION['full_name'])) {
     exit();
 
 }
+include '../../model/instructor/db.php';
 
+$db = new MyDB();
+// $conn = $db->open();
+
+$result = $db->getStudents();
 ?>
 
 <!DOCTYPE html>
@@ -59,19 +66,43 @@ if (!isset($_SESSION['full_name'])) {
                     <table class="student-management-table">
                         
                             <tr>
-                                <th>NAME</th>
-                                <th>EMAIL</th>
-                                <th>COURSES</th>
-                                <th>ACTIONS</th>
+                                <th>Student Id</th>
+                                <th>Full Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Country</th>
+                                <th>Preferred Language</th>
+                                <th>Actions</th>
                             </tr>
+                 <?php
+                    if ($result && $result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>" . $row['student_id'] . "</td>
+                                    <td>" . $row['full_name'] . "</td>
+                                    <td>" . $row['last_name'] . "</td>
+                                    <td>" . $row['email'] . "</td>
+                                    <td>" . $row['phone'] . "</td>
+                                    <td>" . $row['country'] . "</td>
+                                    <td>" . $row['preferred_language'] . "</td>
+                                    <td>
+                                        <div class='actions'>
+                                            <button type='submit' value='delete' class='delete' >Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='8'>No students found</td></tr>";
+                    }
+                ?>
                         
                         <tbody>
                             <!-- Dynamically generated table rows -->
                         </tbody>
                     </table>
-                    <div class="actions">
-                        <button type="submit" name="action" value="delete" class="delete">Delete</button>
-                    </div>
+                    
                 </form>
             </div>
 

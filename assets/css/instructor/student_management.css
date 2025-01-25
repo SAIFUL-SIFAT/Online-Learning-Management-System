@@ -119,26 +119,24 @@ body {
     vertical-align: middle;
 }
 
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.actions button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-}
+/* .actions {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 10px; 
+} */
 
 .actions button.delete {
-    background-color: #f44336;
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text */
+    border: none; /* Removes border */
+    padding: 8px 16px; /* Slightly larger padding for better usability */
+    text-align: center;
+    font-size: 14px; /* Text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.actions button.delete:hover {
+    background-color: #d32f2f; /* Darker red on hover for effect */
 }

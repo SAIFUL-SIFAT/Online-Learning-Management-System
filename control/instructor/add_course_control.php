@@ -1,14 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 include '../../model/instructor/db.php';
 
 if (!isset($_SESSION['full_name'])) {
-    header("Location: login.php");
+    header("Location: ../../login.php");
     exit();
 }
 
-$db = new myDB();
-$conn = $db->open();
+$db = new MyDB();
+// $conn = $db->open();
 
 if (empty($_POST['instructor_id'])) {
     echo 'no instructor_id';
@@ -23,12 +25,14 @@ if (empty($_POST['instructor_id'])) {
     $instructor_id = $_POST['instructor_id'];
     $title = $_POST['title'];
     $description = $_POST['description'];
+    header('Location:../../view/instructor/courses.php');
+    if ($db->addCourse($instructor_id, $title, $description)) {
+        $conn->close();
 
-    if ($db->createCourse($conn, $instructor_id, $title, $description)) {
-        header('Location:../../view/instructor/courses.php');
+       
     } else {
         echo "Error creating course.";
     }
 }
 
-$conn->close();
+// $conn->close();

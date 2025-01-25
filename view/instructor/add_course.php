@@ -58,10 +58,10 @@ include '../../control/instructor/course_control.php';
                 <input type="number" id="instructor_id" name="instructor_id" required>
 
                 <label for="course-title">Course Title:</label>
-                <input type="text" id="course-title" name="course-title" required>
+                <input type="text" id="course-title" name="title" required>
 
                 <label for="course-description">Description:</label>
-                <textarea id="course-description" name="course-description" required></textarea>
+                <textarea id="course-description" name="description" required></textarea>
 
                 <div class="buttons">
                     <button type="submit" class="create-course">Create Course</button>

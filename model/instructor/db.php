@@ -142,7 +142,9 @@ class MyDB {
 
     // Add a course to the courses table
     public function addCourse($instructor_id, $title, $description) {
-        $sql = "INSERT INTO courses (instructor_id, title, description) VALUES (?, ?, ?)";
+        $this->openConn();
+
+        $sql = "INSERT INTO course (instructor_id, title, description) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
 
         if (!$stmt) {
@@ -160,18 +162,21 @@ class MyDB {
 
         $stmt->close();
     }
-    public function getStudents($conn) {
-        $this->openConn();
-        $sql = "SELECT * FROM student";
-        $result = $this->conn->query($sql);
+    public function getStudents()
+{
+    $this->openConn();
 
-        if ($result) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            echo "Error fetching students: " . $this->conn->error;
-            return [];
-        }
+    $sql = "SELECT student_id, full_name, last_name, email, phone, country, preferred_language FROM student";
+    $result = $this->conn->query($sql);
+
+    if ($result) {
+        return $result; // Return the raw result object
+    } else {
+        echo "Error fetching students: " . $this->conn->error;
+        return false;
     }
+}
+
 
     // Get all courses
     public function getCoursesByInstructorId($instructor_id)
