@@ -68,9 +68,8 @@ if (!isset($_SESSION['full_name'])) {
                         <tbody>
                             <!-- Dynamically generated table rows -->
                         </tbody>
-                         </table>
+                    </table>
                     <div class="actions">
-                        <button type="submit" name="action" value="view">View</button>
                         <button type="submit" name="action" value="delete" class="delete">Delete</button>
                     </div>
                 </form>

@@ -13,14 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $teaching_experience = $_POST['teaching_experience'] ?? null;
     $institution = $_POST['institution'] ?? null;
 
-    // Update the session variables
-    $_SESSION['full_name'] = $full_name;
-    $_SESSION['email'] = $email;
-    $_SESSION['qualifications'] = $qualifications;
-    $_SESSION['phone'] = $phone;
-    $_SESSION['expertise'] = $expertise;
-    $_SESSION['T_experience'] = $T_experience;
-    $_SESSION['institution'] = $institution;
 
     // Validate required fields
     if (empty($full_name) || empty($email) || empty($pass)) {

@@ -1,4 +1,6 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 
 if (!isset($_SESSION['full_name'])) {
@@ -6,6 +8,12 @@ if (!isset($_SESSION['full_name'])) {
     exit();
 }
 include '../../control/instructor/course_control.php';
+include '../../model/instructor/db.php';
+
+$db = new MyDB();
+// $conn = $db->open();
+
+$result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
 ?>
 
 <!DOCTYPE html>
@@ -51,29 +59,39 @@ include '../../control/instructor/course_control.php';
 
 
             <!-- course Content -->
-            <div class="courses">
+        <div class="courses">
                 <h2>Courses</h2>
-                <div class="course">
-                    <a href="https://www.youtube.com/embed/gBi8Obib0tw" target="_blank" class="course-link">
-                        <h3>Web Development Fundamentals</h3>
-                    </a>
-                    <p>Learn the basics of web development</p>
-                    <span>25 students</span>
-                </div>
-
-                <div class="course">
-                    <a href="https://www.youtube.com/embed/YaZg8wg39QQ" target="_blank" class="course-link">
-                        <h3>Advanced React Patterns</h3>
-                    </a>
-                    <p>Master advanced React concepts</p>
-                    <span>18 students</span>
-                </div>
                 <a href="add_course.php">
-                    <button class="add-course">+ Add Course</button>
-                </a>
+            <button type="button" class="add-course">+ Add Course</button>
+            </a>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Instructor ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+
+                </tr>
+                
+                <?php
+
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>" . $row['course_id'] . "</td>
+                            <td>" . $row['instructor_id'] . "</td>
+                            <td>" . $row['title'] . "</td>
+                            <td>" . $row['description'] . "</td>
+                        
+                        </tr>";
+                }
+                ?>
+            </table>
+
         </div>
-        </div>
+        
     </div>
+
+</div>
     <script type="javascript" src="../../assets/js/instructor/myjs.js"></script>
     
 </body>

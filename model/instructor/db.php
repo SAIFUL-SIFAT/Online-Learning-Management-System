@@ -174,21 +174,25 @@ class MyDB {
     }
 
     // Get all courses
-    public function getAllCourses() {
-        $sql = "SELECT * FROM courses";
-        $result = $this->conn->query($sql);
-
-        if ($result) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            echo "Error fetching courses: " . $this->conn->error;
-            return [];
-        }
+    public function getCoursesByInstructorId($instructor_id)
+    {
+        $this->openConn();
+        $sql = "SELECT * FROM course WHERE instructor_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $instructor_id);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
-    // Close the database connection
-    public function closeConn() {
+    public function close()
+    {
         $this->conn->close();
     }
 }
+
+    // Close the database connection
+    // public function closeConn() {
+    //     $this->conn->close();
+    // }
+
 ?>
