@@ -28,7 +28,7 @@ class MyDB {
                 qualifications TEXT NOT NULL,
                 profile_picture VARCHAR(255),
                 expertise VARCHAR(50) NOT NULL,
-                T_experience INT NOT NULL,
+                teaching_experience INT NOT NULL,
                 gender ENUM('Male', 'Female') NOT NULL
             )";
 
@@ -38,11 +38,11 @@ class MyDB {
     }
 
     // Insert data into the instructor table
-    public function insertData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $T_experience, $gender) {
+    public function insertData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $institution) {
         // $this->createTableIfNotExists();
         $this->openConn();
 
-        $sql = "INSERT INTO instructor (full_name, email, phone, pass, qualifications, profile_picture, expertise, T_experience, gender) 
+        $sql = "INSERT INTO instructor (full_name, email, phone, pass, qualifications, profile_picture, expertise, teaching_experience, institution) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
 
@@ -59,8 +59,8 @@ class MyDB {
             $qualifications,
             $profile_picture,
             $expertise,
-            $T_experience,
-            $gender
+            $teaching_experience,
+            $institution
         );
 
         if ($stmt->execute()) {
@@ -99,10 +99,10 @@ class MyDB {
     }
 
     // Update data in the instructor table
-    public function updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $T_experience, $gender) {
+    public function updateData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $gender) {
         $sql = "
             UPDATE instructor 
-            SET full_name = ?, email = ?, phone = ?, pass = ?, qualifications = ?, profile_picture = ?, expertise = ?, T_experience = ?, gender = ? 
+            SET full_name = ?, email = ?, phone = ?, pass = ?, qualifications = ?, profile_picture = ?, expertise = ?, teaching_experience = ?, gender = ? 
             WHERE full_name = ?";
         $stmt = $this->conn->prepare($sql);
 
@@ -153,6 +153,18 @@ class MyDB {
         }
 
         $stmt->close();
+    }
+    public function getStudents($conn) {
+        $this->openConn();
+        $sql = "SELECT * FROM student";
+        $result = $this->conn->query($sql);
+
+        if ($result) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            echo "Error fetching students: " . $this->conn->error;
+            return [];
+        }
     }
 
     // Get all courses

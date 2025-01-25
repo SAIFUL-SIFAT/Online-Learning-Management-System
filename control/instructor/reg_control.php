@@ -34,33 +34,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // }
 
     if (empty($errors)) {
-        $full_name = $_POST['full_name'];s
+        $full_name = $_POST['full_name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $pass = $_POST['pass'];
         $qualifications = $_POST['qualifications'];
         $profile_picture = $_POST['profile_picture'];
         $expertise = $_POST['expertise'];
-        $T_experience = $_POST['T_experience'];
-        $gender = $_POST['gender'];
+        $teaching_experience = $_POST['teaching_experience'];
+        $institution = $_POST['institution'];
 
         // Handle profile photo upload
-        define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');
-        if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
-            mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
-        }
+        // define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');
+        // if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
+        //     mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
+        // }
 
-        $is_uploaded = is_uploaded_file($_FILES['profile_photo']['tmp_name']);
-        if ($is_uploaded) {
-            $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_photo']['name']);
-            if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path)) {
-                $_POST['profile_photo'] = $new_path; // Store the path for database insertion
-            } else {
-                $errors['profile_photo'] = "Failed to move uploaded file.";
-            }
-        } else {
-            $errors['profile_photo'] = "No file uploaded or file upload error.";
-        }
+        // $is_uploaded = is_uploaded_file($_FILES['profile_photo']['tmp_name']);
+        // if ($is_uploaded) {
+        //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_photo']['name']);
+        //     if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path)) {
+        //         $_POST['profile_photo'] = $new_path; // Store the path for database insertion
+        //     } else {
+        //         $errors['profile_photo'] = "Failed to move uploaded file.";
+        //     }
+        // } else {
+        //     $errors['profile_photo'] = "No file uploaded or file upload error.";
+        // }
 
         if (empty($errors)) {
             $user_data = array(
@@ -70,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "pass" => $pass,
                 "qualifications" => $qualifications,
                 "expertise" => $expertise,
-                "T_experience" => $T_experience,
-                "gender" => $gender,
+                "teaching_experience" => $teaching_experience,
+                "institution" => $institution,
                 "profile_photo" => $profile_picture // Include profile photo path
             );
 
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             file_put_contents("../data/userdata.json", $json_data);
 
             $db = new myDB();
-            $db->insertData($full_name, $email, $phone, $pass, $qualifications,$profile_picture, $expertise, $T_experience, $gender);
+            $db->insertData($full_name, $email, $phone, $pass, $qualifications,$profile_picture, $expertise, $teaching_experience, $institution);
 
             header('location:../../view/instructor/login.php');
             echo "User data saved to the database.";
