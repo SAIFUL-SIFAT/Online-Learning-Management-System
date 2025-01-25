@@ -1,8 +1,18 @@
 <?php 
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 session_start();
+
 if (!isset($_SESSION['full_name'])) {
-    header('location: login.php');
+    header("Location: ../../login.php");
+    exit();
 }
+include '../../model/instructor/db.php';
+
+$db = new MyDB();
+// $conn = $db->open();
+
+$result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,28 +59,25 @@ if (!isset($_SESSION['full_name'])) {
 
             <!-- Certificate Management Content -->
              <h2>Certificate Management</h2>
-            <div class="certificate-management">
+             <div class="certificate-management">
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                ?>
                 <div class="certificate-card">
                     <div class="certificate-header">
-                        <h3><span> <?php echo $_SESSION['full_name'] ?? '' ?></span></h3>
-                        <p>Web Development Fundamentals</p>
+                        <h3><span><?php echo $_SESSION['full_name'] ?? ''; ?></span></h3>
+
                     </div>
                     <div class="certificate-details">
+                    <p>Course:<?php echo $row['title']; ?></p>
+                    <p>Description:<?php echo $row['description']; ?></p>
                         <button class="download-certificate">Download Certificate</button>
                         <span class="status issued">Issued</span>
                     </div>
                 </div>
-
-                <div class="certificate-card">
-                    <div class="certificate-header">
-                        <h3><span> <?php echo $_SESSION['full_name'] ?? '' ?></span></h3>
-                        <p>Advanced React Patterns</p>
-                    </div>
-                    <div class="certificate-details">
-                        <button class="issue-certificate">Issue Certificate</button>
-                        <span class="status pending">Pending</span>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
 
 
