@@ -65,8 +65,12 @@ if (!isset($_SESSION['admin_id'])) {
                 <td><label for="sec_question_ans">Security Question Answer</label></td>
                 <td><input type="text" id="sec_question_ans" name="sec_question_ans" value="<?php echo $_SESSION['sec_question_ans'] ?? ''; ?>"></td>
             </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save Profile">
+                </td>
+            </tr>
         </table>
-        <button type="submit">Save Profile</button>
     </form>
     </div>
     </div>

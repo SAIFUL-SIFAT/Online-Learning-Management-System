@@ -1,10 +1,10 @@
 <?php
 include_once 'db.php';
-class Instructor {
-    static function getInstructors() {
-        $db = new db();
+class Moderator {
+    static function getModerators() {
+        $db = new Db();
         $conn = $db->open();
-        $sql = "SELECT * FROM instructor";
+        $sql = "SELECT * FROM moderator";
         $result = $conn->query($sql);
         $conn->close();
 
@@ -14,26 +14,23 @@ class Instructor {
         return null;
     }
 
-    static function getInstructor(int $id) {
-        $db = new db();
+    static function getModerator(int $id) {
+        $db = new Db();
         $conn = $db->open();
-        $sql = "SELECT * FROM instructor WHERE id = $id";
+        $sql = "SELECT * FROM moderator WHERE id=$id";
         $result = $conn->query($sql);
         $conn->close();
-
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
         }
         return null;
     }
 
-    static function deleteInstructor(int $id) {
-        $db = new db();
+    static function deleteModerator(int $id) {
+        $db = new Db();
         $conn = $db->open();
-        $sql = "DELETE FROM instructor WHERE id = $id";
+        $sql = "DELETE FROM moderator WHERE id=$id";
         $conn->query($sql);
-
         $conn->close();
     }
-
 }
