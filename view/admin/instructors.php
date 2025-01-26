@@ -28,16 +28,11 @@ if (!isset($_SESSION['admin_id'])) {
             <th>Action</th>
         </tr>
         <?php
-        include '../../model/admin/db.php';
+        include '../../model/admin/User.php';
 
-        $db = new Db();
+        $rows = User::getUsers('instructor');
 
-        $conn = $db->open();
-
-        $sql = "SELECT * FROM instructor WHERE status=0";
-        $result = $conn->query($sql);
-
-        while ($row = $result->fetch_assoc()) {
+        foreach ($rows as $row) {
             echo "<tr>
                     <td>" . $row['instructor_id'] . "</td>
                     <td>" . $row['full_name'] . "</td>

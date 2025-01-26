@@ -43,7 +43,7 @@ if (!isset($_SESSION['admin_id'])) {
             </tr>
             <tr>
                 <td><label for="password">Password</label></td>
-                <td><input type="password" id="password" name="password" value="<?php echo $_SESSION['password'] ?? ''; ?>"></td>
+                <td><input type="password" id="password" name="password""></td>
             </tr>
             <tr>
                 <td><label for="phone">Phone</label></td>

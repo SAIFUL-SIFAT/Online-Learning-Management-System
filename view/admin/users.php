@@ -21,11 +21,11 @@ if (!isset($_SESSION['admin_id'])) {
     <h2>Manage Users</h2>
     <div class="search-bar">
         <search>
-            <form>
+            <form id="search-bar-form">
                 <input name="search_text" id="search_text" placeholder="Search">
             </form>
         </search>
-        <select>
+        <select id="user-type-selector">
             <option>Student</option>
             <option>Instructor</option>
             <option>Moderator</option>
@@ -34,30 +34,33 @@ if (!isset($_SESSION['admin_id'])) {
     </div>
 
     <div class="table-container">
-    <table>
+    <table id="users-table">
 
         <?php
         include '../../model/admin/User.php';
 
-        $rows = Student::getStudents();
-        $keys = array_keys($rows[0]);
-
-        echo '<tr>';
-        foreach ($keys as $key) {
-            echo "<th>" . $key . "</th>";
-
-        }
-        echo '</tr>';
+        $rows = User::getUsers('student');
 
         if ($rows) {
-            foreach ($rows as $row) {
-                echo '<tr>';
-                foreach ($row as $k => $v) {
-                    echo "<td>" . $v . "</td>";
+            $keys = array_keys($rows[0]);
 
+            echo '<tr>';
+            foreach ($keys as $key) {
+                echo "<th>" . $key . "</th>";
+
+            }
+            echo '</tr>';
+
+            if ($rows) {
+                foreach ($rows as $row) {
+                    echo '<tr>';
+                    foreach ($row as $k => $v) {
+                        echo "<td>" . $v . "</td>";
+
+                    }
+                    echo '</tr>';
+                    // echo "<td>" . " <a href='../../control/admin/delete_course.php?id=" . urlencode($row[$key[0]]) . "'>Delete</a>" . "</td>";
                 }
-                echo '</tr>';
-                // echo "<td>" . " <a href='../../control/admin/delete_course.php?id=" . urlencode($row[$key[0]]) . "'>Delete</a>" . "</td>";
             }
         }
         ?>
@@ -65,5 +68,7 @@ if (!isset($_SESSION['admin_id'])) {
     </div>
 </div>
 </div>
+
+<script src="../../assets/js/admin/users.js"></script>
 </body>
 </html>
