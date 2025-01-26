@@ -58,8 +58,9 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
 
 
             <!-- course Content -->
+            <h2>Courses</h2>
         <div class="courses">
-                <h2>Courses</h2>
+                
                 <a href="add_course.php">
             <button type="button" class="add-course">+ Add Course</button>
             </a>

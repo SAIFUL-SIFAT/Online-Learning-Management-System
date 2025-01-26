@@ -7,10 +7,6 @@ if (!isset($_SESSION['full_name'])) {
     exit();
 }
 
-if (empty($_GET['id'])) {
-    echo 'no course id';
-    exit();
-}
 
 $db = new MyDB();
 $conn = $db->open();
@@ -19,7 +15,7 @@ $sql = "DELETE FROM student WHERE student_id = ?";
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param(
         "i",
-        $_GET['id'],
+        $_GET['student_id'],
     );
 
     if ($stmt->execute()) {

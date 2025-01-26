@@ -62,7 +62,7 @@ $result = $db->getStudents();
             <!-- Student Management Content -->
             <h2>Student Management</h2>
             <div class="student-management-container">
-                <form action="../../control/instructor/student_management_control.php" method="POST">
+                <form>
                     <table class="student-management-table">
                         
                             <tr>
@@ -88,9 +88,13 @@ $result = $db->getStudents();
                                     <td>" . $row['preferred_language'] . "</td>
                                     <td>
                                         <div class='actions'>
-                                            <button type='submit' value='delete' class='delete' >Delete</button>
+                                            <form action='../../control/instructor/delete_student.php' method='POST'>
+                                                <input type='hidden' name='student_id' value='" . $row['student_id'] . "'>
+                                                <button type='submit' class='delete'>Delete</button>
+                                            </form>
                                         </div>
                                     </td>
+
                                 </tr>";
                         }
                     } else {
