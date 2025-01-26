@@ -62,7 +62,6 @@ $result = $db->getStudents();
             <!-- Student Management Content -->
             <h2>Student Management</h2>
             <div class="student-management-container">
-                <form>
                     <table class="student-management-table">
                         
                             <tr>
@@ -73,7 +72,6 @@ $result = $db->getStudents();
                                 <th>Phone</th>
                                 <th>Country</th>
                                 <th>Preferred Language</th>
-                                <th>Actions</th>
                             </tr>
                  <?php
                     if ($result && $result->num_rows > 0) {
@@ -86,14 +84,7 @@ $result = $db->getStudents();
                                     <td>" . $row['phone'] . "</td>
                                     <td>" . $row['country'] . "</td>
                                     <td>" . $row['preferred_language'] . "</td>
-                                    <td>
-                                        <div class='actions'>
-                                            <form action='../../control/instructor/delete_student.php' method='POST'>
-                                                <input type='hidden' name='student_id' value='" . $row['student_id'] . "'>
-                                                <button type='submit' class='delete'>Delete</button>
-                                            </form>
-                                        </div>
-                                    </td>
+                                    
 
                                 </tr>";
                         }
@@ -101,13 +92,12 @@ $result = $db->getStudents();
                         echo "<tr><td colspan='8'>No students found</td></tr>";
                     }
                 ?>
-                        
+
                         <tbody>
                             <!-- Dynamically generated table rows -->
                         </tbody>
                     </table>
                     
-                </form>
             </div>
 
 

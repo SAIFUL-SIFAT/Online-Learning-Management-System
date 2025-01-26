@@ -70,6 +70,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
                     <th>Instructor ID</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Actions</th>
 
                 </tr>
                 
@@ -81,7 +82,14 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
                             <td>" . $row['instructor_id'] . "</td>
                             <td>" . $row['title'] . "</td>
                             <td>" . $row['description'] . "</td>
-                        
+                            <td>
+                                        <div class='actions'>
+                                            <form action='../../control/instructor/delete_course.php'>
+                                                <input type='hidden' name='course_id' value='" . $row['course_id'] . "'>
+                                                <button type='submit' class='delete'>Delete</button>
+                                            </form>
+                                        </div>
+                            </td>
                         </tr>";
                 }
                 ?>

@@ -14,6 +14,7 @@ class MyDB {
         if ($this->conn->connect_error) {
             die("Error connecting to the database: " . $this->conn->connect_error);
         }
+	return $this->conn;
     }
 
     // Create the instructor table if it doesn't exist

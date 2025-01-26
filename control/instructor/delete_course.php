@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include '../../model/instructor/db.php';
 
 if (!isset($_SESSION['full_name'])) {
@@ -7,20 +9,18 @@ if (!isset($_SESSION['full_name'])) {
     exit();
 }
 
-
 $db = new MyDB();
-$db->openConn();
-$conn = $db->$conn;
-$sql = "DELETE FROM student WHERE student_id = ?";
+$conn = $db->openConn();
+$sql = "DELETE FROM course WHERE course_id = ?";
 
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param(
         "i",
-        $_GET['student_id'],
+        $_GET['course_id'],
     );
 
     if ($stmt->execute()) {
-        header('Location: ' . '../../view/instructor/Student_management.php');
+        header('Location: ' . '../../view/instructor/courses.php');
     } else {
         echo $stmt->error;
     }
