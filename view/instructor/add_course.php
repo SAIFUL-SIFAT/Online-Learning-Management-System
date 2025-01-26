@@ -38,7 +38,7 @@ include '../../control/instructor/course_control.php';
         <!-- Main Content -->
         <div class="main-content">
             <div class="header">
-                <input type="text" placeholder="Search..." class="search-bar">
+            <h2>Welcome to Add Course page</h2>
                 <div class="user-info">
                     <span>
                         <?php echo $_SESSION['full_name'] ?? '' ?>

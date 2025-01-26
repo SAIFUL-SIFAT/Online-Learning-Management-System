@@ -46,7 +46,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
         <div class="main-content">
             <!-- Header -->
             <div class="header">
-                <input type="text" placeholder="Search..." class="search-bar">
+            <h2>Welcome to Certificate page</h2>
                 <div class="user-info">
                     <span>
                         <?php echo $_SESSION['full_name'] ?? '' ?>

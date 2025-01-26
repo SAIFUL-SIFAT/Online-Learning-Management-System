@@ -37,8 +37,8 @@ if (!isset($_SESSION['full_name'])) {
                     <div class="main-content">
                         <!-- Header -->
                         <div class="header">
-                            <input type="text" placeholder="Search..." class="search-bar">
-                            <div class="user-info">
+                        <h2>Welcome to Update Profile Page</h2>
+                        <div class="user-info">
                                 <span>
                                     <?php echo $_SESSION['full_name'] ?? '' ?>
                                 </span>

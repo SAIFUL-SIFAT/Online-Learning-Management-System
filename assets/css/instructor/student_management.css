@@ -70,20 +70,17 @@ body {
     
 }
 
+header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    padding-bottom: 10px; 
     border-bottom:1px solid black;
-}
-
-.search-bar {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: 10px;
 }
 
 .user-info span {

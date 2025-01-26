@@ -70,6 +70,9 @@ body {
     
 }
 
+header h2 {
+    font-size: 22px;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -78,13 +81,6 @@ body {
     border-bottom:1px solid black;
 }
 
-.search-bar {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: 10px;
-}
 
 .user-info span {
     font-weight: bold;

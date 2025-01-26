@@ -45,8 +45,8 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
         <!-- Main Content -->
         <div class="main-content">
             <div class="header">
-                <input type="text" placeholder="Search..." class="search-bar">
-                <div class="user-info">
+            <h2>Welcome to Course page</h2>
+            <div class="user-info">
                     <span>
                         <?php echo $_SESSION['full_name'] ?? '' ?>
                     </span>
@@ -58,7 +58,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
 
 
             <!-- course Content -->
-            <h2>Courses</h2>
+            <!-- <h2>Courses</h2> -->
         <div class="courses">
                 
                 <a href="add_course.php">

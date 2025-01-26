@@ -69,11 +69,16 @@ body {
     
 }
 
+header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    padding-bottom: 10px; 
     border-bottom:1px solid black;
 }
 
