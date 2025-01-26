@@ -6,19 +6,22 @@ search_box.addEventListener('input', searchTextChangeListener);
 document.getElementById('search-bar-form').addEventListener('submit', (event) => { event.preventDefault(); });
 
 let searchDelayTimer;
-const SEARCH_DELAY = 1000;
+const SEARCH_DELAY = 500;
 
 search_box.addEventListener('keydown', () => {
     clearTimeout(searchDelayTimer);
 })
-
 
 function selectChangeListener(event) {
     let req = new XMLHttpRequest();
     req.onload = function() {
         const response = JSON.parse(this.response);
         // fill table with the response array
-        setTable(response);
+        if (response) {
+            setTable(response);
+        } else {
+            clearTable();
+        }
     };
 
     req.open('GET', `../../control/admin/get_users.php?type=${user_type.value.toLowerCase()}&page=${1}`, true);
@@ -32,13 +35,22 @@ function searchTextChangeListener(event) {
         req.onload = function() {
             const response = JSON.parse(this.response);
             // fill table with the response array
-            setTable(response);
+            if (response) {
+                setTable(response);
+            } else {
+                clearTable();
+            }
         };
 
         req.open('GET', `../../control/admin/search_users.php?type=${user_type.value.toLowerCase()}&query=${search_box.value}&page=${1}`, true);
         req.send();
 
     }, SEARCH_DELAY);
+}
+
+function clearTable() {
+    const table = document.getElementById("users-table");
+    table.innerHTML = "";
 }
 
 function setTable(response) {
