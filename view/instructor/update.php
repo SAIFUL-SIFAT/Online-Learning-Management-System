@@ -18,7 +18,7 @@ if (!isset($_SESSION['full_name'])) {
 
 <body>
             <div class="sidebar">
-                        <h2>Instructor Portal</h2>
+                <h2>Instructor Portal</h2>
                         <nav>
                             <ul>
                                 <li><a href="dashboard.php"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>

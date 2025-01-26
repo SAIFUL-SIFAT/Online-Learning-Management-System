@@ -1,10 +1,30 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
-
 if (!isset($_SESSION['full_name'])) {
     header("Location: ../../login.php");
     exit();
 }
+include '../../model/instructor/db.php';
+$db= new MyDB();
+$conn = $db->openConn();
+
+
+// Get the total number of courses
+$sql = "SELECT COUNT(*) AS total_courses FROM course WHERE instructor_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_SESSION['instructor_id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$total_courses = $result->fetch_assoc()['total_courses'];
+
+$sql = "SELECT COUNT(*) AS total_students FROM student ";
+$stmt = $conn->prepare($sql);
+// $stmt->bind_param("i", $_SESSION['instructor_id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$total_students = $result->fetch_assoc()['total_students'];
 ?>
 
 <!DOCTYPE html>
@@ -51,61 +71,26 @@ if (!isset($_SESSION['full_name'])) {
         </div>
 
             <!-- Dashboard Content -->
-            <h2>Dashboard</h2>
+            <!-- <h2>Dashboard</h2> -->
             <div class="dashboard">
-                <div class="stats">
+                <h2>Dashboard</h2>
+                <div class="dashboard-stats">
                     <div class="stat">
-                        
+                        <h3>Total Courses</h3>
+                        <p><?php echo $total_courses; ?></p>
                     </div>
                     <div class="stat">
-                        
+                        <h3>Total Students</h3>
+                        <p><?php echo $total_students; ?></p>
                     </div>
                     <div class="stat">
-                        
+                        <h3>Total Certificates</h3>
+                        <p><?php echo $total_courses; ?></p>
                     </div>
-                    <div class="stat">
-                        
-                    </div>
-                </div>
 
-                <!-- Recent Activity and Events -->
-                <div class="activity-events">
-                    <div class="recent-activity">
-                        <h3>Recent Activity</h3>
-                        <ul>
-                            <li>New Course: Advanced JavaScript</li>
-                            <li>Grade Updated: Web Development Basics</li>
-                            <li>Certificate Issued: React Fundamentals</li>
-                            <li>New Student: Emily Johnson enrolled</li>
-                        </ul>
-                    </div>
-                    <div class="upcoming-events">
-                        <h3>Upcoming Events</h3>
-                        <ul>
-                            <li>Course Review Meeting - Today, 2:00 PM</li>
-                            <li>New Course Launch - Tomorrow, 10:00 AM</li>
-                            <li>Student Orientation - Sep 25, 11:00 AM</li>
-                            <li>End of Term Assessment - Sep 30, 9:00 AM</li>
-                        </ul>
-                    </div>
+                 
                 </div>
-
-                <!-- Course Progress Overview -->
-                <div class="course-progress">
-                    <h3>Course Progress Overview</h3>
-                    <div class="progress">
-                        <p>Web Development Fundamentals</p>
-                        
-                    </div>
-                    <div class="progress">
-                        <p>Advanced React Patterns</p>
-                        
-                    </div>
-                    <div class="progress">
-                        <p>UI/UX Design Principles</p>
-                        <!-- <progress value="45" max="100"></progress> -->
-                    </div>
-                </div>
+                <!-- Other dashboard content -->
             </div>
         </div>
     </div>
