@@ -9,7 +9,8 @@ if (!isset($_SESSION['full_name'])) {
 
 
 $db = new MyDB();
-$conn = $db->openConn();
+$db->openConn();
+$conn = $db->$conn;
 $sql = "DELETE FROM student WHERE student_id = ?";
 
 if ($stmt = $conn->prepare($sql)) {
