@@ -42,7 +42,7 @@ if (!isset($_SESSION['admin_id'])) {
         </table>
     </form>
 
-    <a class="link-button" id="back-button" href="courses.php">Back to Course List</a>
+    <a class="link-button" id="back-button" href="courses.php">Back to Courses</a>
     </div>
     </div>
 </body>

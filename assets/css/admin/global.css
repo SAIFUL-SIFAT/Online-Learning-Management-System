@@ -1,5 +1,5 @@
 * {
-    font-family: 'Courier New';
+    font-family: 'Courier New', Tahoma, sans-serif;
     box-sizing: border-box;
     transition: all 0.2s ease;
 }
@@ -13,7 +13,8 @@ header {
     grid-column-start: 1;
     grid-column-end: 3;
     width: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .container {
@@ -33,7 +34,7 @@ header {
     grid-row-start: 2;
     grid-row-end: 4;
     padding: 20px 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: auto;
 }
@@ -105,7 +106,7 @@ nav {
     grid-row-start: 2;
     grid-row-end: 4;
     width: fit-content;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 10px 0 10px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -118,7 +119,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-bottom: 10px; /* Add spacing between tabs */
+    margin-bottom: 10px;
 }
 
 nav ul li a {
@@ -166,7 +167,7 @@ nav ul li form input[type="submit"]:hover {
     height: 60%;
     width: 100%;
     overflow-x: auto;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
@@ -175,8 +176,12 @@ table {
     border-collapse: collapse;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+}
+
+tr:not(form table tbody tr):hover {
+    filter: brightness(0.96);
 }
 
 th, td {
@@ -207,13 +212,13 @@ table {
 
 
 .link-button {
+    font-family: Helvetica, sans-serif;
     display: inline-block;
     padding: 6px 6px;
     text-decoration: none;
     text-align: center;
-    font-weight: bold;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0, 0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
 }
 
 .link-button:hover {
