@@ -11,10 +11,12 @@ if (!isset($_SESSION['admin_id'])) {
 <head>
     <title>Create Notification</title>
     <link rel='stylesheet' href='../../assets/css/admin/global.css'>
+    <link rel='stylesheet' href='../../assets/css/admin/view-notifications.css'>
 </head>
 
 <body>
     <div class="container">
+    <?php include 'header.php'; ?>
     <?php include 'navigation.php'; ?>
     <div>
     <h2>Create Notification</h2>
@@ -34,12 +36,12 @@ if (!isset($_SESSION['admin_id'])) {
                 <td><input type="number" name="instructor_id" required></td>
             </tr>
             <tr>
-                <td><input type="submit" value="Create Notification"></td>
+                <td><input class="link-button" id="create-notification" type="submit" value="Create Notification"></td>
             </tr>
         </table>
     </form>
 
-    <a href="notifications.php">Back to Notifications</a>
+    <a class="link-button" id="back-button" href="notifications.php">Back to Notifications</a>
     </div>
     </div>
 </body>

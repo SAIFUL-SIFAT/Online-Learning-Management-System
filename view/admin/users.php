@@ -15,6 +15,7 @@ if (!isset($_SESSION['admin_id'])) {
 </head>
 <body>
 <div class="container">
+    <?php include 'header.php'; ?>
     <?php include 'navigation.php'; ?>
     <div>
 

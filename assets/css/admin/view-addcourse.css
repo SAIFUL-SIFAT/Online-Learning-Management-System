@@ -1,0 +1,18 @@
+#back-button {
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+table {
+    width: fit-content;
+}
+
+table td {
+    border: none;
+}
+
+#save-button {
+    padding: 10px 20px;
+}

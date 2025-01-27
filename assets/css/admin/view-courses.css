@@ -1,0 +1,14 @@
+#add-course {
+    background: #4a90e2;
+    color: white;
+    width: fit-content;
+    padding: 10px 20px;
+}
+
+#delete-course {
+    color: red;
+}
+
+table {
+    margin-top: 20px;
+}

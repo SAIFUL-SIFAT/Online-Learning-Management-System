@@ -1,0 +1,29 @@
+#create-notification {
+    background: #4a90e2;
+    padding: 10px 20px;
+    color: white;
+}
+
+#back-button {
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+#delete-notification {
+    color: red;
+}
+
+table {
+    margin-top: 20px;
+    width: fit-content;
+}
+
+table td {
+    border: none;
+}
+
+#save-button {
+    padding: 10px 20px;
+}

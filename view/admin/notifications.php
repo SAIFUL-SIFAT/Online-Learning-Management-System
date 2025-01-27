@@ -11,15 +11,17 @@ if (!isset($_SESSION['admin_id'])) {
 <head>
     <title>Notifications</title>
     <link rel='stylesheet' href='../../assets/css/admin/global.css'>
+    <link rel='stylesheet' href='../../assets/css/admin/view-notifications.css'>
 </head>
 <body>
 <div class="container">
 
+<?php include 'header.php'; ?>
 <?php include 'navigation.php'; ?>
 <div>
 
 <h2>Manage Notifications</h2>
-<a href="create_notification.php">Create Notification</a>
+<a class="link-button" id="create-notification" href="create_notification.php">Create Notification</a>
 
 <table>
     <tr>
@@ -28,6 +30,7 @@ if (!isset($_SESSION['admin_id'])) {
         <th>Message</th>
         <th>Type</th>
         <th>Created At</th>
+        <th>Action</th>
     </tr>
     <?php
     include '../../control/admin/notification_control.php';
@@ -41,7 +44,7 @@ if (!isset($_SESSION['admin_id'])) {
             <td>" . htmlspecialchars($row['type']) . "</td>
             <td>" . htmlspecialchars($row['created_at']) . "</td>
             <td>
-                <a href='../../control/admin/delete_notification.php?id=" . urlencode($row['notification_id']) . "'>Delete</a>
+                <a class='link-button' id='delete-notification' href='../../control/admin/delete_notification.php?id=" . urlencode($row['notification_id']) . "'>Delete</a>
             </td>
           </tr>";
     }

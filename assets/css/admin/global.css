@@ -9,20 +9,33 @@ body {
     margin: 0;
 }
 
+header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
 .container {
-    width: 70%;
-    height: 100vh;
-    display: flex;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows: 100px auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 40px;
     box-sizing: border-box;
 }
 
 .container > div {
+    width: 100%;
+    grid-row-start: 2;
+    grid-row-end: 4;
     padding: 20px 40px;
-    width: inherit;
-    margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    overflow: auto;
 }
 
 input:focus,
@@ -89,9 +102,10 @@ input[type="reset"]:hover {
 
 /* NAVIGATION */
 nav {
-    width: 20%; /* Adjust the width as needed */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 20px;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px 10px 0 10px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -118,12 +132,17 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #007bff; /* Highlight color on hover */
+    background-color: #357abd;
+    color: white;
+}
+
+.nav-ul-li-a-selected {
+    background-color: #4a90e2;
     color: white;
 }
 
 nav ul li form {
-    margin: 0; /* Remove extra spacing around form */
+    margin: 0;
 }
 
 nav ul li form input[type="submit"] {
@@ -132,7 +151,7 @@ nav ul li form input[type="submit"] {
     padding: 10px 15px;
     font-weight: bold;
     color: white;
-    background-color: #dc3545; /* Logout button color */
+    background-color: #dc3545;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -140,7 +159,63 @@ nav ul li form input[type="submit"] {
 }
 
 nav ul li form input[type="submit"]:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333;
 }
 
-/* TABLE */
+.table-container {
+    height: 60%;
+    width: 100%;
+    overflow-x: auto;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+th {
+    background-color: #f1f1f6;
+    text-transform: uppercase;
+    color: #555;
+}
+
+td {
+    background-color: #fff;
+    border-top: 1px solid #f1f1f1;
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+.link-button {
+    display: inline-block;
+    padding: 6px 6px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.2);
+}
+
+.link-button:hover {
+    box-shadow: none;
+}

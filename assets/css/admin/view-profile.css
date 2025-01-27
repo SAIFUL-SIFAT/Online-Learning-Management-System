@@ -1,0 +1,17 @@
+table {
+    width: fit-content;
+    padding: 20px;
+    border-collapse: unset;
+}
+
+table td {
+    border: none;
+}
+
+th, td {
+    padding: 4px;
+}
+
+#save-button {
+    padding: 10px 20px;
+}

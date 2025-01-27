@@ -15,10 +15,12 @@ form {
 
 table {
     width: 100%;
+    box-shadow: none;
 }
 
 td {
     padding: 10px 0;
+    border: none;
 }
 
 input[type="text"]:focus,

@@ -13,14 +13,16 @@ if (!isset($_SESSION['admin_id'])) {
 <head>
     <title>Courses</title>
     <link rel='stylesheet' href='../../assets/css/admin/global.css'>
+    <link rel='stylesheet' href='../../assets/css/admin/view-courses.css'>
 </head>
 
 <body>
 <div class="container">
+    <?php include 'header.php'; ?>
     <?php include 'navigation.php' ?>
     <div>
         <h2>Manage Courses</h2>
-        <a href="add_course.php">Add course</a>
+        <a href="add_course.php" class="link-button" id="add-course">Add course</a>
         <table>
             <tr>
                 <th>ID</th>
@@ -46,7 +48,7 @@ if (!isset($_SESSION['admin_id'])) {
                         <td>" . $row['title'] . "</td>
                         <td>" . $row['description'] . "</td>
                         <td>
-                            <a href='../../control/admin/delete_course.php?id=" . urlencode($row['course_id']) . "'>Delete</a>
+                            <a class='link-button' id='delete-course' href='../../control/admin/delete_course.php?id=" . urlencode($row['course_id']) . "'>Delete</a>
                         </td>
                       </tr>";
             }

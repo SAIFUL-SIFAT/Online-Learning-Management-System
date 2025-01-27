@@ -13,10 +13,12 @@ if (!isset($_SESSION['admin_id'])) {
 <head>
     <title>Approve Instructors</title>
     <link rel='stylesheet' href='../../assets/css/admin/global.css'>
+    <link rel='stylesheet' href='../../assets/css/admin/view-instructors.css'>
 </head>
 
 <body>
 <div class="container">
+    <?php include 'header.php'; ?>
     <?php include 'navigation.php' ?>
     <div>
     <h2>Approve Instructors</h2>
@@ -38,8 +40,8 @@ if (!isset($_SESSION['admin_id'])) {
                     <td>" . $row['full_name'] . "</td>
                     <td>" . $row['email'] . "</td>
                     <td>
-                        <a href='../../control/admin/approve_instructor.php?id=" . urlencode($row['instructor_id']) . "'>Approve</a>
-                        <a href='../../control/admin/reject_instructor.php?id=" . urlencode($row['instructor_id']) . "'>Reject</a>
+                        <a class='link-button' id='approve-instructor' href='../../control/admin/approve_instructor.php?id=" . urlencode($row['instructor_id']) . "'>Approve</a>
+                        <a class='link-button' id='reject-instructor' href='../../control/admin/reject_instructor.php?id=" . urlencode($row['instructor_id']) . "'>Reject</a>
                     </td>
                   </tr>";
         }

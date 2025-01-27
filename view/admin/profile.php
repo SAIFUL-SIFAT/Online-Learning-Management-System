@@ -12,10 +12,12 @@ if (!isset($_SESSION['admin_id'])) {
 <head>
     <title>Admin Profile</title>
     <link rel='stylesheet' href='../../assets/css/admin/global.css'>
+    <link rel='stylesheet' href='../../assets/css/admin/view-profile.css'>
 </head>
 
 <body>
     <div class="container">
+    <?php include 'header.php' ?>
     <?php include 'navigation.php' ?>
     <div>
     <form method="POST" enctype="multipart/form-data" action='../../control/admin/update_profile.php'>
@@ -67,7 +69,7 @@ if (!isset($_SESSION['admin_id'])) {
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="Save Profile">
+                    <input class="link-button" id="save-button" type="submit" value="Save Profile">
                 </td>
             </tr>
         </table>
