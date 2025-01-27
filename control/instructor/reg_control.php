@@ -44,23 +44,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $teaching_experience = $_POST['teaching_experience'];
         $institution = $_POST['institution'];
 
-        // Handle profile photo upload
-        // define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');
-        // if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
-        //     mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
-        // }
+                // Handle profile photo upload
+            // define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');
+            // if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
+            //     mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
+            // }
 
-        // $is_uploaded = is_uploaded_file($_FILES['profile_photo']['tmp_name']);
-        // if ($is_uploaded) {
-        //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_photo']['name']);
-        //     if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path)) {
-        //         $_POST['profile_photo'] = $new_path; // Store the path for database insertion
-        //     } else {
-        //         $errors['profile_photo'] = "Failed to move uploaded file.";
-        //     }
-        // } else {
-        //     $errors['profile_photo'] = "No file uploaded or file upload error.";
-        // }
+            // $is_uploaded = is_uploaded_file($_FILES['profile_photo']['tmp_name']);
+            // if ($is_uploaded) {
+            //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_photo']['name']);
+            //     if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path)) {
+            //         $_POST['profile_photo'] = $new_path; // Store the path for database insertion
+            //     } else {
+            //         $errors['profile_photo'] = "Failed to move uploaded file.";
+            //     }
+            // } else {
+            //     if (empty($_FILES['profile_photo']['name'])) {
+            //         $errors['profile_photo'] = "No file uploaded.";
+            //     } else {
+            //         $errors['profile_photo'] = "File upload error.";
+            //     }
+            // }
+
 
         if (empty($errors)) {
             $user_data = array(

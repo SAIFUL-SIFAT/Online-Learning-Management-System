@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 if (!isset($_SESSION['full_name'])) {
-    header("Location: ../../login.php");
+    header("Location: login.php");
     exit();
 }
 include '../../model/instructor/db.php';
@@ -12,19 +12,8 @@ $conn = $db->openConn();
 
 
 // Get the total number of courses
-$sql = "SELECT COUNT(*) AS total_courses FROM course WHERE instructor_id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_SESSION['instructor_id']);
-$stmt->execute();
-$result = $stmt->get_result();
-$total_courses = $result->fetch_assoc()['total_courses'];
-
-$sql = "SELECT COUNT(*) AS total_students FROM student ";
-$stmt = $conn->prepare($sql);
-// $stmt->bind_param("i", $_SESSION['instructor_id']);
-$stmt->execute();
-$result = $stmt->get_result();
-$total_students = $result->fetch_assoc()['total_students'];
+$total_courses = $db->getTotalCourses($_SESSION['instructor_id']);
+$total_students = $db->getTotalStudents();
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +32,11 @@ $total_students = $result->fetch_assoc()['total_students'];
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
-                    <li><a href="dashboard.php" class="active"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
-                    <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
-                    <li><a href="Student_management.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Student Management</a></li>
-                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
-                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li> 
+                    <li><a href="dashboard.php" class="active"><span><img src="../../assets/uploads/dashboard.svg"   width="18" height="12"></span>Dashboard</a></li>
+                    <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg"  width="18" height="12"></span>Courses</a></li>
+                    <li><a href="Student_management.php"><span><img src="../../assets/uploads/grade.svg"  width="15" height="14"></span>Student Management</a></li>
+                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg"  width="20" height="15"></span>Certificates</a></li>
+                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg"  width="18" height="12"></span>Profile</a></li> 
                 </ul>
             </nav>
             <form action="../../control/instructor/logout_control.php">

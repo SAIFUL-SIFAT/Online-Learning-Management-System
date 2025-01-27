@@ -90,31 +90,35 @@ header h2 {
 /* ------------------------------------------- */
 .student-management-container {
     margin-top: 20px;
-    overflow-x: auto;
 }
 
 .student-management-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.1);
+    border: 1px solid #ccc;
+    overflow: hidden;
     border-radius: 10px;
+    font-size: 14px;
 }
 
 .student-management-table th,
 .student-management-table td {
-    padding: 12px 15px;
+    padding: 12px 16px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
 }
 
 .student-management-table th {
-    background-color: #f2f2f2;
+    background-color: #e5e5e6;
     font-weight: bold;
 }
 
-.student-management-table td {
-    vertical-align: middle;
-}
+
+/* .student-management-table tr:last-child td {
+    border-bottom: none;
+} */
 
 /* .actions {
     display: flex; 

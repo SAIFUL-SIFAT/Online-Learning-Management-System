@@ -163,8 +163,9 @@ class MyDB {
 
         $stmt->close();
     }
-    public function getStudents()
-{
+
+    //Get all students
+    public function getStudents(){
     $this->openConn();
 
     $sql = "SELECT student_id, full_name, last_name, email, phone, country, preferred_language FROM student";
@@ -188,6 +189,25 @@ class MyDB {
         $stmt->bind_param("i", $instructor_id);
         $stmt->execute();
         return $stmt->get_result();
+    }
+    //Total courses
+    public function getTotalCourses($instructorId)
+    {
+        $sql = "SELECT COUNT(*) AS total_courses FROM course WHERE instructor_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $instructorId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()['total_courses'];
+    }
+    //Total students
+    public function getTotalStudents()
+    {
+        $sql = "SELECT COUNT(*) AS total_students FROM student";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()['total_students'];
     }
 
     public function close()

@@ -152,7 +152,7 @@ h2{
     cursor: pointer;
   }
 
-.certificate-details .status {
+/* .certificate-details .status {
     font-size: 14px;
     padding: 4px 8px;
     border-radius: 4px;
@@ -167,4 +167,4 @@ h2{
 .certificate-details .status.pending {
     background-color: #fee2e2;
     color: #ef4444;
-}
+} */

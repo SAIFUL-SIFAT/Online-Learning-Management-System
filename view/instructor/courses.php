@@ -1,16 +1,15 @@
 <?php 
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 
 if (!isset($_SESSION['full_name'])) {
-    header("Location: ../../login.php");
+    header("Location: login.php");
     exit();
 }
 include '../../model/instructor/db.php';
 
 $db = new MyDB();
-// $conn = $db->open();
 
 $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
 ?>
@@ -22,6 +21,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Portal</title>
     <link rel="stylesheet" href="../../assets/css/instructor/courses.css">
+    <script src="../../assets/js/instructor/courses.js"></script>   
 </head>
 <body>
     <div class="container">
@@ -30,11 +30,11 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
-                    <li><a href="dashboard.php"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
-                    <li><a href="courses.php"class="active"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
-                    <li><a href="Student_management.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Student Management</a></li>
-                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
-                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li>
+                    <li><a href="dashboard.php"><span><img src="../../assets/uploads/dashboard.svg"   width="18" height="12"></span>Dashboard</a></li>
+                    <li><a href="courses.php"class="active"><span><img src="../../assets/uploads/course.svg"  width="18" height="12"></span>Courses</a></li>
+                    <li><a href="Student_management.php"><span><img src="../../assets/uploads/grade.svg"  width="15" height="14"></span>Student Management</a></li>
+                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg"   width="20" height="15"></span>Certificates</a></li>
+                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg"  width="18" height="12"></span>Profile</a></li>
                 </ul>
             </nav>
             <form action="../../control/instructor/logout_control.php">
@@ -64,7 +64,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
                 <a href="add_course.php">
             <button type="button" class="add-course">+ Add Course</button>
             </a>
-            <table>
+            <table >
                 <tr>
                     <th>ID</th>
                     <th>Instructor ID</th>
@@ -92,6 +92,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
                             </td>
                         </tr>";
                 }
+                
                 ?>
             </table>
 
@@ -100,7 +101,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
     </div>
 
 </div>
-    <script type="javascript" src="../../assets/js/instructor/myjs.js"></script>
-    
+
+
 </body>
 </html>

@@ -14,49 +14,49 @@
         <tr>
             <td><label for="full_name">Full Name:</label></td>
             <td>
-                <input type="text" id="full_name" name="full_name" required>
+                <input type="text" id="full_name" name="full_name" >
                 <div id="full_name_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="email">Email Address:</label></td>
             <td>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" >
                 <div id="email_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="pass">Password:</label></td>
             <td>
-                <input type="password" id="pass" name="pass" required>
+                <input type="password" id="pass" name="pass" >
                 <div id="pass_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="con_pass">Confirm Password:</label></td>
             <td>
-                <input type="password" id="con_pass" name="con_pass" required>
+                <input type="password" id="con_pass" name="con_pass" >
                 <div id="con_pass_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="phone">Phone Number:</label></td>
             <td>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" name="phone" >
                 <div id="phone_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="qualifications">Qualifications:</label></td>
             <td>
-                <textarea id="qualifications" name="qualifications" required></textarea>
+                <textarea id="qualifications" name="qualifications" ></textarea>
                 <div id="qualifications_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="expertise">Area of Expertise:</label></td>
             <td>
-                <select id="expertise" name="expertise" required>
+                <select id="expertise" name="expertise" >
                     <option value="">Select...</option>
                     <option value="Math">Mathematics</option>
                     <option value="Science">Science</option>
@@ -76,14 +76,14 @@
         <tr>
             <td><label for="T_experience">Teaching Experience (Years):</label></td>
             <td>
-                <input type="number" id="T_experience" name="teaching_experience" required>
+                <input type="number" id="T_experience" name="teaching_experience" >
                 <div id="T_experience_error" class="error"></div>
             </td>
         </tr>
         <tr>
             <td><label for="institution">Institution:</label></td>
             <td>
-                <input type="text" id="institution" name="institution" required>
+                <input type="text" id="institution" name="institution" >
                 <div id="institution_error" class="error"></div>
             </td>
         </tr>

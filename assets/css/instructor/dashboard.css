@@ -94,8 +94,9 @@ header h2 {
 }
 
 .dashboard-stats {
-    display: flex; /* Use Flexbox */
-    gap: 20px; /* Space between the items */
+    display: flex; 
+    gap: 20px; 
+    margin-top: 10px;
 }
 
 .stat {

@@ -1,7 +1,7 @@
 <?php   
 session_start();
 if (!isset($_SESSION['full_name'])) {
-    header("Location: ../../login.php");
+    header("Location: login.php");
     exit();
 }
 ?>
@@ -53,38 +53,38 @@ if (!isset($_SESSION['full_name'])) {
                 <table>
                     <tr>
                         <td><label for="full_name">Full Name:</label></td>
-                        <td><input type="text" id="full_name" name="full_name" placeholder="<?php echo $_SESSION['full_name'] ?? ''?>"required></td>
+                        <td><input type="text" id="full_name" name="full_name" placeholder="<?php echo $_SESSION['full_name'] ?? ''?>"></td>
                     </tr>
 
                     <tr>
                         <td><label for="Email">Email Address:</label></td>
-                        <td><input type="text" id="email" name="email" placeholder="<?php echo $_SESSION['email'] ?? ''?>" required></td>
+                        <td><input type="text" id="email" name="email" placeholder="<?php echo $_SESSION['email'] ?? ''?>" ></td>
                     </tr>
 
                     <tr>
                         <td><label for="password">Password:</label></td>
-                        <td><input type="password" id="pass" name="pass" required></td>
+                        <td><input type="password" id="pass" name="pass" ></td>
                     </tr>
 
                     <tr>
                         <td><label for="confirm_pass">Confirm Password:</label></td>
-                        <td><input type="password" id="con_pass" required></td>
+                        <td><input type="password" id="con_pass" ></td>
                     </tr>
 
                     <tr>
                         <td><label for="phone">Phone Number:</label></td>
-                        <td><input type="tel" id="phone" name="phone" placeholder="<?php echo $_SESSION['phone'] ?? ''?>"required></td>
+                        <td><input type="tel" id="phone" name="phone" placeholder="<?php echo $_SESSION['phone'] ?? ''?>"></td>
                     </tr>
 
                     <tr>
                         <td><label for="qualifications">Qualifications:</label></td>
-                        <td><textarea id="qualifications" name="qualifications" placeholder="<?php echo $_SESSION['qualifications'] ?? ''?>"required></textarea></td>
+                        <td><textarea id="qualifications" name="qualifications" placeholder="<?php echo $_SESSION['qualifications'] ?? ''?>"></textarea></td>
                     </tr>
 
                     <tr>
                         <td><label for="expertise">Area of Expertise:</label></td>
                         <td>
-                            <select id="expertise" name="expertise" required>
+                            <select id="expertise" name="expertise" >
                                 <option value="Math">Mathematics</option>
                                 <option value="Science">Science</option>
                                 <option value="Programming">Programming</option>
@@ -100,11 +100,11 @@ if (!isset($_SESSION['full_name'])) {
 
                     <tr>
                         <td><label for=" experience">Teaching experience(Years):</label></td>
-                        <td><input type="number" id="T_experience" name="teaching_experience" placeholder="<?php echo $_SESSION['teaching_experience'] ?? ''?>" required></td>
+                        <td><input type="number" id="T_experience" name="teaching_experience" placeholder="<?php echo $_SESSION['teaching_experience'] ?? ''?>" ></td>
                     </tr>
                     <tr>
                         <td><label for="institution">Institution:</label></td>
-                        <td><input type="text" id="institution" name="institution" placeholder="<?php echo $_SESSION['institution'] ?? ''?>" required></td>
+                        <td><input type="text" id="institution" name="institution" placeholder="<?php echo $_SESSION['institution'] ?? ''?>" ></td>
                     </tr>
                     <!-- <tr>
                         <td><label for="gender">Gender:</label></td>
