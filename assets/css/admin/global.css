@@ -45,6 +45,50 @@ header #notification img {
     width: 26px;
 }
 
+header #notification img:hover {
+    cursor: pointer;
+}
+
+.notification-list {
+    visibility: visible;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    width: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 120px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 5px 5px 0 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.hide-notification {
+    visibility: hidden;
+}
+
+.notification-list #notification-item {
+    width: 100%;
+    background: #efefef;
+    color: #4e4e4e;
+    padding: 16px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-list #notification-item #notification-time {
+    font-family: Helvetica, Tahoma, sans-serif;
+    color: #7c7c7c;
+}
+
 .container {
     width: 100%;
     height: 100%;

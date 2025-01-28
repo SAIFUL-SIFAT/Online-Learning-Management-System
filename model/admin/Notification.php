@@ -6,7 +6,7 @@ class Notification {
     {
         $db = new Db();
         $conn = $db->open();
-        $sql = "SELECT * FROM notification";
+        $sql = "SELECT * FROM notification ORDER BY created_at DESC";
 
         $result = $conn->query($sql);
 
