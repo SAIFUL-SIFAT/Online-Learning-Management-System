@@ -17,15 +17,14 @@ class Notification {
         }
     }
 
-    static function createNotification($instructor_id, $message, $type): bool {
+    static function createNotification($message, $type): bool {
         $db = new Db();
         $conn = $db->open();
-        $sql = "INSERT INTO notification (instructor_id, message, type) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO notification (message, type) VALUES (?, ?)";
 
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param(
-                "iss",
-                $instructor_id,
+                "ss",
                 $message,
                 $type,
             );

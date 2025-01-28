@@ -1,5 +1,11 @@
 <?php
+session_start();
 include_once ("../../model/admin/User.php");
+
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
 $type = $_GET['type'] ?? 'student';
 $search_text = $_GET['query'] ?? '';

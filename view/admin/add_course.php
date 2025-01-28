@@ -26,15 +26,26 @@ if (!isset($_SESSION['admin_id'])) {
         <table>
             <tr>
                 <td>Title:</td>
-                <td><input type="text" name="title" required></td>
+                <td><input type="text" name="title"></td>
             </tr>
             <tr>
                 <td>Description:</td>
                 <td><textarea name="description"></textarea></td>
             </tr>
             <tr>
+                <td>Instructor:</td>
+                <td>
+                    <input id="instructor-query" placeholder="Search Instructor">
+                    <select id="instructor-select">
+                        <option value="" disabled selected>Select an instructor</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td>Instructor ID:</td>
-                <td><input type="number" name="instructor_id" required></td>
+                <td>
+                    <input type='number' name="instructor_id" id="instructor_id" readonly>
+                </td>
             </tr>
             <tr>
                 <td><input type="submit" value="Add Course"></td>
@@ -45,6 +56,7 @@ if (!isset($_SESSION['admin_id'])) {
     <a class="link-button" id="back-button" href="courses.php">Back to Courses</a>
     </div>
     </div>
+<script src="../../assets/js/admin/add_course.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,24 @@
 #approve-instructor {
+    display: inline-flex;
+    align-items: center;
     background: #4a90e2;
     color: white;
 }
 
+#approve-instructor img {
+    padding-right: 10px;
+    width: 32px;
+}
+
 #reject-instructor {
     color: red;
+    display: inline-flex;
+    align-items: center;
+}
+
+#reject-instructor img {
+    padding-right: 10px;
+    width: 32px;
 }
 
 #reject-instructor:hover {

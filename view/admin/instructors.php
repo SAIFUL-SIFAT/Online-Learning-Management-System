@@ -40,8 +40,8 @@ if (!isset($_SESSION['admin_id'])) {
                     <td>" . $row['full_name'] . "</td>
                     <td>" . $row['email'] . "</td>
                     <td>
-                        <a class='link-button' id='approve-instructor' href='../../control/admin/approve_instructor.php?id=" . urlencode($row['instructor_id']) . "'>Approve</a>
-                        <a class='link-button' id='reject-instructor' href='../../control/admin/reject_instructor.php?id=" . urlencode($row['instructor_id']) . "'>Reject</a>
+                        <a class='link-button' id='approve-instructor' href='../../control/admin/approve_instructor.php?id=" . urlencode($row['instructor_id']) . "'><img src='../../assets/uploads/admin/approve.png'>Approve</a>
+                        <a class='link-button' id='reject-instructor' href='../../control/admin/reject_instructor.php?id=" . urlencode($row['instructor_id']) . "'><img src='../../assets/uploads/admin/delete-red.png'>Reject</a>
                     </td>
                   </tr>";
         }

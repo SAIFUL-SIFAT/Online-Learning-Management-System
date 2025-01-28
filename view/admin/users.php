@@ -23,7 +23,7 @@ if (!isset($_SESSION['admin_id'])) {
     <div class="search-bar">
         <search>
             <form id="search-bar-form">
-                <input name="search_text" id="search_text" placeholder="Search">
+                <input name="search_text" id="search_text" placeholder="Search by Email">
             </form>
         </search>
         <select id="user-type-selector">
@@ -48,8 +48,8 @@ if (!isset($_SESSION['admin_id'])) {
             echo '<tr>';
             foreach ($keys as $key) {
                 echo "<th>" . $key . "</th>";
-
             }
+            echo "<th>Action</th>";
             echo '</tr>';
 
             if ($rows) {
@@ -59,8 +59,8 @@ if (!isset($_SESSION['admin_id'])) {
                         echo "<td>" . $v . "</td>";
 
                     }
+                    echo "<td>" . " <a class='link-button' id='user-action' href='../../control/admin/delete_course.php?id=" . urlencode($row[$keys[0]]) . "'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a>" . "</td>";
                     echo '</tr>';
-                    // echo "<td>" . " <a href='../../control/admin/delete_course.php?id=" . urlencode($row[$key[0]]) . "'>Delete</a>" . "</td>";
                 }
             }
         }

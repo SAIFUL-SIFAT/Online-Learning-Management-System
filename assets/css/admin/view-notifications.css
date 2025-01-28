@@ -1,7 +1,18 @@
 #create-notification {
     background: #4a90e2;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
     color: white;
+}
+
+#create-notification img {
+    width: 32px;
+    margin-right: 5px;
+}
+
+#create-notification-table {
+    width: auto;
 }
 
 #back-button {
@@ -13,8 +24,14 @@
 
 #delete-notification {
     color: red;
+    display: inline-flex;
+    align-items: center;
 }
 
+#delete-notification img {
+    padding-right: 10px;
+    width: 32px;
+}
 #delete-notification:hover {
     box-shadow: 0 1px 10px rgba(255, 0, 0, 0.3);
 }

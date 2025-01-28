@@ -21,12 +21,11 @@ if (!isset($_SESSION['admin_id'])) {
 <div>
 
 <h2>Manage Notifications</h2>
-<a class="link-button" id="create-notification" href="create_notification.php">Create Notification</a>
+<a class="link-button" id="create-notification" href="create_notification.php"><img src="../../assets/uploads/admin/add.png">Create Notification</a>
 
 <table>
     <tr>
         <th>ID</th>
-        <th>Instructor ID</th>
         <th>Message</th>
         <th>Type</th>
         <th>Created At</th>
@@ -39,12 +38,11 @@ if (!isset($_SESSION['admin_id'])) {
     foreach ($result as $row) {
         echo "<tr>
             <td>" . htmlspecialchars($row['notification_id']) . "</td>
-            <td>" . htmlspecialchars($row['instructor_id']) . "</td>
             <td>" . htmlspecialchars($row['message']) . "</td>
             <td>" . htmlspecialchars($row['type']) . "</td>
             <td>" . htmlspecialchars($row['created_at']) . "</td>
             <td>
-                <a class='link-button' id='delete-notification' href='../../control/admin/delete_notification.php?id=" . urlencode($row['notification_id']) . "'>Delete</a>
+                <a class='link-button' id='delete-notification' href='../../control/admin/delete_notification.php?id=" . urlencode($row['notification_id']) . "'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a>
             </td>
           </tr>";
     }

@@ -5,6 +5,14 @@
     padding: 10px 20px;
 }
 
+textarea {
+    width: 100%;
+}
+
+#instructor-select {
+    width: 100%;
+}
+
 table {
     width: fit-content;
 }

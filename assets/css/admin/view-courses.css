@@ -1,12 +1,26 @@
 #add-course {
     background: #4a90e2;
     color: white;
+    display: inline-flex;
+    align-items: center;
     width: fit-content;
-    padding: 10px 20px;
+    padding: 5px 10px;
+}
+
+#add-course img {
+    width: 32px;
+    margin-right: 5px;
 }
 
 #delete-course {
     color: red;
+    display: flex;
+    align-items: center;
+}
+
+#delete-course img {
+    padding-right: 10px;
+    width: 32px;
 }
 
 #delete-course:hover {

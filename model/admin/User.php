@@ -24,11 +24,11 @@ class User {
         $db = new Db();
         $conn = $db->open();
         if ($limit) {
-            $sql = "SELECT * FROM $type WHERE username LIKE '%$search_text%' OR email LIKE '%$search_text%' LIMIT $offset, $limit ";
+            $sql = "SELECT * FROM $type WHERE email LIKE '%$search_text%' LIMIT $offset, $limit ";
         } else if ($offset) {
-            $sql = "SELECT * FROM $type WHERE username LIKE '%$search_text%' OR email LIKE '%$search_text%' OFFSET $offset";
+            $sql = "SELECT * FROM $type WHERE email LIKE '%$search_text%' OFFSET $offset";
         } else {
-            $sql = "SELECT * FROM $type WHERE username LIKE '%$search_text%' OR email LIKE '%$search_text%'";
+            $sql = "SELECT * FROM $type WHERE email LIKE '%$search_text%'";
         }
         $result = $conn->query($sql);
         $conn->close();

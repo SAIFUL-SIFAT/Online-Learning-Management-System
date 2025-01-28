@@ -75,14 +75,10 @@ function setTable(response) {
                 td.textContent = row[key];
                 tableRow.appendChild(td);
             });
+
+            tableRow.innerHTML += `<td><a class='link-button' id='user-action' href='../../control/admin/delete_course.php?id=${row[keys[0]]})'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a></td>`;
+
             table.appendChild(tableRow);
         });
-    } else {
-        const noDataRow = document.createElement("tr");
-        const noDataCell = document.createElement("td");
-        noDataCell.textContent = "No data available.";
-        noDataCell.colSpan = 5;
-        noDataRow.appendChild(noDataCell);
-        table.appendChild(noDataRow);
     }
 }

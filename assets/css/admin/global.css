@@ -15,6 +15,35 @@ header {
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+
+    display: flex;
+}
+
+header #logo-title {
+    width: 90%;
+    font-weight: bold;
+    padding-left: 20px;
+    color: black;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+
+header #logo-title img {
+    margin-right: 20px;
+    width: 64px;
+}
+
+header #notification {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header #notification img {
+    filter: invert(90%);
+    width: 32px;
 }
 
 .container {
@@ -123,13 +152,13 @@ nav ul li {
 }
 
 nav ul li a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 10px 15px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -137,9 +166,23 @@ nav ul li a:hover {
     color: white;
 }
 
+nav ul li a img {
+    padding-right: 10px;
+    width: 32px;
+    filter: invert(100%);
+}
+
+nav ul li a img:hover {
+    filter: invert(100%);
+}
+
 .nav-ul-li-a-selected {
     background-color: #4a90e2;
     color: white;
+}
+
+.nav-ul-li-a-selected img {
+    filter: invert(0);
 }
 
 nav ul li form {
@@ -218,7 +261,7 @@ table {
     text-decoration: none;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .link-button:hover {

@@ -5,12 +5,9 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-if (empty($_POST['instructor_id'])) {
-    echo 'no instructor_id';
-    exit();
-} else if (empty($_POST['message'])) {
+if (empty($_POST['message'])) {
     echo 'message missing';
     exit();
 }
 
-Notification::createNotification($_POST['instructor_id'], $_POST['message'], $_POST['type']);
+Notification::createNotification($_POST['message'], $_POST['type']);

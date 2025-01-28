@@ -13,3 +13,18 @@
     margin: 0 20px 0 0;
     box-sizing: border-box;
 }
+
+#user-action {
+    color: red;
+    display: inline-flex;
+    align-items: center;
+}
+
+#user-action img {
+    padding-right: 10px;
+    width: 32px;
+}
+
+#user-action:hover {
+    box-shadow: 0 1px 10px rgba(255, 0, 0, 0.3);
+}

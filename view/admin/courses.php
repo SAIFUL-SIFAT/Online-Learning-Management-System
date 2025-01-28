@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
     <?php include 'navigation.php' ?>
     <div>
         <h2>Manage Courses</h2>
-        <a href="add_course.php" class="link-button" id="add-course">Add course</a>
+        <a href="add_course.php" class="link-button" id="add-course"><img src='../../assets/uploads/admin/add.png'>Add course</a>
         <table>
             <tr>
                 <th>ID</th>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['admin_id'])) {
                         <td>" . $row['title'] . "</td>
                         <td>" . $row['description'] . "</td>
                         <td>
-                            <a class='link-button' id='delete-course' href='../../control/admin/delete_course.php?id=" . urlencode($row['course_id']) . "'>Delete</a>
+                            <a class='link-button' id='delete-course' href='../../control/admin/delete_course.php?id=" . urlencode($row['course_id']) . "'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a>
                         </td>
                       </tr>";
             }
