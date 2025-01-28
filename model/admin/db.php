@@ -81,7 +81,6 @@ class Db
         $password = $data['password'];
         $phone = $data['phone'];
         $profile_photo = $data['profile_photo'] ?? '';
-        $admin_auth_code = $data['admin_auth_code'];
         $sec_question = $data['sec_question'];
         $sec_question_ans = $data['sec_question_ans'];
 
@@ -94,7 +93,6 @@ class Db
             password = ?, 
             phone = ?, 
             profile_photo = ?, 
-            admin_auth_code = ?, 
             sec_question = ?, 
             sec_question_ans = ?
         WHERE admin_id = ?
@@ -107,7 +105,7 @@ class Db
         }
 
         $stmt->bind_param(
-            "ssssssssssi",
+            "sssssssssi",
             $first_name,
             $last_name,
             $email,
@@ -115,7 +113,6 @@ class Db
             $password,
             $phone,
             $profile_photo,
-            $admin_auth_code,
             $sec_question,
             $sec_question_ans,
             $admin_id

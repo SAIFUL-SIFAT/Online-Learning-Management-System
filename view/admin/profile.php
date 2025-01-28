@@ -56,10 +56,6 @@ if (!isset($_SESSION['admin_id'])) {
                 <td><input type="file" id="profile_photo" name="profile_photo" accept="image/*"></td>
             </tr>
             <tr>
-                <td><label for="admin_auth_code">Admin Auth Code</label></td>
-                <td><input type="text" id="admin_auth_code" name="admin_auth_code" value="<?php echo $_SESSION['admin_auth_code'] ?? ''; ?>"></td>
-            </tr>
-            <tr>
                 <td><label for="sec_question">Security Question</label></td>
                 <td><input type="text" id="sec_question" name="sec_question" value="<?php echo $_SESSION['sec_question'] ?? ''; ?>"></td>
             </tr>
