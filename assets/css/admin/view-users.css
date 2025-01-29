@@ -8,6 +8,11 @@
     margin: 20px 0;
 }
 
+.table-container {
+    max-height: 70%;
+    height: 70%;
+}
+
 .search-bar search {
     width: 100%;
     margin: 0 20px 0 0;
@@ -27,4 +32,42 @@
 
 #user-action:hover {
     box-shadow: 0 1px 10px rgba(255, 0, 0, 0.3);
+}
+
+.bottom-bar-container {
+    width: 100%;
+    height: 8%;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.page-change-container {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;
+    width: 64px;
+    height: 32px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.page-change-container input {
+    padding: 5px;
+    opacity: 0.6;
+    width: 100%;
+    margin: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-change-container input:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+#previous-page-button {
+
 }

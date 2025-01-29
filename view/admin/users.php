@@ -67,6 +67,12 @@ if (!isset($_SESSION['admin_id'])) {
         ?>
     </table>
     </div>
+    <div class="bottom-bar-container">
+        <div class="page-change-container">
+            <input type="image" id="previous-page-button" src="../../assets/uploads/admin/previous.png">
+            <input type="image" id="next-page-button" src="../../assets/uploads/admin/next.png">
+        </div>
+    </div>
 </div>
 </div>
 

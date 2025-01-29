@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_id'])) {
 
 $type = $_GET['type'] ?? 'student';
 $page = $_GET['page'] ?? 1;
-$limit = 10;
+$limit = $_GET['limit'] ?? 10;
 $offset = $page ? ($page * $limit) - $limit : 0;
 
 header('Content-Type: application/json');
