@@ -25,9 +25,12 @@ if (!is_numeric($_POST['phone']))
 
 $is_uploaded = is_uploaded_file($_FILES['profile_photo']['tmp_name']);
 if ($is_uploaded) {
-    $new_path = PROFILE_PHOTO_UPLOAD_DIR . $_FILES['profile_photo']['name'];
-    if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path))
+    $extension = pathinfo($_FILES['profile_photo']['name'], PATHINFO_EXTENSION);
+    $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_photo']['tmp_name']) . "." . $extension;
+    if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path)) {
         $_POST['profile_photo'] = $new_path;
+        $_SESSION['profile_photo'] = $new_path;
+    }
 }
 
 ?>
@@ -47,8 +50,7 @@ if ($is_uploaded) {
         $conn = $db->open();
         $db->insertData($_POST);
         $db->close($conn);
-
-        echo "Success!";
+        header('Location: ../../view/admin/login.php');
     }
     ?>
 </body>

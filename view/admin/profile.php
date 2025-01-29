@@ -4,6 +4,8 @@ if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
 }
+
+$default_profile_picture = '../../uploads/admin/profile/default.png';
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +24,9 @@ if (!isset($_SESSION['admin_id'])) {
     <div>
     <form method="POST" enctype="multipart/form-data" action='../../control/admin/update_profile.php'>
         <h2>Admin Profile</h2>
+        <div class="profile-picture-viewer-container">
+            <img src="<?php echo $_SESSION['profile_photo'] ?? $default_profile_picture ?? ''; ?>">
+        </div>
         <table>
             <tr>
                 <td><label for="admin_id">Admin ID</label></td>
@@ -53,7 +58,7 @@ if (!isset($_SESSION['admin_id'])) {
             </tr>
             <tr>
                 <td><label for="profile_photo">Profile Photo</label></td>
-                <td><input type="file" id="profile_photo" name="profile_photo" accept="image/*"></td>
+                <td><input type="file" id="profile_photo" value="<?php echo $_SESSION['profile_picture'] ?? ''; ?>" name="profile_photo" accept="image/*"></td>
             </tr>
             <tr>
                 <td><label for="sec_question">Security Question</label></td>
