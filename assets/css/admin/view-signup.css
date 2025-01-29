@@ -33,9 +33,6 @@ select {
     width: 100%;
 }
 
-tr {
-}
-
 #have-account-container {
     margin-top: 20px;
 }
@@ -46,4 +43,18 @@ tr {
 
 #have-account-link {
     margin-left: 10px;
+}
+
+.validation-error {
+    visibility: hidden;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: 1px solid red;
+    position: absolute;
+    padding: 5px;
+    background: white;
+}
+
+.show-validation-error {
+    visibility: visible;
 }

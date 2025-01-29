@@ -25,24 +25,23 @@
             </tr>
             <tr>
                 <td>Username</td>
-                <td><input type="text" name='username' id='username'>
-                </td>
+                <td><input type="text" name='username' id='username'> </td>
+                <td class='validation-error' id="username-error">username must be at least 4 characters long.</td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td><input type="password" name='password' id='password'></td>
+                <td class='validation-error' id="password-error">password must be at least 6 characters long.</td>
             </tr>
             <tr>
                 <td>Confirm Password</td>
-                <td>
-                    <input type="password" id='confirm_password'>
-                </td>
+                <td> <input type="password" id='confirm_password'></td>
+                <td class='validation-error' id="confirm-password-error">passwords do not match.</td>
             </tr>
             <tr>
                 <td>Phone Number</td>
-                <td>
-                    <input type="phone" name='phone' id='phone'>
-                </td>
+                <td> <input name='phone' id='phone'> </td>
+                <td class='validation-error' id="phone-error">must supply phone number.</td>
             </tr>
             <tr>
                 <td>Profile Photo</td>
@@ -51,6 +50,7 @@
             <tr>
                 <td>Admin Auth Code</td>
                 <td><input type="password" name='admin_auth_code' id='admin_auth_code'></td>
+                <td class='validation-error' id="auth-code-error">must supply an admin auth code.</td>
             </tr>
             <tr>
                 <td>Security Question</td>
@@ -78,6 +78,7 @@
         </div>
     </form>
 
+<script src="../../assets/js/admin/signup.js"></script>
 </body>
 
 </html>

@@ -8,16 +8,16 @@ if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
 
 $errors = array();
 
-if (strlen($_POST['first_name']) < 4)
-    $errors['name'] = "First name must be more than 4 characters.";
+if (strlen($_POST['username']) < 4)
+    $errors['username'] = "username must be at least 4 characters.";
 
-if (strlen($_POST['email']) == 0)
-    $errors['email'] = "Email Address is required.";
-else if (!preg_match('/\S{2,}aiub\.edu/', $_POST['email']))
-    $errors['email'] = "Email must have aiub.edu domain";
+if (strlen($_POST['password']) < 6)
+    $errors['password'] = "password must be at least 6 characters.";
+// if (!preg_match('/\S{2,}aiub\.edu/', $_POST['email']))
+//    $errors['email'] = "Email must have aiub.edu domain";
 
-if (strlen($_POST['sec_question']) == 0)
-    $errors['sec_question'] = "Must select at least one security question.";
+if (strlen($_POST['admin_auth_code']) == 0)
+    $errors['admin_auth_code'] = "Must supply an Admin auth code.";
 
 if (!is_numeric($_POST['phone']))
     $errors['phone'] = "Phone number field must contain only numbers";
