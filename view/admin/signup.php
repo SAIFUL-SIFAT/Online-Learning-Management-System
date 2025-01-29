@@ -73,6 +73,9 @@
                 </td>
             </tr>
         </table>
+        <div id="have-account-container">
+            <span>Already have an account?</span> <a id='have-account-link' href="login.php">Login</a>
+        </div>
     </form>
 
 </body>

@@ -18,7 +18,7 @@ header {
     display: flex;
 }
 
-header #logo-title {
+#logo-title {
     width: 90%;
     font-weight: bold;
     padding-left: 20px;
@@ -28,24 +28,24 @@ header #logo-title {
     align-items: center;
 }
 
-header #logo-title img {
+#logo-title img {
     margin-right: 20px;
     width: 64px;
 }
 
-header #notification {
+#notification {
     width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-header #notification img {
+#notification img {
     filter: invert(90%);
     width: 26px;
 }
 
-header #notification img:hover {
+#notification img:hover {
     cursor: pointer;
 }
 
@@ -73,7 +73,7 @@ header #notification img:hover {
     visibility: hidden;
 }
 
-.notification-list #notification-item {
+#notification-item {
     width: 100%;
     background: #efefef;
     color: #4e4e4e;
@@ -84,7 +84,7 @@ header #notification img:hover {
     flex-direction: column;
 }
 
-.notification-list #notification-item #notification-time {
+#notification-item #notification-time {
     font-family: Helvetica, Tahoma, sans-serif;
     color: #7c7c7c;
 }
@@ -173,7 +173,6 @@ input[type="reset"]:hover {
     background-color: #c0392b;
 }
 
-/* NAVIGATION */
 nav {
     grid-row-start: 2;
     grid-row-end: 4;
@@ -294,7 +293,6 @@ table {
     border-radius: 12px;
     overflow: hidden;
 }
-
 
 .link-button {
     font-family: Helvetica, sans-serif;

@@ -35,3 +35,15 @@ select {
 
 tr {
 }
+
+#have-account-container {
+    margin-top: 20px;
+}
+
+#have-account-container span {
+    color: gray;
+}
+
+#have-account-link {
+    margin-left: 10px;
+}

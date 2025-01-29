@@ -19,11 +19,15 @@
             <td><input type="password" name='password' id='password'></td>
         </tr>       
         <tr>
+            <td></td>
             <td>
                 <input type="submit" value="Login">
             </td>
         </tr>
     </table>
-    </form>    
+        <div id="need-account-container">
+            <span>Don't have an account?</span> <a id='need-account-link' href="signup.php">Signup</a>
+        </div>
+    </form>
 </body>
 </html>
