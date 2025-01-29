@@ -9,7 +9,8 @@
 
 <body>
     <form id="signup_form" method="POST" enctype="multipart/form-data" action='../../control/admin/reg_control.php'">
-        <table>
+    <h1>Admin Signup</h1>
+    <table>
             <tr>
                 <td>First Name</td>
                 <td><input type="text" name='first_name' id='first_name'></td>

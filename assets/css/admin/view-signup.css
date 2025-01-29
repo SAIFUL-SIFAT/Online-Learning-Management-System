@@ -10,15 +10,18 @@ form {
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     width: 500px;
+    text-align: center;
 }
 
 table {
     width: 100%;
+    box-shadow: none;
 }
 
 td {
     padding: 2px 0;
     vertical-align: center;
+    border: none;
 }
 
 td:first-child {
@@ -30,3 +33,5 @@ select {
     width: 100%;
 }
 
+tr {
+}

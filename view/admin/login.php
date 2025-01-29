@@ -7,7 +7,8 @@
 </head>
 <body>
     <form method="POST" action='../../control/admin/login_control.php'>
-    <table>      
+    <h1>Admin Login</h1>
+    <table>
         
         <tr>
             <td>Username</td>

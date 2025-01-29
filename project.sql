@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 24, 2025 at 03:57 PM
+-- Generation Time: Jan 29, 2025 at 07:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,7 +81,9 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`course_id`, `instructor_id`, `title`, `description`) VALUES
 (5, 9, 'Math II', 'Differential Calculus'),
-(6, 9, 'Math III', 'Integral Calculus');
+(6, 9, 'Math III', 'Integral Calculus'),
+(7, 9, 'Web Technologies', 'Learn vanilla PHP, JavaScript, HTML, CSS and other related tools and techniques.'),
+(8, 3, 'Computer Networks', 'Learn basics of networking, TCP/IP and more.');
 
 -- --------------------------------------------------------
 
@@ -149,6 +151,7 @@ CREATE TABLE `instructor` (
 --
 
 INSERT INTO `instructor` (`instructor_id`, `full_name`, `email`, `pass`, `phone`, `qualifications`, `expertise`, `profile_picture`, `teaching_experience`, `institution`, `status`) VALUES
+(3, 'Jane Dow', 'janedow@gmail.com', 'asd', NULL, 'asd', 'asd', NULL, NULL, 'asd', 1),
 (9, 'John Doe', 'asdasd@gmail.com', 'asdasd', '01121212121', '55', 'Math', NULL, NULL, 'asd', 0),
 (10, 'asd', 'asd', 'asd', NULL, '', '', NULL, NULL, '', 0);
 
@@ -179,7 +182,6 @@ CREATE TABLE `moderator` (
 
 CREATE TABLE `notification` (
   `notification_id` int(11) NOT NULL,
-  `instructor_id` int(11) NOT NULL,
   `message` text NOT NULL,
   `type` text NOT NULL DEFAULT 'student',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -189,8 +191,10 @@ CREATE TABLE `notification` (
 -- Dumping data for table `notification`
 --
 
-INSERT INTO `notification` (`notification_id`, `instructor_id`, `message`, `type`, `created_at`) VALUES
-(2, 9, 'Test', 'system', '2025-01-22 14:23:43');
+INSERT INTO `notification` (`notification_id`, `message`, `type`, `created_at`) VALUES
+(2, 'Test', 'system', '2025-01-22 14:23:43'),
+(4, 'Site will be unavailible for maintenance tomorrow!', 'system', '2025-01-27 12:02:27'),
+(6, 'Downtime on 22nd', 'system', '2025-01-28 18:55:31');
 
 -- --------------------------------------------------------
 
@@ -211,6 +215,13 @@ CREATE TABLE `student` (
   `preferred_language` varchar(255) DEFAULT NULL,
   `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `full_name`, `last_name`, `email`, `username`, `password`, `phone`, `dob`, `country`, `preferred_language`, `profile_picture`) VALUES
+(1, 'Jane', 'Dow', 'janedoe@gmail.com', 'janedoe', 'asd', '9827371273', NULL, 'BD', 'EN', NULL);
 
 --
 -- Indexes for dumped tables
@@ -281,8 +292,7 @@ ALTER TABLE `moderator`
 -- Indexes for table `notification`
 --
 ALTER TABLE `notification`
-  ADD PRIMARY KEY (`notification_id`),
-  ADD KEY `instructor_id` (`instructor_id`);
+  ADD PRIMARY KEY (`notification_id`);
 
 --
 -- Indexes for table `student`
@@ -312,7 +322,7 @@ ALTER TABLE `certificate`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `discount`
@@ -348,13 +358,13 @@ ALTER TABLE `moderator`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -391,12 +401,6 @@ ALTER TABLE `enrollment`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`moderator_id`) REFERENCES `moderator` (`moderator_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `notification`
---
-ALTER TABLE `notification`
-  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`instructor_id`) REFERENCES `instructor` (`instructor_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
