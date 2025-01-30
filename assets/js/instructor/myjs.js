@@ -1,5 +1,5 @@
 //signup form validation
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('registrationForm').addEventListener('submit', function(event) {
     let errors = [];
 
@@ -68,4 +68,4 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent form submission
     }
   });
-});
+// });

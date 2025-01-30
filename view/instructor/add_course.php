@@ -55,7 +55,7 @@ include '../../control/instructor/course_control.php';
             <div class="course-modal">
                 <h3>Create New Course</h3>
                 <label for="instructor_id">Instructor ID</label>
-                <input type="number" id="instructor_id" name="instructor_id" required>
+                <input type="number" id="instructor_id" name="instructor_id"  value="<?php echo $_SESSION['instructor_id'] ?>" readonly>
 
                 <label for="course-title">Course Title:</label>
                 <input type="text" id="course-title" name="title" required>
@@ -73,6 +73,6 @@ include '../../control/instructor/course_control.php';
 
         </div>
     </div>
-    <!-- <script type="javascript" src="../../assets/js/instructor/myjs.js"></script> -->
+    <script type="javascript" src="../../ assets/js/instructor/course_add.js"></script>
 </body>
 </html>

@@ -71,7 +71,7 @@ $result = $db->getCoursesByInstructorId($_SESSION['instructor_id']);
                     <div class="certificate-details">
                     <p>Course:<?php echo $row['title']; ?></p>
                     <p>Description:<?php echo $row['description']; ?></p>
-                        <button class="download-certificate">Download Certificate</button>
+                        <button class="download-certificate">Issue Certificate</button>
                         <!-- <span class="status issued">Issued</span> -->
                     </div>
                 </div>

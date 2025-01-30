@@ -20,21 +20,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Handle profile picture upload
-    $profile_picture = null;
-    if (isset($_FILES["profile_picture"]) && $_FILES["profile_picture"]["error"] === 0) {
-        $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-        if (in_array($_FILES["profile_picture"]["type"], $allowed_types) && $_FILES["profile_picture"]["size"] <= 2000000) {
-            $target_dir = "../uploads/";
-            $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
-            if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
-                $profile_picture = $target_file;
-            } else {
-                echo "<p>Failed to upload profile picture.</p>";
-            }
-        } else {
-            echo "<p>Invalid file type or size.</p>";
-        }
-    }
+    // $profile_picture = null;
+    // if (isset($_FILES["profile_picture"]) && $_FILES["profile_picture"]["error"] === 0) {
+    //     $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+    //     if (in_array($_FILES["profile_picture"]["type"], $allowed_types) && $_FILES["profile_picture"]["size"] <= 2000000) {
+    //         $target_dir = "../uploads/";
+    //         $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
+    //         if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
+    //             $profile_picture = $target_file;
+    //         } else {
+    //             echo "<p>Failed to upload profile picture.</p>";
+    //         }
+    //     } else {
+    //         echo "<p>Invalid file type or size.</p>";
+    //     }
+    // }
 
     // Debugging: Comment out these lines in production
     // print_r($_POST);
