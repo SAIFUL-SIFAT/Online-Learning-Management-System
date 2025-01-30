@@ -48,7 +48,7 @@
                     <h3>Student</h3>
                     <p>Can enroll courses,take quizes, recieve certificates.</p>
                     <a href="../student/sign_in.php"><button>Login</button></a> 
-                    <a href="../instructor/signup.php"><button>Signup</button></a> 
+                    <a href="../student/sign_up.php"><button>Signup</button></a> 
 
                 </div>
                 <div class="card">
