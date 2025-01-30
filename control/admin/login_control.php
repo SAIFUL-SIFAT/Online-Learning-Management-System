@@ -15,9 +15,10 @@ if (!isset($_POST['username']) || !isset($_POST['password'])) {
 $db = new Db();
 $result = $db->getLoginData($_POST['username'], $_POST['password']);
 
-if ($result == null) {
+if ($result === null) {
     session_destroy();
-    die('No user found');
+    header('location: ../../view/admin/login.php?error=1');
+    exit();
 }
 
 unset($result['password']);

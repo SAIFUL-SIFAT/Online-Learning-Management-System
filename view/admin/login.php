@@ -17,7 +17,7 @@
         <tr>
             <td>Password</td>
             <td><input type="password" name='password' id='password'></td>
-        </tr>       
+        </tr>
         <tr>
             <td></td>
             <td>
@@ -25,9 +25,12 @@
             </td>
         </tr>
     </table>
+        <div id='invalid-credentials'>Invalid credentials!</div>
         <div id="need-account-container">
-            <span>Don't have an account?</span> <a id='need-account-link' href="signup.php">Signup</a>
+            <span>Need an account?</span> <a id='need-account-link' href="signup.php">Signup</a>
         </div>
     </form>
+
+<script src="../../assets/js/admin/login.js"></script>
 </body>
 </html>

@@ -63,3 +63,11 @@ td:first-child {
 #need-account-link {
     margin-left: 10px;
 }
+
+#invalid-credentials {
+    padding: 10px 0;
+    width: 100%;
+    display: none;
+    color: red;
+    text-align: center;
+}
