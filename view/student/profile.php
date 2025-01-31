@@ -37,9 +37,6 @@ if (!isset($_SESSION['full_name'])) {
             </ul>
             <img src="image/image.png" class="user-pic">
             <span class="notification"></span>
-
-
-
         </nav>
 
         <div class="profile-container">
@@ -71,7 +68,11 @@ if (!isset($_SESSION['full_name'])) {
                     <td class="label">Preferred Language:</td>
                     <td class="value"><?php echo $_SESSION['preferred_language']; ?></td>
                 </tr>
+
             </table>
+            <div class="update-profile-btn">
+                <a href="..\..\view\student\update-profile.php" class="btn">Update Profile</a>
+            </div>
         </div>
     </div>
 </body>

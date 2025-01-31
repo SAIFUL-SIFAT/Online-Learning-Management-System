@@ -67,29 +67,7 @@ $courses=$db->fetchEnrolledCoursesName($student_id);
             </div>
            
         </div>
-        <!-- <div class="completed-quizzes">
-            <h2>Completed Quizzes</h2>
-            <div class="quiz">
-                <div class="quiz-info">
-                    <p><strong>Mathematics</strong></p>
-                    <p>Differential Calculus</p>
-                </div>
-                <div class="quiz-actions">
-                    <p class="score">Score: <span class="score-value">90%</span></p>
-                    <button class="review-quiz">Review</button>
-                </div>
-            </div>
-            <div class="quiz">
-                <div class="quiz-info">
-                    <p><strong>Mathematics</strong></p>
-                    <p>Integral Calculus</p>
-                </div>
-                <div class="quiz-actions">
-                    <p class="score">Score: <span class="score-value">80%</span></p>
-                    <button class="review-quiz">Review</button>
-                </div>
-            </div>
-        </div> -->
+        
     </div>
     </div>
 </body>

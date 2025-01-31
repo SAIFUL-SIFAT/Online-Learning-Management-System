@@ -10,7 +10,7 @@ $student_id = $_SESSION['student_id']; // Fetch student ID from session
 
 $db = new myDB();
 $courses = $db->fetchAllCourses();
-$enrolled=$db->fetchEnrolledCourses($student_id);
+$enrolled = $db->fetchEnrolledCourses($student_id);
 
 ?>
 <!DOCTYPE html>
@@ -77,7 +77,7 @@ $enrolled=$db->fetchEnrolledCourses($student_id);
                     ?>
                 </tbody>
             </table>
-            <!-- <a href="add_course.php" class="btn btn-success">Add New Course</a> -->
+
         </div>
         <div class="current-courses">
             <h2>Current Courses</h2>
@@ -87,7 +87,8 @@ $enrolled=$db->fetchEnrolledCourses($student_id);
                         <th>Enrollment ID</th>
                         <th>Course ID</th>
                         <th>Student ID</th>
-                   </tr>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php
@@ -96,13 +97,16 @@ $enrolled=$db->fetchEnrolledCourses($student_id);
                         echo "<td>" . $en['enrollment_id'] . "</td>";
                         echo "<td>" . $en['course_id'] . "</td>";
                         echo "<td>" . $en['student_id'] . "</td>";
-                        // echo "<td><a href='delete_course.php?course_id=" . $course['course_id'] . "' class='btn btn-primary'>Delete</a></td>";
+                        echo "<td> <form action='../../control/student/drop_course_control.php' method='POST'>
+                                    <input type='hidden' name='course_id' value='" . htmlspecialchars($en['course_id']) . "'>
+                                        <button type='submit' class='btn btn-primary'>Drop</button>
+                                   </form>
+                              </td>";
                         echo "</tr>";
                     }
                     ?>
                 </tbody>
             </table>
-            <!-- <a href="add_course.php" class="btn btn-success">Add New Course</a> -->
         </div>
     </div>
 

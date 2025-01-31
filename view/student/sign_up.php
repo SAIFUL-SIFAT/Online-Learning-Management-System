@@ -5,14 +5,13 @@
 
     <title>Student Registration Form</title>
     <link rel="stylesheet" href="../../assets/css/student/sign_up.css">
+    <script src="..\..\student\sign_up.js" defer></script>
 </head>
 
 <body>
-
     <h1>STUDENT REGISTRATION FORM</h1>
 
-    <form action="../../control/student/reg_control.php" method="POST">
-
+    <form action="../../control/student/reg_control.php" method="POST" onsubmit="return validateForm();">
         <fieldset>
             <legend>Personal Information</legend>
             <table>
@@ -28,38 +27,26 @@
                     <td>Last Name:</td>
                     <td><input type="text" id="lastName" name="last_name" placeholder="Last Name"></td>
                 </tr>
-
-
                 <tr>
                     <td>Email Address:</td>
-                    <td><input type="email" id="email" name="email" placeholder="example@example.com"></td>
+                    <td><input type="email" id="email" name="email" placeholder="example@example.xyz"></td>
                 </tr>
-
-
                 <tr>
                     <td>Password:</td>
                     <td><input type="password" id="password" name="password" placeholder="Password"></td>
                 </tr>
-
-
                 <tr>
-                    <td>Confrom Password:</td>
-                    <td><input type="password" id="confromPassword" name="confromPassword" placeholder="Confrom Password"></td>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" id="confromPassword" name="confromPassword" placeholder="Confirm Password"></td>
                 </tr>
-
-
                 <tr>
                     <td>Phone Number:</td>
                     <td><input type="text" id="phone" name="phone" placeholder="Phone Number"></td>
                 </tr>
-
-
                 <tr>
                     <td>Date of Birth:</td>
                     <td><input type="date" id="dob" name="dob"></td>
                 </tr>
-
-
                 <tr>
                     <td>Country/Region:</td>
                     <td>
@@ -74,10 +61,6 @@
                         </select>
                     </td>
                 </tr>
-
-
-
-
                 <tr>
                     <td>Profile Picture (Optional):</td>
                     <td><input type="file" id="profilePicture" name="profile_picture"></td>
@@ -90,8 +73,9 @@
 
                         <input type="checkbox" id="mediumBangla" name="preferred_language" value="Bangla">
                         <label for="mediumBangla">Bangla</label>
-                        <input type="checkbox" id="mediumspanish" name="preferred_language" value="spanish">
-                        <label for="mediumspanish">spanish</label>
+
+                        <input type="checkbox" id="mediumSpanish" name="preferred_language" value="Spanish">
+                        <label for="mediumSpanish">Spanish</label>
 
                         <input type="checkbox" id="mediumGerman" name="preferred_language" value="German">
                         <label for="mediumGerman">German</label>
@@ -106,12 +90,10 @@
                     <input type="submit" value="Register" class="submit">
                     <input type="reset" value="Clear Form" class="clearfrom">
                     <a href="..\..\view\student\sign_in.php">Sign In</a>
-
                 </td>
             </tr>
         </fieldset>
     </form>
-
 </body>
 
 </html>

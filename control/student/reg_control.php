@@ -25,7 +25,7 @@ if (empty($last_name)) {
     echo "Last name must contain only alphabets.";
 } elseif (!preg_match("/[A-Z]/", $last_name)) {
     echo "Last name must contain at least one uppercase letter.";
-} 
+}
 
 
 if (empty($_POST['email'])) {
@@ -62,7 +62,7 @@ if (empty($_POST['student_id'])) {
 if (empty($_POST['preferred_language'])) {
     $errors[] = "You must select at least one Preferred Medium Language.";
 } else {
-    $preferred_language = $_POST['preferred_language'];  
+    $preferred_language = $_POST['preferred_language'];
 }
 $confromPassword = isset($_POST['confromPassword']) ? $_POST['confromPassword'] : '';
 $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
@@ -85,29 +85,29 @@ if (empty($country)) {
 
 
 if (empty($errors)) {
-    
+
     $userData = array(
-        'student_id'=>$student_id,   //store student id 
+        'student_id' => $student_id,   //store student id 
         'full_name' => $full_name,
         'email' => $email,
         'password' => $password,
         'preferred_language' => $preferred_language,
-        'last_name'=> $last_name,
-        'confromPassword'=>$confromPassword,
-        'phone'=>$phone,
-        'dob'=>$dob,
-        'country'=>$country
-        
-        
+        'last_name' => $last_name,
+        'confromPassword' => $confromPassword,
+        'phone' => $phone,
+        'dob' => $dob,
+        'country' => $country
+
+
     );
     $db = new myDB();
-    $db->insertData($full_name, $student_id, $password, $email, $preferred_language, $last_name, $phone, $dob, $country,$profile_picture);
+    $db->insertData($full_name, $student_id, $password, $email, $preferred_language, $last_name, $phone, $dob, $country, $profile_picture);
     header('location:..\..\view\student\sign_in.php');
 
-$filePath = '..\..\data\userdata.json';
+    $filePath = '..\..\data\userdata.json';
 
 
-    file_put_contents($filePath, json_encode($userData,JSON_PRETTY_PRINT));
+    file_put_contents($filePath, json_encode($userData, JSON_PRETTY_PRINT));
     echo "Form submitted successfully and data saved!";
 } else {
     foreach ($errors as $error) {

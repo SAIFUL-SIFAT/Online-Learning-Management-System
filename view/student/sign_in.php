@@ -19,7 +19,7 @@
 
                 <tr>
                     <td>Full Name:</td>
-                    <td><input type="text" id="username" name="full_name" placeholder="Enter your username" required class="text"></td>
+                    <td><input type="text" id="username" name="full_name" placeholder="Enter your username" ></td>
                 </tr>
                 <tr>
                     <td>PASSWORD:</td>

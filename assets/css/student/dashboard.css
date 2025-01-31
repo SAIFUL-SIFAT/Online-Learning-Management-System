@@ -65,7 +65,10 @@ nav ul li a {
   text-decoration: none;
 
 }
-
+a:hover {
+  background-color: rgb(199, 214, 213);
+  font-size: 18px;
+}
 .sub-menu-warp {
   position: absolute;
   top: 100%;

@@ -65,7 +65,10 @@ nav ul li a {
   text-decoration: none;
 
 }
-
+a:hover {
+  background-color: rgb(199, 214, 213);
+  font-size: 18px;
+}
 .sub-menu-warp {
   position: absolute;
   top: 100%;
@@ -183,4 +186,21 @@ color: #333;
 width: 70%;
 text-align: left;
 color: #555;
+}
+.update-profile-btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.update-profile-btn .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.update-profile-btn .btn:hover {
+  background-color: #45a049;
 }
