@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" id="video-learning">
+  <text font-family="OpenSans-Bold,Open Sans" font-size="48" font-weight="700" transform="translate(61.656 -35.521)">ONLINE COURSE</text>
+  <text fill="#231f20" font-family="OpenSans-Bold,Open Sans" font-size="48" font-weight="700" transform="translate(61.656 -35.521)">ONLINE COURSE</text>
+  <text fill="#231f20" font-family="OpenSans-Bold,Open Sans" font-size="48" font-weight="700" transform="translate(61.656 -35.521)">ONLINE COURSE</text>
+  <g>
+    <path d="M478,88h-6v16h6a2,2,0,0,1,2,2V328H32V106a2,2,0,0,1,2-2h6V88H34a18.021,18.021,0,0,0-18,18V390a18.021,18.021,0,0,0,18,18H200v11.169a31.961,31.961,0,0,1-21.88,30.359l-6.974,2.324A27.964,27.964,0,0,0,152,478.415V488a8,8,0,0,0,8,8H352a8,8,0,0,0,8-8v-9.585a27.964,27.964,0,0,0-19.146-26.563l-6.973-2.324A31.96,31.96,0,0,1,312,419.169V408H432V392H34a2,2,0,0,1-2-2V344H480v46a2,2,0,0,1-2,2H448v16h30a18.021,18.021,0,0,0,18-18V106A18.021,18.021,0,0,0,478,88ZM296,408v11.169a47.94,47.94,0,0,0,32.822,45.538l6.973,2.324a11.984,11.984,0,0,1,8.2,11.384V480H168v-1.585a11.984,11.984,0,0,1,8.205-11.384l6.974-2.324A47.94,47.94,0,0,0,216,419.169V408Z"></path>
+    <rect width="48" height="16" x="232" y="360"></rect>
+    <path d="M56,312H456a8,8,0,0,0,8-8V24a8,8,0,0,0-8-8H112V32H448V64H64V32H96V16H56a8,8,0,0,0-8,8V304A8,8,0,0,0,56,312ZM448,80V296H64V80Z"></path>
+    <path d="M88 272H336a8 8 0 0 0 8-8V104a8 8 0 0 0-8-8H88a8 8 0 0 0-8 8V264A8 8 0 0 0 88 272zm8-160H328V256H96zM368 144h56a8 8 0 0 0 8-8V104a8 8 0 0 0-8-8H368a8 8 0 0 0-8 8v32A8 8 0 0 0 368 144zm8-32h40v16H376zM368 208h56a8 8 0 0 0 8-8V168a8 8 0 0 0-8-8H368a8 8 0 0 0-8 8v32A8 8 0 0 0 368 208zm8-32h40v16H376zM368 272h56a8 8 0 0 0 8-8V232a8 8 0 0 0-8-8H368a8 8 0 0 0-8 8v32A8 8 0 0 0 368 272zm8-32h40v16H376z"></path>
+    <rect width="16" height="16" x="416" y="40"></rect>
+    <rect width="16" height="16" x="144" y="40"></rect>
+    <rect width="16" height="16" x="80" y="40"></rect>
+    <rect width="16" height="16" x="112" y="40"></rect>
+    <path d="M267.578,176.845l-80-40A8,8,0,0,0,176,144v80a8,8,0,0,0,11.578,7.155l80-40a8,8,0,0,0,0-14.31ZM192,211.056V156.944L246.111,184Z"></path>
+    <rect width="32" height="16" x="280" y="128"></rect>
+  </g>
+</svg>

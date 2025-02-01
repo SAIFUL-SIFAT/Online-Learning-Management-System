@@ -38,16 +38,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     $errors['gender'] = "Gender is required.";
     // }
 
+    $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
+    if ($is_uploaded) {
+        $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
+        $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
+        if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
+            $profile_picture = $new_path;
+            $_SESSION['profile_picture'] = $new_path;
+        }
+    }
+
+
     if (empty($errors)) {
         $full_name = $_POST['full_name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $pass = $_POST['pass'];
         $qualifications = $_POST['qualifications'];
-        $profile_picture = $_POST['profile_picture'];
         $expertise = $_POST['expertise'];
         $teaching_experience = $_POST['teaching_experience'];
         $institution = $_POST['institution'];
+        $profile_picture = $data['profile_picture'] ?? '';
+
 
                 // Handle profile photo upload
             // define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');

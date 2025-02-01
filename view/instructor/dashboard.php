@@ -32,11 +32,11 @@ $total_students = $db->getTotalStudents();
             <h2>Instructor Portal</h2>
             <nav>
                 <ul>
-                    <li><a href="dashboard.php" class="active"><span><img src="../../assets/uploads/dashboard.svg"   width="18" height="12"></span>Dashboard</a></li>
-                    <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg"  width="18" height="12"></span>Courses</a></li>
-                    <li><a href="Student_management.php"><span><img src="../../assets/uploads/grade.svg"  width="15" height="14"></span>Student Management</a></li>
-                    <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg"  width="20" height="15"></span>Certificates</a></li>
-                    <li><a href="profile.php"><span><img src="../../assets/uploads/profile.svg"  width="18" height="12"></span>Profile</a></li> 
+                    <li><a href="dashboard.php" class="active"><span><img src="../../assets/uploads/instructor/dashboard.svg"   width="18" height="12"></span>Dashboard</a></li>
+                    <li><a href="courses.php"><span><img src="../../assets/uploads/instructor/course.svg"  width="18" height="12"></span>Courses</a></li>
+                    <li><a href="Student_management.php"><span><img src="../../assets/uploads/instructor/grade.svg"  width="15" height="14"></span>Student Management</a></li>
+                    <li><a href="certificates.php"><span><img src="../../assets/uploads/instructor/certificate.svg"  width="20" height="15"></span>Certificates</a></li>
+                    <li><a href="profile.php"><span><img src="../../assets/uploads/instructor/profile.svg"  width="18" height="12"></span>Profile</a></li> 
                 </ul>
             </nav>
             <form action="../../control/instructor/logout_control.php">

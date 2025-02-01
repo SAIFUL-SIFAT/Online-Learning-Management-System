@@ -2,6 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require '../../model/instructor/db.php';
+const PROFILE_PHOTO_UPLOAD_DIR = '../../uploads/instructor/profile/';
+if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
+    echo mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
+}
+
 
 const PROFILE_PHOTO_UPLOAD_DIR = '../../uploads/instructor/profile/';
 if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
@@ -18,11 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $teaching_experience = $_POST['teaching_experience'] ?? null;
     $institution = $_POST['institution'] ?? null;
 
+    $profile_picture = $_POST['profile_picture'] ?? null;
 
     // Validate required fields
-    if (empty($full_name) || empty($email) || empty($pass)) {
-        die("<p>Full Name, Email, and Password are required!</p>");
-    }
+    // if (empty($full_name) || empty($email) || empty($pass)) {
+    //     die("<p>Full Name, Email, and Password are required!</p>");
+    // }
 
     $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
     if ($is_uploaded) {
@@ -35,21 +41,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Handle profile picture upload
-    // $profile_picture = null;
-    // if (isset($_FILES["profile_picture"]) && $_FILES["profile_picture"]["error"] === 0) {
-    //     $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-    //     if (in_array($_FILES["profile_picture"]["type"], $allowed_types) && $_FILES["profile_picture"]["size"] <= 2000000) {
-    //         $target_dir = "../uploads/";
-    //         $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
-    //         if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
-    //             $profile_picture = $target_file;
-    //         } else {
-    //             echo "<p>Failed to upload profile picture.</p>";
-    //         }
-    //     } else {
-    //         echo "<p>Invalid file type or size.</p>";
-    //     }
-    // }
+    $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
+    if ($is_uploaded) {
+        $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
+        $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
+        if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
+            $profile_picture = $new_path;
+            $_SESSION['profile_picture'] = $new_path;
+        }
+    }
+
 
     // Debugging: Comment out these lines in production
     // print_r($_POST);

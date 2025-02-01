@@ -21,11 +21,11 @@ if (!isset($_SESSION['full_name'])) {
                 <h2>Instructor Portal</h2>
                         <nav>
                             <ul>
-                                <li><a href="dashboard.php"><span><img src="../../assets/uploads/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
-                                <li><a href="courses.php"><span><img src="../../assets/uploads/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
-                                <li><a href="Student_management.php"><span><img src="../../assets/uploads/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Student Management</a></li>
-                                <li><a href="certificates.php"><span><img src="../../assets/uploads/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
-                                <li><a href="profile.php"  class="active"><span><img src="../../assets/uploads/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li> 
+                                <li><a href="dashboard.php"><span><img src="../../assets/uploads/instructor/dashboard.svg" alt="Profile Picture"  width="18" height="12"></span>Dashboard</a></li>
+                                <li><a href="courses.php"><span><img src="../../assets/uploads/instructor/course.svg" alt="Profile Picture"  width="18" height="12"></span>Courses</a></li>
+                                <li><a href="Student_management.php"><span><img src="../../assets/uploads/instructor/grade.svg" alt="Profile Picture"  width="15" height="14"></span>Student Management</a></li>
+                                <li><a href="certificates.php"><span><img src="../../assets/uploads/instructor/certificate.svg" alt="Profile Picture"  width="20" height="15"></span>Certificates</a></li>
+                                <li><a href="profile.php"  class="active"><span><img src="../../assets/uploads/instructor/profile.svg" alt="Profile Picture"  width="18" height="12"></span>Profile</a></li> 
                             </ul>
                         </nav>
                         <form action="../../control/instructor/logout_control.php">
@@ -95,7 +95,7 @@ if (!isset($_SESSION['full_name'])) {
 
                     <tr>
                         <td><label for="profile_picture">Profile Picture:</label></td>
-                        <td><input type="file" id="profile_picture" name="profile_picture" accept="image/*"></td>
+                        <td><input type="file" id="profile_picture" name="profile_picture"  accept="image/*"></td>
                     </tr>
 
                     <tr>
