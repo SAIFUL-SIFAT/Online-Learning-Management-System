@@ -56,7 +56,7 @@ if (!isset($_SESSION['full_name'])) {
             <div class="profile-container">
                 <div class="profile-content">
                     <div class="profile-info">
-                    <img src="../../assets/image.png" alt="Profile Picture">
+                    <img src="<?php echo $_SESSION['profile_picture'] ?? ''; ?>" alt="Profile Picture">
                         <div class="info">
                         <h2><?php echo $_SESSION['full_name'] ?? '' ?></h2>
                         <p>Instructor</p>

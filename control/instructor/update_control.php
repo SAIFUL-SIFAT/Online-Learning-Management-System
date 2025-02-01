@@ -3,6 +3,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require '../../model/instructor/db.php';
 
+const PROFILE_PHOTO_UPLOAD_DIR = '../../uploads/instructor/profile/';
+if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
+    echo mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $full_name = $_POST['full_name'] ?? null;
     $email = $_POST['email'] ?? null;
@@ -17,6 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate required fields
     if (empty($full_name) || empty($email) || empty($pass)) {
         die("<p>Full Name, Email, and Password are required!</p>");
+    }
+
+    $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
+    if ($is_uploaded) {
+        $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
+        $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
+        if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
+            $profile_picture = $new_path;
+            $_SESSION['profile_picture'] = $new_path;
+        }
     }
 
     // Handle profile picture upload

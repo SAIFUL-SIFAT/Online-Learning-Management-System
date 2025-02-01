@@ -3,6 +3,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require '../../model/instructor/db.php';
 
+const PROFILE_PHOTO_UPLOAD_DIR = '../../uploads/instructor/profile/';
+if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
+    echo mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
+}
+
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -50,22 +55,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //     mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
             // }
 
-            // $is_uploaded = is_uploaded_file($_FILES['profile_photo']['tmp_name']);
+            // $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
             // if ($is_uploaded) {
-            //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_photo']['name']);
-            //     if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $new_path)) {
-            //         $_POST['profile_photo'] = $new_path; // Store the path for database insertion
+            //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['name']);
+            //     if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
+            //         $_POST['profile_picture'] = $new_path; // Store the path for database insertion
             //     } else {
-            //         $errors['profile_photo'] = "Failed to move uploaded file.";
+            //         $errors['profile_picture'] = "Failed to move uploaded file.";
             //     }
             // } else {
-            //     if (empty($_FILES['profile_photo']['name'])) {
-            //         $errors['profile_photo'] = "No file uploaded.";
+            //     if (empty($_FILES['profile_picture']['name'])) {
+            //         $errors['profile_picture'] = "No file uploaded.";
             //     } else {
-            //         $errors['profile_photo'] = "File upload error.";
+            //         $errors['profile_picture'] = "File upload error.";
             //     }
             // }
 
+        $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
+        if ($is_uploaded) {
+            $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
+            $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
+            if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
+                $profile_picture = $new_path;
+                $_SESSION['profile_picture'] = $new_path;
+            }
+        }
 
         if (empty($errors)) {
             $user_data = array(
@@ -77,11 +91,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "expertise" => $expertise,
                 "teaching_experience" => $teaching_experience,
                 "institution" => $institution,
-                "profile_photo" => $profile_picture // Include profile photo path
+                "profile_picture" => $profile_picture // Include profile photo path
             );
 
-            $json_data = json_encode($user_data, JSON_PRETTY_PRINT);
-            file_put_contents("../data/userdata.json", $json_data);
+            // $json_data = json_encode($user_data, JSON_PRETTY_PRINT);
+            // file_put_contents("../data/userdata.json", $json_data);
 
             $db = new myDB();
             $db->insertData($full_name, $email, $phone, $pass, $qualifications,$profile_picture, $expertise, $teaching_experience, $institution);
