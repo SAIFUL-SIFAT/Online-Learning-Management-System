@@ -32,14 +32,8 @@ if (!isset($_SESSION['admin_id'])) {
                 <th>Action</th>
             </tr>
             <?php
-            include '../../model/admin/db.php';
-
-            $db = new Db();
-
-            $conn = $db->open();
-
-            $sql = "SELECT * FROM course";
-            $result = $conn->query($sql);
+            require_once '../../model/admin/Course.php';
+            $result = Course::getCourses();
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>

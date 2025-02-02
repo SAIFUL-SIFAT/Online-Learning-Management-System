@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../model/admin/db.php';
+
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
@@ -14,27 +14,7 @@ if (empty($_POST['instructor_id'])) {
     exit();
 }
 
-$db = new Db();
-$conn = $db->open();
-$sql = "INSERT INTO course (instructor_id, title, description) VALUES (?, ?, ?)";
+require_once "../../model/admin/Course.php";
 
-if ($stmt = $conn->prepare($sql)) {
-    $stmt->bind_param(
-        "iss",
-        $_POST['instructor_id'],
-        $_POST['title'],
-        $_POST['description'],
-    );
-
-    if ($stmt->execute()) {
-        header('Location: ' . '../../view/admin/courses.php');
-    } else {
-        echo $stmt->error;
-    }
-
-    $stmt->close();
-} else {
-    echo $conn->error;
-}
-
-$conn->close();
+$course = new Course($_POST);
+$course->save();

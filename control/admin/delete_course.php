@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../model/admin/db.php';
+include '../../model/admin/Course.php';
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
@@ -12,25 +12,8 @@ if (empty($_GET['id'])) {
     exit();
 }
 
-$db = new Db();
-$conn = $db->open();
-$sql = "DELETE FROM course WHERE course_id = ?";
-
-if ($stmt = $conn->prepare($sql)) {
-    $stmt->bind_param(
-        "i",
-        $_GET['id'],
-    );
-
-    if ($stmt->execute()) {
-        header('Location: ' . '../../view/admin/courses.php');
-    } else {
-        echo $stmt->error;
-    }
-
-    $stmt->close();
+if (Course::delete($_GET['id'])) {
+    header('Location: ' . '../../view/admin/courses.php');
 } else {
-    echo $conn->error;
+    echo 'error while deleting course';
 }
-
-$conn->close();

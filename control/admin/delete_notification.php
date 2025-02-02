@@ -10,4 +10,4 @@ if (empty($_GET['id'])) {
     exit();
 }
 
-Notification::deleteNotification($_GET['id']);
+Notification::delete($_GET['id']);

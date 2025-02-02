@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../model/admin/db.php';
+require_once '../../model/admin/Instructor.php';
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
@@ -8,22 +8,11 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 $id = $_GET['id'];
-
-$db = new Db();
-$conn = $db->open();
-
-$sql = "UPDATE instructor SET status = 1 WHERE instructor_id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
-
-if ($stmt->execute()) {
-    echo "Instructor approved.";
-} else {
-    echo $conn->error;
+if (!isset($id)) {
+    header("Location: ../../view/admin/instructors.php");
+    die();
 }
+Instructor::approve($id);
 
-$stmt->close();
-$conn->close();
+header("Location: ../../view/admin/instructors.php");
 ?>
-<br>
-<a href="../../view/admin/instructors.php">Back to Instructors</a>

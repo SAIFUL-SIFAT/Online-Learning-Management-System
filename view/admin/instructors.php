@@ -30,9 +30,9 @@ if (!isset($_SESSION['admin_id'])) {
             <th>Action</th>
         </tr>
         <?php
-        include '../../model/admin/User.php';
+        include '../../model/admin/Instructor.php';
 
-        $rows = User::getUsers('instructor');
+        $rows = Instructor::getUnapproved();
 
         foreach ($rows as $row) {
             echo "<tr>

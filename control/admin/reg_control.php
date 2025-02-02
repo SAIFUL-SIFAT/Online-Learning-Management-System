@@ -1,6 +1,5 @@
 <?php
 
-require('../../model/admin/db.php');
 const PROFILE_PHOTO_UPLOAD_DIR = '../../uploads/admin/profile/';
 if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
     echo mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
@@ -39,6 +38,8 @@ if ($is_uploaded) {
 
 <body>
     <?php
+    require_once '../../model/admin/Admin.php';
+
     if (!empty($errors)) {
         echo "<h2>Correct the following errors:</h2>";
         echo "<ul>";
@@ -46,10 +47,9 @@ if ($is_uploaded) {
             echo "<li>$error</li>";
         echo "</ul>";
     } else {
-        $db = new Db();
-        $conn = $db->open();
-        $db->insertData($_POST);
-        $db->close($conn);
+        $admin = new Admin($_POST);
+        $admin->save();
+
         header('Location: ../../view/admin/login.php');
     }
     ?>

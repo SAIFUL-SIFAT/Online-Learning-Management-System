@@ -10,4 +10,4 @@ if (empty($_POST['message'])) {
     exit();
 }
 
-Notification::createNotification($_POST['message'], $_POST['type']);
+Notification::create($_POST['message'], $_POST['type']);

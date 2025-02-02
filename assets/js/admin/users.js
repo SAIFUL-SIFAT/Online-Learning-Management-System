@@ -20,7 +20,10 @@ search_box.addEventListener('keydown', () => {
 })
 
 function previousPageListener(event) {
-    if (currentPage === 2) previous_button.disabled = true;
+    if (currentPage === 1) {
+        previous_button.disabled = true;
+        return;
+    }
     currentPage -= 1;
 
     let req = new XMLHttpRequest();
@@ -54,7 +57,6 @@ function nextPageListener(event) {
     req.open('GET', `../../control/admin/get_users.php?type=${user_type.value.toLowerCase()}&page=${currentPage}`, true);
     req.send();
 }
-
 
 function selectChangeListener(event) {
     let req = new XMLHttpRequest();
@@ -117,7 +119,13 @@ function setTable(response) {
             const tableRow = document.createElement("tr");
             keys.forEach(key => {
                 const td = document.createElement("td");
-                td.textContent = row[key];
+                if ((key === 'profile_picture' || key === 'profile_photo') && row[key]) {
+                    const img = document.createElement('img');
+                    img.src = row[key];
+                    td.appendChild(img);
+                } else {
+                    td.textContent = row[key];
+                }
                 tableRow.appendChild(td);
             });
 

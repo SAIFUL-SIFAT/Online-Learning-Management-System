@@ -56,6 +56,10 @@ if (!isset($_SESSION['admin_id'])) {
                 foreach ($rows as $row) {
                     echo '<tr>';
                     foreach ($row as $k => $v) {
+                        if ($k === 'profile_picture') {
+                            echo "<td><img src='" . $v . "'></td>";
+                            continue;
+                        }
                         echo "<td>" . $v . "</td>";
 
                     }

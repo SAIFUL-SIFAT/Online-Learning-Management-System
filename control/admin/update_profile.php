@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require('../../model/admin/db.php');
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
@@ -25,8 +24,7 @@ if ($is_uploaded) {
     }
 }
 
-
-$db = new Db();
-$db->updateData($_POST);
+require_once '../../model/admin/Admin.php';
+Admin::update($_POST);
 
 header('location: ../../view/admin/profile.php');
