@@ -5,7 +5,6 @@
     }
     include '../../model/moderator/db.php';
     $db = new Db();
-       // $conn = $db->open();
        
 $result = $db->getEvents();
 ?>
@@ -19,7 +18,6 @@ $result = $db->getEvents();
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <h2>Moderator Portal</h2>
             <nav>
@@ -32,19 +30,17 @@ $result = $db->getEvents();
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <form action="../../control/logout_control.php" method="POST" >
+                <form action="../../control/moderator/logout_control.php" method="POST" >
                     <button class="logout" type="submit">Logout</button>
                 </form>
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div class="header">
                 
             </div>
 
-            <!-- Event Management -->
             <div class="event-management">
                 <h2>Event Management</h2>
                 <div class="event-list">
@@ -55,24 +51,11 @@ $result = $db->getEvents();
                         <h3>Event Title:<?php echo $event['title'] ?></h3>
                         <p>Description:<?php echo $event['description'] ?></p>
                         <p>Moderator ID:<?php echo $event['moderator_id'] ?></p>
-                        <!-- <button class="view-details">View Details</button> -->
                     </div>
                     <?php
                 }
                 ?>
-                    <!-- <div class="event-card">
-                        <h3>Data Science Seminar</h3>
-                        <p>Date: 2024-04-20</p>
-                        <p>Capacity: 100 seats</p>
-                        <button class="view-details">View Details</button>
-                    </div>
-                    <div class="event-card">
-                        <h3>Tech Career Fair</h3>
-                        <p>Date: 2024-05-01</p>
-                        <p>Capacity: 200 seats</p>
-                        <button class="view-details">View Details</button>
-                    </div>
-                </div> -->
+                   
             </div>
             <a href="add_event.php">
             <button class="add-event">Add Events

@@ -12,11 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'] ;
     $phone_number = $_POST['phone_number'];
     $department = $_POST['department'] ;
-    // $role = $_POST['role'];
     $manager = $_POST['manager'];
     $work_location = $_POST['work_location'];
 
-    // Validation
     if (empty($full_name)) {
         $errors[] = "Full Name is required.";
     } elseif (is_numeric($full_name)) {
@@ -35,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Phone Number cannot be longer than 11 digits.";
     }
 
-    // Insert data if no errors
     if (empty($errors)) {
         $db = new Db();
         $db->insertData($full_name, $email, $username, $password, $phone_number, $department, $manager, $work_location);

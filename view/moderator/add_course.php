@@ -5,10 +5,7 @@
     }
     include '../../model/moderator/db.php';
 
-// $db = new Db();
-// $conn = $db->open();
 
-// $result = $db->getAllStudents();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +17,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <h2>Moderator Portal</h2>
             <nav>
@@ -33,20 +29,18 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <form action="../../control/logout_control.php" method="POST" >
+                <form action="../../control/moderator/logout_control.php" method="POST" >
                     <button class="logout" type="submit">Logout</button>
                 </form>
             </div>
 
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div class="header">
 
             </div>
 
-            <!-- Student Management -->
             <div class="add-course">
                 <h2>Add student</h2>
                 <form action="../../control/add_course_control.php" method="POST">
@@ -69,7 +63,6 @@
                 </form>
                 
                 
-                    <!-- <button class="add-student">Add</button> -->
                 
             </div>
         </div>

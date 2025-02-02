@@ -9,7 +9,6 @@ if(!isset($_SESSION['full_name'])) {
 include '../../model/moderator/db.php';
 
 $db = new Db();
-// $conn = $db->open();
 
 
 

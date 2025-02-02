@@ -20,7 +20,6 @@ $result = $db->getAllStudents();
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <h2>Moderator Portal</h2>
             <nav>
@@ -40,13 +39,11 @@ $result = $db->getAllStudents();
 
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div class="header">
 
             </div>
 
-            <!-- Student Management -->
             <div class="student-management">
                 <h2>Student Management</h2>
                 <table>

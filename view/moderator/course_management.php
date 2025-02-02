@@ -7,7 +7,6 @@
 
     include '../../model/moderator/db.php';
     $db = new Db();
-    // $conn = $db->open();
     
 $result = $db->getCourses();
 ?>
@@ -21,7 +20,6 @@ $result = $db->getCourses();
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <h2>Moderator Portal</h2>
             <nav>
@@ -34,19 +32,17 @@ $result = $db->getCourses();
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <form action="../../control/logout_control.php" method="POST" >
+                <form action="../../control/moderator/logout_control.php" method="POST" >
                     <button class="logout" type="submit">Logout</button>
                 </form>
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="main">
             <div class="header">
 
             </div>
 
-            <!-- Course Management -->
             <div class="content-moderation">
                 <h2>Content Moderation</h2>
                 <table>

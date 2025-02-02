@@ -44,10 +44,7 @@
                 </select>
             </td>
         </tr>
-        <!-- <tr>
-            <td><label for="role">Role (Auto-set based on position):</label></td>
-            <td><input type="text" id="role" name="role" value="" disabled></td>
-        </tr> -->
+
         <tr>
             <td><label for="manager">Manager/Supervisor Name (if applicable):</label></td>
             <td><input type="text" id="manager" name="manager"></td>
@@ -68,6 +65,7 @@
     <p>Already have an account? <a href="signin.php">Sign in</a></p>
 
 </form>
+<script type="text/javascript" src="../../assets/js/moderator/validation.js"></script>
 
 </body>
 </html>

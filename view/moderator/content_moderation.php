@@ -27,69 +27,18 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <form action="../../control/logout_control.php" method="POST" >
+                <form action="../../control/moderator/logout_control.php" method="POST" >
                     <button class="logout" type="submit">Logout</button>
                 </form>
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div class="header">
                 
             </div>
 
-            <!-- Content Moderation -->
-            <div class="content-moderation">
-                <h2>Content Moderation</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Type</th>
-                            <th>Status</th>
-                            <th>Reason</th>
-                            <th>Author</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Introduction to Python</td>
-                            <td>Course</td>
-                            <td class="flagged">Flagged</td>
-                            <td>Inappropriate Content</td>
-                            <td>Dr. Smith</td>
-                            <td>
-                                <button class="approve">Approve</button>
-                                <button class="reject">Reject</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Web Development Basics</td>
-                            <td>Course</td>
-                            <td class="pending">Pending</td>
-                            <td>Copyright Check</td>
-                            <td>Jane Doe</td>
-                            <td>
-                                <button class="approve">Approve</button>
-                                <button class="reject">Reject</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Data Science Forum</td>
-                            <td>Discussion</td>
-                            <td class="approved">Approved</td>
-                            <td>-</td>
-                            <td>Community</td>
-                            <td>
-                                <button class="approve">Approve</button>
-                                <button class="reject">Reject</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            
         </div>
     </div>
 </body>
