@@ -30,13 +30,20 @@ class MyDB {
                 profile_picture VARCHAR(255),
                 expertise VARCHAR(50) NOT NULL,
                 teaching_experience INT NOT NULL,
-                gender ENUM('Male', 'Female') NOT NULL
+                institution VARCHAR(50) NOT NULL
+                
             )";
-
-        if (!$this->conn->query($createTableQuery)) {
-            die("Error creating table: " . $this->conn->error);
+    
+        if ($stmt = $this->conn->prepare($createTableQuery)) {
+            if (!$stmt->execute()) {
+                die("Error creating table: " . $stmt->error);
+            }
+            $stmt->close();
+        } else {
+            die("SQL Prepare Error: " . $this->conn->error);
         }
     }
+    
 
     // Insert data into the instructor table
     public function insertData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $institution) {
