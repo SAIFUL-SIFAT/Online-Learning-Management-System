@@ -3,21 +3,6 @@
 class Db {
     private $conn;
 
-    // Open database connection
-    // function openConn() {
-    //     $host = 'localhost';
-    //     $user = 'root';
-    //     $password = '';
-    //     $dbname = 'new_project';
-
-    //     // Create a new connection
-    //     $this->conn = new mysqli($host, $user, $password, $dbname);
-
-    //     // Check for connection errors
-    //     if ($this->conn->connect_error) {
-    //         die("Connection failed: " . $this->conn->connect_error);
-    //     }
-    // }
     public function openConn() {
         $DBHost = "localhost";
         $DBUser = "root";
@@ -33,7 +18,6 @@ class Db {
     }
     // Insert data into the moderator table
     function insertData($full_name, $email, $username, $password, $phone_number, $department, $manager, $work_location) {
-        // Ensure the database connection is open
         $this->openConn();
 
         $sql = "INSERT INTO moderator (full_name, email, username, password, phone_number, department,  manager, work_location) 
@@ -63,12 +47,11 @@ class Db {
             echo "Error preparing statement: " . $this->conn->error;
         }
 
-        $this->closeConn(); // Close connection
+        $this->closeConn(); 
     }
 
     // Fetch login data
     function getLoginData($full_name, $password) {
-        // Ensure the database connection is open
         $this->openConn();
     
         $sql = "SELECT * FROM moderator WHERE full_name = ?";
@@ -87,7 +70,7 @@ class Db {
     
         $stmt->close();
     
-        // Validate password securely
+     
         if ($user && $password === $user['password']) {
             return $user;
         } else {
@@ -150,7 +133,7 @@ class Db {
         $result = $this->conn->query($sql);
     
         if ($result) {
-            return $result; // Return the raw result object
+            return $result; 
         } else {
             echo "Error fetching students: " . $this->conn->error;
             return false;
