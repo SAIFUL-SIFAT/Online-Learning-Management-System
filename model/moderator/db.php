@@ -7,7 +7,7 @@ class Db {
         $DBHost = "localhost";
         $DBUser = "root";
         $DBPassword = "";
-        $DBName = "new_project";
+        $DBName = "project";
 
         $this->conn = new mysqli($DBHost, $DBUser, $DBPassword, $DBName);
 
