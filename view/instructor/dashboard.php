@@ -60,7 +60,6 @@ $total_students = $db->getTotalStudents();
         </div>
 
             <!-- Dashboard Content -->
-            <!-- <h2>Dashboard</h2> -->
             <div class="dashboard">
                 <h2>Dashboard</h2>
                 <div class="dashboard-stats">

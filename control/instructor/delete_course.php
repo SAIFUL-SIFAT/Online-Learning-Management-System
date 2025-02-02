@@ -1,7 +1,7 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 include '../../model/instructor/db.php';
 
 if (!isset($_SESSION['full_name'])) {
@@ -31,3 +31,4 @@ if ($stmt = $conn->prepare($sql)) {
 }
 
 $conn->close();
+?>

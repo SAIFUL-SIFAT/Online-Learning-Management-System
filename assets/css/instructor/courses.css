@@ -105,10 +105,11 @@ th, td {
   padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid #ccc;
+  background-color: #f3f3f3;
 }
 
 th {
-  background-color: #e5e5e6;
+  background-color: #aaaaaa;
   font-weight: bold;
 }
 
@@ -126,45 +127,27 @@ th {
 
 .add-course:hover {
   background-color: #3737e6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
   transition: all 0.3s ease;
   cursor: pointer;
 }
-
-  .course-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-  }
-  
-  .hidden {
+ .hidden {
     display: none;
   }
   
-  .course-modal form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .actions button.delete {
-    background-color: #f44336; /* Red background color */
-    color: white; /* White text */
-    border: none; /* Removes border */
-    padding: 8px 16px; /* Slightly larger padding for better usability */
+
+.actions button.delete {
+    background-color: #f44336;
+    color: white; 
+    border: none; 
+    padding: 8px 16px; 
     text-align: center;
-    font-size: 14px; /* Text size */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 4px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+    font-size: 14px; 
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; 
 }
 
 .actions button.delete:hover {
-    background-color: #d32f2f; /* Darker red on hover for effect */
+    background-color: #d32f2f; 
 }
