@@ -32,7 +32,9 @@ if (!isset($_SESSION['admin_id'])) {
         <?php
         include '../../model/admin/Instructor.php';
 
-        $rows = Instructor::getUnapproved();
+        $offset = 0;
+        $limit = 20;
+        $rows = Instructor::getUnapproved($offset, $limit);
 
         foreach ($rows as $row) {
             echo "<tr>

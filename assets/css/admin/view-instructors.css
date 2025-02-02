@@ -24,3 +24,7 @@
 #reject-instructor:hover {
     box-shadow: 0 1px 10px rgba(255, 0, 0, 0.3);
 }
+
+.table-container {
+    overflow: auto;
+}

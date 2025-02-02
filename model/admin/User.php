@@ -52,13 +52,13 @@ class User {
         return null;
     }
 
-    static function deleteUser($type, $id) {
+    static function delete($type, $id) {
         $db = new db();
         $conn = $db->open();
-        $sql = "DELETE FROM $type WHERE id = $id";
-        $conn->query($sql);
-
-        $conn->close();
+        $sql = "SHOW COLUMNS FROM $type";
+        $result = $conn->query($sql);
+        $col = $result->fetch_assoc()['Field'];
+        $sql = "DELETE FROM $type WHERE $col = $id";
+        return $conn->query($sql);
     }
-
 }

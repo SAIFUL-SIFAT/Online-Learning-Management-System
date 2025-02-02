@@ -39,8 +39,10 @@ if (!isset($_SESSION['admin_id'])) {
 
         <?php
         include '../../model/admin/User.php';
+        $offset = 0;
+        $limit = 6;
 
-        $rows = User::getUsers('student');
+        $rows = User::getUsers('student', $offset, $limit);
 
         if ($rows) {
             $keys = array_keys($rows[0]);
@@ -63,7 +65,7 @@ if (!isset($_SESSION['admin_id'])) {
                         echo "<td>" . $v . "</td>";
 
                     }
-                    echo "<td>" . " <a class='link-button' id='user-action' href='../../control/admin/delete_course.php?id=" . urlencode($row[$keys[0]]) . "'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a>" . "</td>";
+                    echo "<td>" . " <a class='link-button' id='user-action' href='../../control/admin/delete_user.php?type=student&id=" . urlencode($row[$keys[0]]) . "'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a>" . "</td>";
                     echo '</tr>';
                 }
             }
