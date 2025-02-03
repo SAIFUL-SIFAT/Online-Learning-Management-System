@@ -2,7 +2,7 @@
 // quizzes_db.php
 
 $host = 'localhost'; // your database host
-$dbname = 'new_project'; // your database name
+$dbname = 'project'; // your database name
 $username = 'root'; // your username
 $password = ''; // your password
 

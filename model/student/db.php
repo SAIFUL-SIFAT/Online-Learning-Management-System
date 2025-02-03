@@ -7,7 +7,7 @@ class myDB
         $DBHost = "localhost";
         $DBUser = "root";
         $DBPassword = "";
-        $dbname = "new_project";
+        $dbname = "project";
         $conn = mysqli_connect($DBHost, $DBUser, $DBPassword, $dbname);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

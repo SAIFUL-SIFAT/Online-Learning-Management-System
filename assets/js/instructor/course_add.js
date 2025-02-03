@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const courseTitle = document.getElementById("course-title");
     const courseDescription = document.getElementById("course-description");
     const instructorId = document.getElementById("instructor_id");
+    console.log('test');
 
     courseForm.addEventListener("submit", function(event) {
         event.preventDefault();

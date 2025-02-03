@@ -65,7 +65,7 @@ $result = $db->getCourses();
                             <td>" . $row['description'] . "</td>
                             <td>
                             <div class='actions'>
-                                <form action='../../control/course_delete_control.php'>
+                                <form action='../../control/moderator/course_delete_control.php'>
                                   <input type='hidden' name='course_id' value='" . $row['course_id'] . "'>
                                       <button type='submit' class='delete'>Delete</button>
                                 </form>

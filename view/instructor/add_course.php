@@ -5,7 +5,6 @@ if (!isset($_SESSION['full_name'])) {
     header("Location: login.php");
     exit();
 }
-include '../../control/instructor/course_control.php';
 ?>
 
 <!DOCTYPE html>

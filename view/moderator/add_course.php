@@ -43,7 +43,7 @@
 
             <div class="add-course">
                 <h2>Add student</h2>
-                <form action="../../control/add_course_control.php" method="POST">
+                <form action="../../control/moderator/add_course_control.php" method="POST">
                     <tr>
                         <td><label for="course_name">Instructor ID:</label></td>
                         <td><input type="text" id="course_name" name="instructor_id"></td>

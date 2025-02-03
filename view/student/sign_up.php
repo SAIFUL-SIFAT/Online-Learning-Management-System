@@ -5,13 +5,12 @@
 
     <title>Student Registration Form</title>
     <link rel="stylesheet" href="../../assets/css/student/sign_up.css">
-    <script src="..\..\student\sign_up.js" defer></script>
 </head>
 
 <body>
     <h1>STUDENT REGISTRATION FORM</h1>
 
-    <form action="../../control/student/reg_control.php" method="POST" onsubmit="return validateForm();">
+    <form action="../../control/student/reg_control.php" method="POST" onsubmit="validateForm(event)">
         <fieldset>
             <legend>Personal Information</legend>
             <table>
@@ -94,6 +93,8 @@
             </tr>
         </fieldset>
     </form>
+    <script src="../../assets/js/student/sign_up.js"></script>
+
 </body>
 
 </html>

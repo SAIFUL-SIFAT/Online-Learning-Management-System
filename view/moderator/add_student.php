@@ -42,7 +42,7 @@
 
             <div class="add-student">
                 <h2>Add student</h2>
-                <form action="../../control/add_student_control.php" method="POST">
+                <form action="../../control/moderator/add_student_control.php" method="POST">
                     <tr>
                         <td><label for="full_name">Full Name:</label></td>
                         <td><input type="text" id="full_name" name="full_name"></td>

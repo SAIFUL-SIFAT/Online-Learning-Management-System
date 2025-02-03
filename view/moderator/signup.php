@@ -9,7 +9,7 @@
 
 <h1>Moderator Registration</h1>
 
-<form method="POST" action="../../control/moderator/reg_control.php" enctype="multipart/form-data">
+<form method="POST" onsubmit='validateSignupForm(event)' action="../../control/moderator/reg_control.php" enctype="multipart/form-data">
     <table>
         <tr>
             <td><label for="full_name">Full Name:</label></td>
