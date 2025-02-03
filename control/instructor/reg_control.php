@@ -34,15 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['phone'] = "Phone Number must start with 0 and be exactly 11 digits.";
     }
 
-    $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
-    if ($is_uploaded) {
-        $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
-        $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
-        if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
-            $profile_picture = $new_path;
-            $_SESSION['profile_picture'] = $new_path;
-        }
-    }
+    // $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
+    // if ($is_uploaded) {
+    //     $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
+    //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
+    //     if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
+    //         $profile_picture = $new_path;
+    //         $_SESSION['profile_picture'] = $new_path;
+    //     }
+    // }
 
 
     if (empty($errors)) {
