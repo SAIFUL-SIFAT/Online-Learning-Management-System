@@ -6,18 +6,25 @@ $dbname = 'project'; // your database name
 $username = 'root'; // your username
 $password = ''; // your password
 
-try {
-    // Create database connection
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
+// Create database connection using mysqli OOP
+$mysqli = new mysqli($host, $username, $password, $dbname);
+
+// Check the connection
+if ($mysqli->connect_error) {
+    die('Connection failed: ' . $mysqli->connect_error);
 }
+
 // Get Available Courses
 function getAvailableCourses() {
-    global $pdo;
-    $stmt = $pdo->query("SELECT * FROM courses WHERE status = 'available'");
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    global $mysqli;
+    $query = "SELECT * FROM courses WHERE status = 'available'";
+    $result = $mysqli->query($query);
+
+    // Fetch all rows as an associative array
+    if ($result) {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return []; // Return an empty array if the query fails
+    }
 }
- 
 ?>

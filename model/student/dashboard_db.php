@@ -7,37 +7,43 @@ $dbname = 'new_project'; // your database name
 $username = 'root'; // your username
 $password = ''; // your password
 
-try {
-    // Create database connection
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
+// Create database connection using mysqli OOP
+$mysqli = new mysqli($host, $username, $password, $dbname);
+
+// Check the connection
+if ($mysqli->connect_error) {
+    die('Connection failed: ' . $mysqli->connect_error);
 }
 
 // Get Enrolled Courses
 function getEnrolledCourses() {
-    global $pdo;
-    $stmt = $pdo->query("SELECT COUNT(*) FROM courses WHERE status = 'enrolled'");
-    return $stmt->fetchColumn();
+    global $mysqli;
+    $query = "SELECT COUNT(*) FROM courses WHERE status = 'enrolled'";
+    $result = $mysqli->query($query);
+    $row = $result->fetch_row();
+    return $row[0]; // Return the count of enrolled courses
 }
 
 // Get Completed Quizzes
 function getCompletedQuizzes() {
-    global $pdo;
-    $stmt = $pdo->query("SELECT COUNT(*) FROM quizzes WHERE status = 'completed'");
-    return $stmt->fetchColumn();
+    global $mysqli;
+    $query = "SELECT COUNT(*) FROM quizzes WHERE status = 'completed'";
+    $result = $mysqli->query($query);
+    $row = $result->fetch_row();
+    return $row[0]; // Return the count of completed quizzes
 }
 
 // Get Average Grade
 function getAverageGrade() {
-    global $pdo;
-    $stmt = $pdo->query("SELECT AVG(grade) FROM grades");
-    return $stmt->fetchColumn();
+    global $mysqli;
+    $query = "SELECT AVG(grade) FROM grades";
+    $result = $mysqli->query($query);
+    $row = $result->fetch_row();
+    return $row[0]; // Return the average grade
 }
-    
 
 ?>
+
 <?php
 /*
 // Updated dashboard_db.php for dynamic enrolled course handling
