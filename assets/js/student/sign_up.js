@@ -1,60 +1,58 @@
-// registrationValidation.js
-function validateForm(event) {
-    const studentId = document.getElementById('id').value;
-    const fullName = document.getElementById('fullName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confromPassword = document.getElementById('confromPassword').value;
-    const phone = document.getElementById('phone').value;
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    let errors = [];
 
-    if (!studentId) {
-        event.preventDefault();
-        alert('Please enter your Student ID.');
-        return false;
-    }
-
+    const fullName = document.getElementById('fullName').value.trim();
     if (!fullName) {
-        event.preventDefault();
-
-        alert('Please enter your full name.');
-        return false;
+        errors.push("Full Name is required.");
+        document.getElementById('full_name_error').textContent = "Full Name is required.";
+    } else if (!/^[a-zA-Z\s]+$/.test(fullName)) {
+        errors.push("Full Name can only contain letters and spaces.");
+        document.getElementById('full_name_error').textContent = "Full Name can only contain letters and spaces.";
+    } else if (fullName.length > 40) {
+        errors.push("Full Name can be a maximum of 40 characters.");
+        document.getElementById('full_name_error').textContent = "Full Name can be a maximum of 40 characters.";
+    } else {
+        document.getElementById('full_name_error').textContent = "";
     }
 
+    const lastName = document.getElementById('lastName').value.trim();
     if (!lastName) {
-        event.preventDefault();
-
-        alert('Please enter your last name.');
-        return false;
+        errors.push("Last Name is required.");
+        document.getElementById('last_name_error').textContent = "Last Name is required.";
+    } else {
+        document.getElementById('last_name_error').textContent = "";
     }
-
+    const email = document.getElementById('email').value.trim();
     if (!email) {
-        event.preventDefault();
-
-        alert('Please enter your email address.');
-        return false;
+        errors.push("Email Address is required.");
+        document.getElementById('email_error').textContent = "Email Address is required.";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+        errors.push("Email Address is invalid.");
+        document.getElementById('email_error').textContent = "Email Address is invalid.";
+    } else {
+        document.getElementById('email_error').textContent = "";
     }
 
-    if (!password) {
-        event.preventDefault();
-
-        alert('Please enter your password.');
-        return false;
+    const confirmPassword = document.getElementById('confromPassword').value;
+    if (confirmPassword !== password) {
+        errors.push("Passwords do not match.");
+        document.getElementById('confirm_password_error').textContent = "Passwords do not match.";
+    } else {
+        document.getElementById('confirm_password_error').textContent = "";
     }
 
-    if (password !== confromPassword) {
-        event.preventDefault();
-
-        alert('Passwords do not match.');
-        return false;
-    }
-
+    const phone = document.getElementById('phone').value;
     if (!phone) {
-        event.preventDefault();
-
-        alert('Please enter your phone number.');
-        return false;
+        errors.push("Phone Number is required.");
+        document.getElementById('phone_error').textContent = "Phone Number is required.";
+    } else if (!/^0[0-9]{10}$/.test(phone)) {
+        errors.push("Phone Number must start with 0 and be exactly 11 digits.");
+        document.getElementById('phone_error').textContent = "Phone Number must start with 0 and be exactly 11 digits.";
+    } else {
+        document.getElementById('phone_error').textContent = "";
     }
 
-    return true; // Allow form submission
-}
+    if (errors.length > 0) {
+        event.preventDefault();
+    }
+});

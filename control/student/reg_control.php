@@ -35,9 +35,7 @@ if (empty($_POST['email'])) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Invalid email format.";
     }
-    if (strpos($email, "@") === false || strpos($email, ".xyz") === false) {
-        $errors[] = "Email must contain '@' and end with '.xyz' domain.";
-    }
+    
 }
 
 if (empty($_POST['password'])) {
@@ -87,7 +85,7 @@ if (empty($country)) {
 if (empty($errors)) {
 
     $userData = array(
-        'student_id' => $student_id,   //store student id 
+        'student_id' => $student_id,  
         'full_name' => $full_name,
         'email' => $email,
         'password' => $password,
@@ -104,11 +102,11 @@ if (empty($errors)) {
     $db->insertData($full_name, $student_id, $password, $email, $preferred_language, $last_name, $phone, $dob, $country, $profile_picture);
     header('location:..\..\view\student\sign_in.php');
 
-    $filePath = '..\..\data\userdata.json';
+    // $filePath = '..\..\data\userdata.json';
 
 
-    file_put_contents($filePath, json_encode($userData, JSON_PRETTY_PRINT));
-    echo "Form submitted successfully and data saved!";
+    // file_put_contents($filePath, json_encode($userData, JSON_PRETTY_PRINT));
+    // echo "Form submitted successfully and data saved!";
 } else {
     foreach ($errors as $error) {
         echo "<p>$error</p>";
