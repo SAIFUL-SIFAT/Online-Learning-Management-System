@@ -89,56 +89,7 @@ header h2 {
   margin-right: 20px;
 }
 /* ------------------------------------------ */
-/* .profile-container {
-    background-color: #fff;
-    margin: 30px;
-    padding: 30px;
-    border-radius: 10px;
-    flex: 1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.profile-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px;
-  }
-  
-  .profile-info {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-  }
-  
-  .profile-info img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
 
-  }
-  
-  .info h2 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .info p {
-    margin: 5px 0 0;
-    color: #666;
-  }
-   */
-
-   /* .profile-container {
-    background-color: #fff;
-    margin: 30px;
-    padding: 30px;
-    border-radius: 10px;
-    flex: 1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  } */
-  
   .profile-container {
     background-color: #fff;
     margin: 0 auto;
@@ -220,20 +171,7 @@ header h2 {
     color: #666;
   }
   
-  .academic-info,
-  .contact-info {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-  }
-  
-  .academic-info h3,
-  .contact-info h3 {
-    margin-top: 0;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
+
   .info-item {
     display: flex;
     justify-content: space-between;
@@ -255,8 +193,7 @@ header h2 {
     gap: 10px;
   }
   
-  .edit-profile,
-  .change-password {
+  .edit-profile{
     background-color: #4b4bff;
     color: #fff;
     border: none;
@@ -267,9 +204,7 @@ header h2 {
   }
   
 .edit-profile.active,
-.change-password.active,
-.edit-profile:hover,
-.change-password:hover {
+.edit-profile:hover {
   background-color: #3737e6; /* Darker shade of blue */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
   transform: scale(1.05); /* Optional scaling effect */

@@ -30,13 +30,20 @@ class MyDB {
                 profile_picture VARCHAR(255),
                 expertise VARCHAR(50) NOT NULL,
                 teaching_experience INT NOT NULL,
-                gender ENUM('Male', 'Female') NOT NULL
+                institution VARCHAR(50) NOT NULL
+                
             )";
-
-        if (!$this->conn->query($createTableQuery)) {
-            die("Error creating table: " . $this->conn->error);
+    
+        if ($stmt = $this->conn->prepare($createTableQuery)) {
+            if (!$stmt->execute()) {
+                die("Error creating table: " . $stmt->error);
+            }
+            $stmt->close();
+        } else {
+            die("SQL Prepare Error: " . $this->conn->error);
         }
     }
+    
 
     // Insert data into the instructor table
     public function insertData($full_name, $email, $phone, $pass, $qualifications, $profile_picture, $expertise, $teaching_experience, $institution) {
@@ -76,27 +83,14 @@ class MyDB {
     // Fetch data by credentials
     public function getDataByCredentials($full_name, $pass) {
         $this->openConn();
-        $sql = "SELECT * FROM instructor WHERE full_name = ?";
-        $stmt = $this->conn->prepare($sql);
 
-        if (!$stmt) {
-            echo "Prepare failed: " . $this->conn->error;
-            return null;
-        }
-
-        $stmt->bind_param("s", $full_name);
+        $stmt = $this->conn->prepare("SELECT * FROM instructor WHERE full_name=? AND pass=?");
+        $stmt->bind_param("ss", $full_name, $pass);
         $stmt->execute();
-
         $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
-
         $stmt->close();
 
-        if ($user && $pass === $user['pass']) {
-            return $user;
-        } else {
-            return null;
-        }
+        return $result->fetch_assoc();
     }
 
     // Update data in the instructor table
@@ -165,19 +159,26 @@ class MyDB {
     }
 
     //Get all students
-    public function getStudents(){
-    $this->openConn();
-
-    $sql = "SELECT student_id, full_name, last_name, email, phone, country, preferred_language FROM student";
-    $result = $this->conn->query($sql);
-
-    if ($result) {
-        return $result; // Return the raw result object
-    } else {
-        echo "Error fetching students: " . $this->conn->error;
-        return false;
+    public function getStudents() {
+        $this->openConn();
+    
+        $sql = "SELECT student_id, full_name, last_name, email, phone, country, preferred_language FROM student";
+        $stmt = $this->conn->prepare($sql);
+    
+        if ($stmt) {
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                return $result;
+            } else {
+                echo "Error executing query: " . $stmt->error;
+                return false;
+            }
+        } else {
+            echo "Error preparing query: " . $this->conn->error;
+            return false;
+        }
     }
-}
+    
 
 
     // Get all courses

@@ -34,10 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['phone'] = "Phone Number must start with 0 and be exactly 11 digits.";
     }
 
-    // if (empty($_POST["gender"])) {
-    //     $errors['gender'] = "Gender is required.";
-    // }
-
     $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
     if ($is_uploaded) {
         $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
@@ -61,38 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $profile_picture = $data['profile_picture'] ?? '';
 
 
-                // Handle profile photo upload
-            // define("PROFILE_PHOTO_UPLOAD_DIR", '../../assets/uploads/');
-            // if (!file_exists(PROFILE_PHOTO_UPLOAD_DIR)) {
-            //     mkdir(PROFILE_PHOTO_UPLOAD_DIR, 0777, true);
-            // }
-
-            // $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
-            // if ($is_uploaded) {
-            //     $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['name']);
-            //     if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
-            //         $_POST['profile_picture'] = $new_path; // Store the path for database insertion
-            //     } else {
-            //         $errors['profile_picture'] = "Failed to move uploaded file.";
-            //     }
-            // } else {
-            //     if (empty($_FILES['profile_picture']['name'])) {
-            //         $errors['profile_picture'] = "No file uploaded.";
-            //     } else {
-            //         $errors['profile_picture'] = "File upload error.";
-            //     }
-            // }
-
-        $is_uploaded = is_uploaded_file($_FILES['profile_picture']['tmp_name']);
-        if ($is_uploaded) {
-            $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
-            $new_path = PROFILE_PHOTO_UPLOAD_DIR . basename($_FILES['profile_picture']['tmp_name']) . "." . $extension;
-            if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $new_path)) {
-                $profile_picture = $new_path;
-                $_SESSION['profile_picture'] = $new_path;
-            }
-        }
-
         if (empty($errors)) {
             $user_data = array(
                 "full_name" => $full_name,
@@ -103,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "expertise" => $expertise,
                 "teaching_experience" => $teaching_experience,
                 "institution" => $institution,
-                "profile_picture" => $profile_picture // Include profile photo path
+                "profile_picture" => $profile_picture 
             );
 
             // $json_data = json_encode($user_data, JSON_PRETTY_PRINT);

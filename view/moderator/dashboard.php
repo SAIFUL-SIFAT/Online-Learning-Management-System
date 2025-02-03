@@ -27,7 +27,7 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <form action="../../control/logout_control.php" method="POST" >
+            <form action="../../control/moderator/logout_control.php" method="POST" >
                     <button class="logout" type="submit">Logout</button>
                 </form>
             </div>
@@ -36,8 +36,9 @@
         <!-- Main Content -->
         <div class="main">
             <!-- Header -->
+
             <div class="header">
-                
+               
                 
             </div>
 

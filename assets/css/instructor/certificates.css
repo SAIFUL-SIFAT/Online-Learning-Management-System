@@ -151,20 +151,3 @@ h2{
     transition: all 0.3s ease; 
     cursor: pointer;
   }
-
-/* .certificate-details .status {
-    font-size: 14px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-.certificate-details .status.issued {
-    background-color: #d1fae5;
-    color: #16a34a;
-}
-
-.certificate-details .status.pending {
-    background-color: #fee2e2;
-    color: #ef4444;
-} */

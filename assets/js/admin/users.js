@@ -13,7 +13,7 @@ document.getElementById('search-bar-form').addEventListener('submit', (event) =>
 let currentPage = 1;
 let searchDelayTimer;
 const SEARCH_DELAY = 500;
-let limit = 7;
+let limit = 6;
 
 search_box.addEventListener('keydown', () => {
     clearTimeout(searchDelayTimer);
@@ -36,7 +36,7 @@ function previousPageListener(event) {
         }
     };
 
-    req.open('GET', `../../control/admin/get_users.php?type=${user_type.value.toLowerCase()}&page=${currentPage}`, true);
+    req.open('GET', `../../control/admin/get_users.php?type=${user_type.value.toLowerCase()}&page=${currentPage}&limit=${limit}`, true);
     req.send();
 }
 
@@ -54,11 +54,12 @@ function nextPageListener(event) {
         }
     };
 
-    req.open('GET', `../../control/admin/get_users.php?type=${user_type.value.toLowerCase()}&page=${currentPage}`, true);
+    req.open('GET', `../../control/admin/get_users.php?type=${user_type.value.toLowerCase()}&page=${currentPage}&limit=${limit}`, true);
     req.send();
 }
 
 function selectChangeListener(event) {
+    currentPage = 1;
     let req = new XMLHttpRequest();
     req.onload = function() {
         const response = JSON.parse(this.response);
@@ -75,6 +76,7 @@ function selectChangeListener(event) {
 }
 
 function searchTextChangeListener(event) {
+    currentPage = 1;
     clearTimeout(searchDelayTimer);
     searchDelayTimer = setTimeout(() => {
         let req = new XMLHttpRequest();
@@ -129,7 +131,7 @@ function setTable(response) {
                 tableRow.appendChild(td);
             });
 
-            tableRow.innerHTML += `<td><a class='link-button' id='user-action' href='../../control/admin/delete_course.php?id=${row[keys[0]]})'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a></td>`;
+            tableRow.innerHTML += `<td><a class='link-button' id='user-action' href='../../control/admin/delete_user.php?type=${user_type.value.toLowerCase()}&id=${row[keys[0]]}'><img src='../../assets/uploads/admin/delete-red.png'>Delete</a></td>`;
 
             table.appendChild(tableRow);
         });

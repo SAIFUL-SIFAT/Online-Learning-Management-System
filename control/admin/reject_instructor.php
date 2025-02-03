@@ -8,8 +8,12 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 $id = $_GET['id'];
+if (!isset($id)) {
+    header("Location: ../../view/admin/instructors.php");
+    die();
+}
+
 Instructor::reject($id);
 
+header("Location: ../../view/admin/instructors.php");
 ?>
-<br>
-<a href="../../view/admin/instructors.php">Back to Instructors</a>

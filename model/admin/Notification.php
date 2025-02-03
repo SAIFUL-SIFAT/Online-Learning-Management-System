@@ -17,7 +17,7 @@ class Notification {
         }
     }
 
-    static function create($message, $type): bool {
+    static function create($message, $type) {
         $db = new Db();
         $conn = $db->open();
         $sql = "INSERT INTO notification (message, type) VALUES (?, ?)";
@@ -41,7 +41,7 @@ class Notification {
         }
     }
 
-    static function delete(int $id): bool {
+    static function delete(int $id) {
         $db = new Db();
         $conn = $db->open();
         $sql = "DELETE FROM notification WHERE notification_id = ?";
@@ -64,5 +64,4 @@ class Notification {
         }
         $conn->close();
     }
-
 }
